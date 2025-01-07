@@ -11,6 +11,22 @@ $(document).ready(function () {
 		});
 		/* //지도 이동 시 개발에서 목록 호출 완료 후 setTime과 함께 실행 */
 	});
+
+	$(".map-toolbox .btn-panorama").on("click", function(e){
+		if ($(".map-toolbox .btn-distance").hasClass("active")) {
+			// 확인 창 표시
+			if (confirm("거리 재기 모드가 활성화되어 있습니다. 계속 진행하시겠습니까?")) {
+				// 사용자가 확인을 누른 경우
+				e.stopImmediatePropagation();
+				$(this).removeClass("active");
+				return false;
+			} else {
+				// 사용자가 취소를 누른 경우
+				e.stopImmediatePropagation();
+				return false;
+			}
+		}
+	});
 });
 
 
