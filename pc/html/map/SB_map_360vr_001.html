@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 360˚ VR 파노라마</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<!-- Body Content -->
+<body>
+	<div class="wrap vr-main">
+		<!-- content -->
+		<div class="contents">
+			<div class="main-360vr">
+				<div class="left-section">
+					<div class="vr-map">
+						<div class="map-image">
+							<img src="/assets/images/map/img-vr-map.png" alt="대한민국 지도" />
+
+							<div class="marker s1">
+								<button type="button">
+									<div>
+										<span class="title">서울</span>
+										<span class="number">11</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s2">
+								<button type="button">
+									<div>
+										<span class="title">인천</span>
+										<span class="number">28</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s3">
+								<button type="button">
+									<div>
+										<span class="title">경기</span>
+										<span class="number">41</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s4">
+								<button type="button">
+									<div>
+										<span class="title">강원</span>
+										<span class="number">42</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s5">
+								<button type="button">
+									<div>
+										<span class="title">충북</span>
+										<span class="number">43</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s6">
+								<button type="button">
+									<div>
+										<span class="title">충남</span>
+										<span class="number">44</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s7">
+								<button type="button">
+									<div>
+										<span class="title">경북</span>
+										<span class="number">47</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s8">
+								<button type="button">
+									<div>
+										<span class="title">대전</span>
+										<span class="number">30</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s9">
+								<button type="button">
+									<div>
+										<span class="title">대구</span>
+										<span class="number">27</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s10">
+								<button type="button">
+									<div>
+										<span class="title">울산</span>
+										<span class="number">31</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s11">
+								<button type="button">
+									<div>
+										<span class="title">전북</span>
+										<span class="number">45</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s12">
+								<button type="button">
+									<div>
+										<span class="title">경남</span>
+										<span class="number">48</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s13">
+								<button type="button">
+									<div>
+										<span class="title">부산</span>
+										<span class="number">26</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s14">
+								<button type="button">
+									<div>
+										<span class="title">광주</span>
+										<span class="number">29</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s15">
+								<button type="button">
+									<div>
+										<span class="title">전남</span>
+										<span class="number">46</span>
+									</div>
+								</button>
+							</div>
+
+							<div class="marker s16">
+								<button type="button">
+									<div>
+										<span class="title">제주</span>
+										<span class="number">50</span>
+									</div>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right-section">
+					<div class="vr-detail">
+						<div class="text-box">
+							<h1 class="title">360˚ VR 파노라마</h1>
+							<p class="text">교실에서 떠나는 생생한 현장학습!</p>
+						</div>
+
+						<div class="vr-region">
+							<div class="region-title">
+								<p class="title">각 지역을 대표하는 명소로 떠나보세요!</p>
+							</div>
+							<ul class="region-list">
+								<!-- D: 최대 6개 노출 -->
+								<li>
+									<a href="#" class="item">
+										<div class="image-box">
+											<img src="/assets/images/map/@thumb01.png" alt="" />
+										</div>
+										<div class="detail-box">
+											<p class="title">[울산] 반구대암각화 박물관</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="item">
+										<div class="image-box">
+											<img src="/assets/images/map/@thumb02.png" alt="" />
+										</div>
+										<div class="detail-box">
+											<p class="title">[경기] 행주산성</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="item">
+										<div class="image-box">
+											<img src="/assets/images/map/@thumb03.png" alt="" />
+										</div>
+										<div class="detail-box">
+											<p class="title">[인천] 차이나타운</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="item">
+										<div class="image-box">
+											<img src="/assets/images/map/@thumb04.png" alt="" />
+										</div>
+										<div class="detail-box">
+											<p class="title">[서울] 서울암사동유적 [서울] 서울암사동유적 [서울] 서울암사동유적[서울] 서울암사동유적</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="item">
+										<div class="image-box">
+											<img src="/assets/images/map/@thumb05.png" alt="" />
+										</div>
+										<div class="detail-box">
+											<p class="title">[전북] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="item">
+										<div class="image-box">
+											<img src="/assets/images/map/@thumb06.png" alt="" />
+										</div>
+										<div class="detail-box">
+											<p class="title">[충남] 무령왕릉</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+
+							<div class="buttons align-center">
+								<a href="#" class="button size-xl"><span>지역 명소 전체 보기</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //content -->
+	</div>
+</body>
+
+</html>

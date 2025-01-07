@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<!-- Body Content -->
+<body class="dmap">
+	<div class="dmap-wrap">
+		<div style="display: block; padding: 20px;">
+			<button type="button" class="button size-md" target-obj="alert"><span>공유 기간이 만료</span></button><!-- D: target-obj의 값을 원하는 팝업의 id 값과 동일하게 넣기 -->
+		</div>
+	</div>
+
+	<!-- popup : 알럿 -->
+	<div class="popup-alert" id="alert" init-show>
+		<div class="popup-container">
+			<div class="body">
+				공유 기간이 만료되었습니다.
+			</div>
+			<div class="footer">
+				<button class="button size-lg type-primary">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- //popup : 알럿 -->
+
+</body>
+</html>

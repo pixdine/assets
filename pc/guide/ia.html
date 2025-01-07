@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<title>퍼블리싱 IA</title>
+
+<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+<script src="/assets/js/jquery-3.7.0.min.js"></script>
+<script src="/assets/js/plugin/select2.min.js"></script>
+<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/assets/js/ui.js"></script>
+
+<!-- 가이드용(확인용으로 추가X) -->
+<script src="https://e.m-teacher.co.kr/assets/pc/guide/syntax-hightlight4/syntaxhighlighter.js"></script>
+<link href="https://e.m-teacher.co.kr/assets/pc/guide/syntax-hightlight4/theme-midnight.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./guide.css" rel="stylesheet" />
+
+<!-- 신규(추가필요) -->
+<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<body class="ia">
+	<div class="guide-wrap">
+		<div class="guide-header">
+			<h1>PC Publishing IA</h1>
+		</div>
+
+		<div class="guide-body">
+			<div class="guide-btn-area">
+				<a href="/assets/pc/guide/guide.html" target="_blank" class="btn">퍼블리싱 가이드 보기</a>
+			</div>
+			<table class="guide-table">
+				<colgroup>
+					<col style="width: 130px;">
+					<col style="width: 130px;">
+					<col style="width: 240px;">
+					<col style="width: 200px;">
+					<col span="3" style="width: 100px;">
+					<col style="width: auto;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>1depth</th>
+						<th>2depth</th>
+						<th>화면 명</th>
+						<th>화면 ID</th>
+						<th>진행상태</th>
+						<th>수정일</th>
+						<th>검수여부</th>
+						<th>비고</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="delete">
+						<td>디지털지도</td>
+						<td class="tal">페이지 진입</td>
+						<td class="tal"></td>
+						<td class="page-code">
+							SB_map_main_001
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="desc">운영쪽에서 gnb 진입 경로 추가</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">메인</td>
+						<td class="tal"></td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_main_002.html" target="_blank">SB_map_main_002</a>
+							<p class="sm">
+								<strong>※ 위의 페이지에 아래 화면ID 포함</strong>
+								SB_map_main_003
+								SB_map_main_005
+							</p>
+						</td>
+						<td>진행중</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] 소속학교 미등록 시 알럿</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_main_004.html" target="_blank">SB_map_main_004</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(대한민국)</td>
+						<td class="tal">
+							한판지도<br />
+							GNB<br />
+							지도(공통)<br />
+							설정/검색 > 대한민국 [T]<br />
+							설정/검색 > 지도 검색 [T]<br />
+							설정/검색 > 연계 교과<br />
+							설정/검색 > 리스트 공통<br />
+							부가 기능 > 인쇄<br />
+							공유기능 > SNS 공유<br />
+							MY 지도 등록<br />
+							베스트 테마 > 레이어(열림)<br />
+							MY 지도 관리<br />
+							MY 지도 관리 > MY 지도 등록<br />
+							MY 지도 관리 > MY 지도 목록<br />
+							공유기능 > SNS 공유<br />
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_domestic_001.html" target="_blank">SB_map_domestic_001</a>
+							<p class="sm">
+								<strong>※ 위의 페이지에 아래 화면ID 포함</strong>
+								SB_map_gnb_001
+								SB_map_domestic_003
+								SB_map_search_001
+								SB_map_search_002
+								SB_map_search_003
+								SB_map_search_004
+								SB_map_search_006
+								SB_map_search_009
+								SB_map_search_010
+								SB_map_search_012
+								SB_map_search_013
+								SB_map_addition_004
+								SB_map_mymap_002
+								SB_map_tema_001
+								SB_map_mymap_001
+								SB_map_mymap_002
+								SB_map_mymap_005
+								SB_map_share_003
+							</p>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">주제별 자료실 지도</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_domestic_002.html" target="_blank">SB_map_domestic_002</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr class="delete">
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] 미리보기 윈도우 팝업</td>
+						<td class="page-code">
+							SB_map_domestic_004
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="desc">
+							<p>
+								기존 콘텐츠 사용<br />
+								➔ 개발 페이지에서 공유와 설명 영역 추가 필요
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] AI클래스 컨텐츠 공유 레이어 팝업</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_domestic_005.html" target="_blank">SB_map_domestic_005</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc">
+							<p class="txt-em">AI 클래스 파트 협의 필요</p>
+							디자인 나온대로는 작업완료
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] 자료 다운로드 레이어 팝업</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_search_005.html" target="_blank">SB_map_search_005</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">
+							대한민국 [T] > 검색결과없음<br />
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_search_007.html" target="_blank">SB_map_search_007</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(지도검색)</td>
+						<td class="tal">지도검색 [T] > 초기 진입 시</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_search_008.html" target="_blank">SB_map_search_008</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">
+							지도검색 [T] > 검색결과없음
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_search_011.html" target="_blank">SB_map_search_011</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(베스트 테마)</td>
+						<td class="tal">[P] 필터/검색 변경 안내 알럿</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_tema_003.html" target="_blank">SB_map_tema_003</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(MY 지도)</td>
+						<td class="tal">
+							[P] MY 지도 등록 레이어 팝업<br />
+							[P] 교과 선택<br />
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_mymap_003.html" target="_blank">SB_map_mymap_003</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] MY 지도 목록 레이어 팝업</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_mymap_006.html" target="_blank">SB_map_mymap_006</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] MY 지도 목록 레이어 팝업 > 검색결과없음</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_mymap_007.html" target="_blank">SB_map_mymap_007</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] MY 지도 수정 레이어 팝업</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_mymap_008.html" target="_blank">SB_map_mymap_008</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc">
+							<p class="txt-em">My Class 자료 - 기획 확인 필요</p>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(AI클래스 공유)</td>
+						<td class="tal">[P] AI클래스 공유 레이어 팝업</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_share_002.html" target="_blank">SB_map_share_002</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc">
+							<p class="txt-em">AI 클래스 파트 협의 필요</p>
+							디자인 나온대로는 작업완료
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(SNS 공유)</td>
+						<td class="tal">SNS 공유 > 수신 화면</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_share_004.html" target="_blank">SB_map_share_004</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr class="delete">
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] 미리보기 윈도우 팝업</td>
+						<td class="page-code">
+							SB_map_share_005
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="desc">
+							<p>
+								기존 콘텐츠 사용<br />
+								➔ 개발 페이지에서 공유와 설명 영역 추가 필요
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">[P] 설정된 공유기간 이후 진입 시 알럿</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_share_006.html" target="_blank">SB_map_share_006</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+
+					<tr class="delete">
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">
+							부가 기능 > 학교 위치<br />
+							부가 기능 > 지역경계표시<br />
+							부가 기능 > 백지도<br />
+							부가 기능 > 거리재기<br />
+							부가 기능 > 거리뷰<br />
+							부가 기능 > 거리뷰 팝업<br />
+							부가 기능 > 위성지도<br />
+							부가 기능 > 지도 레벨 사이즈 설정<br />
+						</td>
+						<td class="page-code">
+							SB_map_addition_001
+							SB_map_addition_002
+							SB_map_addition_003
+							SB_map_addition_005
+							SB_map_addition_006
+							SB_map_addition_007
+							SB_map_addition_008
+							SB_map_addition_009
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc">지도 API에서 제공하는 기능 (별도 퍼블X)</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도(세계)</td>
+						<td class="tal">
+							설정/검색 > 세계지도 [T]<br />
+							설정/검색 > 지도지도 [T]
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_world_001.html" target="_blank">SB_map_world_001</a>
+							<p class="sm">
+								<strong>※ 위의 페이지에 아래 화면ID 포함</strong>
+								SB_map_world_002
+							</p>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+
+					<tr>
+						<td>360˚ VR 파노라마</td>
+						<td class="tal">메인</td>
+						<td class="tal">
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_360vr_001.html" target="_blank">SB_map_360vr_001</a>
+						</td>
+						<td>진행중</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal">지도</td>
+						<td class="tal">
+							대한민국 [T]<br />
+							지도검색 [T]
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_360vr_002.html" target="_blank">SB_map_360vr_002</a>
+							<p class="sm">
+								<strong>※ 위의 페이지에 아래 화면ID 포함</strong>
+								SB_map_360vr_003
+								SB_map_360vr_004
+								SB_map_360vr_007
+							</p>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">
+							대한민국 [T] > 검색결과없음<br />
+							지도검색 [T] > 검색결과없음
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_360vr_005.html" target="_blank">SB_map_360vr_005</a>
+							<p class="sm">
+								<strong>※ 위의 페이지에 아래 화면ID 포함</strong>
+								SB_map_360vr_008
+							</p>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="tal"></td>
+						<td class="tal">
+							지도검색 [T] > 초기 진입 시
+						</td>
+						<td class="page-code">
+							<a href="../html/map/SB_map_360vr_006.html" target="_blank">SB_map_360vr_006</a>
+						</td>
+						<td>완료</td>
+						<td></td>
+						<td></td>
+						<td class="desc"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<!-- Body Content -->
+<body class="dmap">
+	<div class="dmap-wrap">
+		<div style="display: block; padding: 20px;">
+			<button type="button" class="button size-md" target-obj="popup-ai-class-share2"><span>AI클래스 공유</span></button><!-- D: target-obj의 값을 원하는 팝업의 id 값과 동일하게 넣기 -->
+		</div>
+	</div>
+
+	<!-- popup : AI클래스 공유 -->
+	<div class="popup" id="popup-ai-class-share2">
+		<div class="popup-container forms-essential">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<h3>AI클래스 공유</h3>
+			</div>
+			<form action="">
+				<div class="body">
+					<div class="essential-comment">필수 입력</div>
+					<div class="forms required">
+						<label for="dataName">자료명</label>
+						<fieldset>
+							<input type="text" title="자료명 입력란" name="" id="dataName" placeholder="자료명을 입력해주세요." />
+						</fieldset>
+					</div>
+					<div class="forms required">
+						<label for="classSelect">공유대상</label>
+						<div class="share-class">
+							<fieldset>
+								<div class="school-name">가나중학교</div>
+								<select class="size-lg" name="" id="classSelect" title="클래스 선택">
+									<option value="">클래스 선택</option>
+								  </select>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<button class="button size-xl type-primary">
+						<svg>
+							<title>공유하기</title>
+							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-ai-class"></use>
+						</svg>
+						<span>공유하기</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- //popup : AI클래스 공유 -->
+
+</body>
+</html>

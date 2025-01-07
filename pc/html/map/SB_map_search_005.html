@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<!-- Body Content -->
+<body class="dmap">
+	<div class="dmap-wrap">
+		<div style="display: block; padding: 20px;">
+			<button type="button" class="button size-md" target-obj="popup-data-download"><span>자료 다운로드</span></button><!-- D: target-obj의 값을 원하는 팝업의 id 값과 동일하게 넣기 -->
+		</div>
+	</div>
+
+	<!-- popup : 자료 다운로드 -->
+	<div class="popup" id="popup-data-download">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<h3>자료 다운로드</h3>
+			</div>
+			<div class="body">
+				<div class="list-sort">
+					<div class="sort-inner">
+						<span class="total">총 <strong>7</strong>개</span>
+					</div>
+				</div>
+
+				<div class="table-type1">           
+					<table>
+						<caption>자료 다운로드 목록</caption>
+						<colgroup>
+							<col width="56px">
+							<col width="*">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">
+									<span class="ox">
+										<input type="checkbox" id="all-check">
+										<label for="all-check"></label>
+									</span>
+								</th>
+								<th scope="col">자료명</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="file-01" checked="">
+										<label for="file-01"></label>
+									</span>
+								</td>
+								<td>
+									<div class="unit-item">
+										<p>[선생님의 자료] 경복궁</p>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="file-02" checked="">
+										<label for="file-02"></label>
+									</span>
+								</td>
+								<td>
+									<div class="unit-item">
+										<p>[학습활동지] 경복궁의 문화</p>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="file-03">
+										<label for="file-03"></label>
+									</span>
+								</td>
+								<td>
+									<div class="unit-item">
+										<p>[학습정리PPT] 경복궁의 역사 탐구</p>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="file-04">
+										<label for="file-04"></label>
+									</span>
+								</td>
+								<td>
+									<div class="unit-item">
+										<p>[EBS영상] 조선시대 경복궁의 모습과왕실의 생활 패턴 조선시대 경복궁의 모습과왕실의 생활 패턴 조선시대 경복궁의 모습과왕실의 생활 패턴</p>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="footer">
+				<button class="button size-xl type-primary">
+					<svg>
+						<title>다운로드</title>
+						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-download"></use>
+					</svg>
+					<span>다운로드</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- //popup : 자료 다운로드 -->
+
+</body>
+</html>

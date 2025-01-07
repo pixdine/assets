@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>미래엔 디지털 지도 수업 자료실</title>
+  <!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+  <link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+  <script src="/static/assets/js/jquery-3.7.0.min.js"></script>
+  <script src="/static/assets/js/plugin/select2.min.js"></script>
+  <script src="/static/assets/js/plugin/jquery.bart.dropdown.js"></script>
+  <script src="/static/assets/js/plugin/jquery.webui-popover.js"></script>
+  <script src="/static/assets/js/plugin/swiper-bundle-v8.js"></script>
+  <script src="/static/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="/static/assets/js/ui.js"></script>
+  <!-- 신규(추가필요) -->
+  <link rel="stylesheet" type="text/css" href="/static/assets/pc/css/map.css" rel="stylesheet" />
+  <script src="/static/assets/js/ui.map.js"></script>
+  <script>
+    $(document).ready(function() {
+        // 스크롤 위치 저장
+        var lastScrollTop = 0;
+    
+        $('.dmap-search').on('scroll', function() {
+            // 현재 스크롤 위치
+            var currentScroll = $(this).scrollTop();
+            console.log(currentScroll);
+            
+            // .search-region의 하단 위치
+            //var searchRegionBottom = $('.search-region').position().top + $('.search-region').outerHeight();
+            var searchRegionBottom = 238;
+            
+            // .search-result 처리
+            if (currentScroll > searchRegionBottom) {
+                $('.search-result').fadeIn(); // 보이기
+            } else if (currentScroll < lastScrollTop) {
+                $('.search-result').fadeOut(); // 숨기기
+            }
+    
+            // 마지막 스크롤 위치 업데이트
+            lastScrollTop = currentScroll;
+        });
+    });
+    </script>
+</head>
+
+<body class="dmap">
+  <div class="dmap-wrap">
+    <!-- header -->
+    <div class="dmap-head">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="#">
+            <img src="/static/assets/images/map/logo-mirae-n.svg" alt="미래엔" />
+            디지털 지도 수업 자료실
+          </a>
+        </h1>
+        <div class="aside">
+          <a href="#" class="btn-home"><span class="blind">홈</span></a>
+        </div>
+      </div>
+    </div>
+    <!-- //header -->
+    <!-- content -->
+    <div class="dmap-body">
+      <!-- 좌측+상단 영역 -->
+      <div class="menu-left active"><!-- D: 좌측 영역 펼침 시 active 클래스 추가 -->
+        <div class="menu-cont">
+          <!-- 좌측 검색영역 -->
+          <div class="menu-box">
+            <div class="dmap-search">
+              <div class="tabs type-rounded-m fluid">
+                <!-- D: .tab의 href의 값과 .pane의 ID 이 동일해야 합니다. -->
+                <div class="tab"> 
+                  <ul>
+                    <li class="active"><a href="#tab1-1">대한민국</a></li><!-- D: li에 .active가 붙어있으면 그 탭이 초기에 활성화됨. -->
+                    <li><a href="#tab1-2">지도 검색</a></li>
+                  </ul>
+                </div>
+                <div class="pane-wrap">
+                  <!-- 대한민국 탭 내용 -->
+                  <div id="tab1-1" class="pane">
+                    <!-- 검색영역 -->
+                    <div class="search-area">
+                      <div class="search-item">
+                        <div class="inner-header">
+                          <strong class="title">지역</strong>
+                        </div>
+                        <div class="forms">
+                          <fieldset>
+                            <select name="" id="regionCity">
+                              <option value="선택">시/도</option>
+                              <option value="seoul">서울특별시</option>
+                              <option value="incheon">인천광역시</option>
+                            </select>
+                            <select name="" id="regionGu">
+                              <option value="선택">시/군/구</option>
+                              <option value="gangnam">강남구</option>
+                              <option value="gangdong">강동구</option>
+                              <option value="gangbuk">강북구</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="search-item">
+                        <div class="inner-header">
+                          <strong class="title">카테고리</strong>
+                        </div>
+                        <div class="forms">
+                          <fieldset>
+                            <select name="" id="category">
+                              <option value="category1">카테고리1</option>
+                              <option value="category2">미술관</option>
+                            </select>
+                            <select name="" id="subCategory">
+                              <option value="subCategory1">카테고리2</option>
+                              <option value="subCategory2">카테고리2-1</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- //검색영역 -->
+                    <div class="search-result">
+                      <p>서울특별시 > 금천구</p>
+                    </div>
+
+                    <ul class="search-list">
+                      <li>
+                        <div class="place-item">
+                          <div class="item">
+                            <div class="name-info">
+                              <span class="icon"><img src="/static/assets/images/map/marker/icon-sm-marker22.png" alt="문화재" /></span>
+                              <strong class="title">경복궁</strong>
+                            </div>
+                            <button type="button" class="button type-icon size-sm">
+                              <svg>
+                                <title>아이콘 다운로드</title>
+                                <use xlink:href="/static/assets/images/svg-sprite-solid.svg#icon-download"></use>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="item-list">
+                            <ul>
+                              <li>[선생님의 자료] 경복궁</li>
+                              <li>[학습활동지] 경복궁의 문화</li>
+                              <li>[학습정리PPT] 경복궁의 역사 탐구</li>
+                              <li>[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="place-item">
+                          <div class="item">
+                            <div class="name-info">
+                              <span class="icon"><img src="/static/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+                              <strong class="title">독산역</strong>
+                            </div>
+                            <button type="button" class="button type-icon size-sm">
+                              <svg>
+                                <title>아이콘 다운로드</title>
+                                <use xlink:href="/static/assets/images/svg-sprite-solid.svg#icon-download"></use>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <!-- //대한민국 탭 내용 -->
+                  <!-- 지도 검색 탭 내용 -->
+                  <div id="tab1-2" class="pane">
+                    <div class="test-wrap">
+                      <!-- 검색영역 -->
+                      <div class="search-area">
+                        <div class="search-item">
+                          <fieldset>
+                            <div class="input-inner-extra">
+                              <div class="clear-container">
+                                <input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
+                                <button type="button" class="button-clear">
+                                  <svg>
+                                    <title>삭제</title>
+                                    <use href="/static/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+                                  </svg>
+                                </button>
+                              </div>
+                              <button type="button" class="icon-button" title="검색">
+                                <svg>
+                                  <use xlink:href="/static/assets/images/svg-sprite-solid.svg#icon-search"></use>
+                                </svg>
+                              </button>
+                            </div>
+                          </fieldset>
+
+                        </div>
+                        <div class="search-item">
+                          <div class="search-word">
+                            <strong class="title">추천검색어</strong>
+                            <div class="word-list">
+                              <a href="#">삼일운동</a>
+                              <a href="#">한글날</a>
+                              <a href="#">삼국시대</a>
+                              <a href="#">디지털산업단지</a>
+                              <a href="#">교육</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- //검색영역 -->
+                      <div class="test">
+                        <p>함께 공부할 장소를 지도에서 검색해보세요.</p>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <!-- //지도 검색 탭 내용 -->
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-close-menu active"><span class="blind">메뉴 접기</span></button><!-- D: 좌측 검색 영역 펼침 시 active 클래스 추가 -->
+          </div>
+          <!-- //좌측 검색영역 -->
+          <!-- 단원/차시 -->
+          <div class="chapter-box">
+            <div class="select-chapter">
+              <strong class="title">단원/차시 선택</strong>
+              <div class="forms">
+                <fieldset>
+                  <select name="" id="education">
+                    <option value="">구분</option>
+                    <option value="ele">초등</option>
+                    <option value="mid">중등</option>
+                    <option value="high">고등</option>
+                  </select>
+                  <select name="" id="subject">
+                    <option value="">과목</option>
+                    <option value="social">사회</option>
+                  </select>
+                  <select name="" id="semester">
+                    <option value="">학기</option>
+                    <option value="social3-1">사회 3-1</option>
+                    <option value="social3-2">사회 3-2</option>
+                  </select>
+                  <select class="fluid" name="" id="chapter">
+                    <option value="">단원</option>
+                    <option value="chapter1">1. 우리 고장의 모습</option>
+                    <option value="chapter2">2. 우리가 알아보는 고장 이야기</option>
+                    <option value="chapter1">3. 교통과 통신수단의 변화</option>
+                  </select>
+                  <select class="fluid" name="" id="chapterDepth">
+                    <option value="">차시</option>
+                    <option value="chapter1-1">[1차시] 우리 고장의 여러 장소를 살펴볼까요</option>
+                    <option value="chapter1-2">[2~3차시] 우리 고장의 모습을 그려 볼까요</option>
+                    <option value="chapter1-3">[4~5차시] 우리 고장의 모습을 비교해 볼까요</option>
+                    <option value="chapter1-4">[6~7차시] 고장의 모습에 관한 서로의 생각을 들어 볼까요</option>
+                    <option value="chapter1-5">[8차시] 뚝딱뚝딱 정리하기</option>
+                    <option value="chapter1-6">[9차시] 우리 고장의 모습을 어떻게 살펴볼 수 있을까요</option>
+                  </select>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <!-- //단원/차시 -->
+        </div>
+      </div>
+      <!-- //좌측+상단 영역 -->
+      <!-- 지도 영역 -->
+      <div class="dmap-cont">
+        <div class="dmap-area">
+          <div class="map-api" id="map">
+            <div style="position: absolute; transform: translate(610px, 400px);"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+              <!-- 마커영역 -->
+              <div class="marker-icon-wrap">
+                <div class="marker-icon-area">
+                  <div class="marker-icon-box">
+                    <img src="/static/assets/images/map/marker/icon-marker22.png" alt="문화재" width="52px" height="52px" />
+                  </div>
+                </div>
+                <div class="marker-text-area">
+                  <strong class="marker-title">다른 선생님 지도</strong>
+                </div>
+              </div>
+              <!-- //마커영역 -->
+            </div>
+
+            <!-- 지도 넣는 곳 : 이 안에 지도 관련 API 삽입 -->
+            <!-- <div class="ico_mark pin-layer top" role="button" id="OL_Icon_285" style="top: 307px; left: 733px; position: absolute;">
+              <img src="https://ele.m-teacher.co.kr/cms/smartppt/html/social/special/images/marker/ic3_11.png" class="pin" alt="">
+                <div class="pin-tip pin-tip-hover active">장영실과학동산</div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- //지도 영역 -->
+      <!-- 우측 사이드 메뉴 -->
+      <div class="side-menu">
+        <!-- 맵 툴박스 -->
+        <div class="map-toolbox">
+          <ul class="map-control">
+            <li>
+              <button type="button" class="btn-location"><!-- D: 선택 시 버튼에 active 클래스 추가 -->
+                <svg>
+                  <title>아이콘 학교 위치</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-location"></use>
+                </svg>
+                <span>학교 위치</span>
+              </button>
+            </li>
+          </ul>
+          <ul class="map-control">
+            <li>
+              <button type="button" class="btn-blankmap" target-obj="ai-class-share">
+                <svg>
+                  <title>아이콘 백지도</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-blankmap"></use>
+                </svg>
+                <span>백지도</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-sns-share">
+                <svg>
+                  <title>아이콘 SNS 공유</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-sns-share"></use>
+                </svg>
+                <span>SNS 공유</span>
+              </button>
+              <!-- D: 클릭 시 레이어 노출 -->
+              <div class="map-layer" style="display: none;">
+                <div class="layer-title">SNS 공유</div>
+                <div class="layer-cont">
+                  <div class="sns-list">
+                    <ul>
+                      <li><a href="#" class="sns-blog"><span>블로그</span></a></li>
+                      <li><a href="#" class="sns-cafe"><span>카페</span></a></li>
+                      <li><a href="#" class="sns-keep"><span>Keep</span></a></li>
+                      <li><a href="#" class="sns-band"><span>밴드</span></a></li>
+                      <li><a href="#" class="sns-line"><span>LINE</span></a></li>
+                      <li><a href="#" class="sns-x"><span>X</span></a></li>
+                      <li><a href="#" class="sns-facebook"><span>페이스북</span></a></li>
+                      <li><a href="#" class="sns-kakao"><span>카카오톡</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <button class="icon-button close-button">
+                  <svg>
+                    <title>아이콘 - icon-close</title>
+                    <use href="/static/assets/images/svg-sprite-solid.svg#icon-close"></use>
+                  </svg>
+                </button>
+              </div>
+              <!-- //D: 클릭 시 레이어 노출 -->
+            </li>
+            <li>
+              <button type="button" class="btn-print">
+                <svg>
+                  <title>아이콘 인쇄</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-print"></use>
+                </svg>
+                <span>인쇄</span>
+              </button>
+            </li>
+          </ul>
+          <ul class="map-control">
+            <li>
+              <button type="button" class="btn-distance">
+                <svg>
+                  <title>아이콘 거리재기</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-distance"></use>
+                </svg>
+                <span>거리재기</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-panorama">
+                <svg>
+                  <title>아이콘 거리뷰</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-panorama"></use>
+                </svg>
+                <span>거리뷰</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn-satellite">
+                <svg>
+                  <title>아이콘 위성지도</title>
+                  <use xlink:href="/static/assets/images/map/sprite-icon.svg#icon-satellite"></use>
+                </svg>
+                <span>위성지도</span></button>
+            </li>
+          </ul>
+          <!-- 지도 확대축소 -->
+          <div class="map-zoom">
+            <button type="button" class="btn-zoom-in"><span class="blind">확대</span></button>
+            <div class="zoom-range">
+              <input type="range" class="range" min="0" max="100" value="77" step="0.1" />
+            </div>
+            <button type="button" class="btn-zoom-out"><span class="blind">축소</span></button>
+          </div>
+          <!-- //지도 확대축소 -->
+        </div>
+        <!-- //맵 툴박스 -->
+      </div>
+    </div>
+    <!-- //content -->
+  </div>
+
+  <!-- popup : AI클래스 공유 -->
+  <div class="popup" id="ai-class-share">
+    <div class="popup-container forms-essential">
+      <button class="icon-button close-button" close-obj>
+        <svg>
+          <title>아이콘 - icon-close</title>
+          <use href="/static/assets/images/svg-sprite-solid.svg#icon-close"></use>
+        </svg>
+      </button>
+      <div class="header">
+        <h3>AI클래스 공유</h3>
+      </div>
+      <form action="">
+        <div class="body">
+          <div class="essential-comment">필수입력</div>
+          <div class="forms">
+            <label for="link-name" class="required">자료명</label>
+            <fieldset class="flag-error">
+              <!-- 오류일 경우 flag-error 클래스 추가 -->
+              <input type="text" title="자료명" class="size-xl" name="" id="link-name"
+              placeholder="자료명을 입력해주세요.">
+              <span class="caution">자료명을 입력해주세요.</span>
+            </fieldset>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="button size-xl type-primary">공유하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

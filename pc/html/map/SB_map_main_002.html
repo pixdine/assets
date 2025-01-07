@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<!-- Body Content -->
+<body>
+	<div class="wrap dmap-main">
+		<!-- header -->
+		<div class="header">
+			<div class="header-top">
+				<div class="inner-cont">
+					<h1 class="logo">
+						<a href="#">
+							<title>아이콘 화살표</title>
+							<img src="/assets/images/map/logo-mirae-n-default.svg" alt="미래엔" />
+						</a>
+					</h1>
+					<div class="aside">
+						<div class="dropdown">
+							<button type="button" class="btn-mteacher">
+								<span>엠티처 바로가기</span>
+								<svg>
+									<title>아이콘 화살표</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-caret-down"></use>
+								</svg>
+							</button>
+
+							<div class="items">
+								<a href="#" class="button type-text" title="초등" target="_blank">
+									<span>초등</span>
+									<svg>
+										<title>아이콘 화살표</title>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+									</svg>
+								</a>
+								<a href="#" class="button type-text" title="중학" target="_blank">
+									<span>중학</span>
+									<svg>
+										<title>아이콘 화살표</title>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+									</svg>
+								</a>
+								<a href="#" class="button type-text" title="고등" target="_blank">
+									<span>고등</span>
+									<svg>
+										<title>아이콘 화살표</title>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+						<!-- 미로그인 상태 -->
+						<!-- <a href="#"><span>로그인</span></a> -->
+						<!-- //미로그인 상태 -->
+
+						<!-- 로그인 상태 -->
+						<a href="#"><span>로그아웃</span></a>
+						<a href="#"><span>회원 정보 수정</span></a>
+						<!-- //로그인 상태 -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //header -->
+
+		<!-- content -->
+		<div class="contents">
+			<div class="content">
+				<!-- 메인정보 -->
+				<div class="main-intro">
+					<div class="inner-cont">
+						<div class="text-box">
+							<p class="text">지도 위에 펼쳐지는 교과서</p>
+							<h2 class="title">디지털 지도 수업 자료실</h2>
+						</div>
+						<div class="buttons">
+							<button type="button" class="button size-md">
+								<span>디지털 지도 수업 자료실 사용 가이드</span>
+								<svg>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- //메인정보 -->
+
+				<!-- 메인비주얼 -->
+				<div class="main-visual">
+					<div class="card item-domestic">
+						<div class="image-box">
+							<img src="/assets/images/map/img-dmap-visual01.png" alt="대한민국" />
+						</div>
+						<div class="detail-box">
+							<div class="box-cont">
+								<strong class="title">대한민국</strong>
+								<div class="buttons">
+									<a href="#" class="button size-xl"><span>지도 보기</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card item-world">
+						<div class="image-box">
+							<img src="/assets/images/map/img-dmap-visual02.png" alt="세계" />
+						</div>
+						<div class="detail-box">
+							<div class="box-cont">
+								<strong class="title">세계</strong>
+								<div class="buttons">
+									<a href="#" class="button size-xl"><span>지도 보기</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //메인비주얼 -->
+
+				<!-- 메인콘텐츠 -->
+				<div class="main-content">
+					<div class="inner-cont">
+						<div class="main-sect main-library">
+							<h3 class="title">자료실</h3>
+							<div class="library-slider">
+								<div class="slider">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type1.png" alt="주제별 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">대한민국의 유적지</span>
+													<span class="desc">미술관, 박물관을 찾아보세요.</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type2.png" alt="특화 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">360˚ VR 파노라마</span>
+													<span class="desc">360˚ VR을 사용해보세요.</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type1.png" alt="주제별 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">대한민국의 유적지</span>
+													<span class="desc">미술관, 박물관을 찾아보세요.</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type1.png" alt="주제별 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">대한민국의 유적지4</span>
+													<span class="desc">미술관, 박물관을 찾아보세요.</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type1.png" alt="주제별 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">대한민국의 유적지5</span>
+													<span class="desc">미술관, 박물관을 찾아보세요.</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type1.png" alt="주제별 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">대한민국의 유적지6</span>
+													<span class="desc">미술관, 박물관을 찾아보세요.</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-box">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type1.png" alt="주제별 자료실" />
+												</span>
+												<div class="info">
+													<span class="title">대한민국의 유적지7</span>
+													<span class="desc">미술관, 박물관을 찾아보세요.</span>
+												</div>
+											</a>
+										</div>
+									</div>
+	
+									<button class="swiper-button-prev">
+										<svg>
+											<title>이전</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+										</svg>
+									</button>
+									<button class="swiper-button-next">
+										<svg>
+											<title>다음</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+										</svg>
+									</button>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+						<div class="main-sect main-theme">
+							<h3 class="title">선생님 테마관</h3>
+							<div class="theme-slider">
+								<div class="slider">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<a href="#" class="item-theme">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type3.png" alt="테마관" />
+												</span>
+												<div class="info">
+													<span class="title">어드민에서 최대 글자 15자로 지정</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-theme">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type3.png" alt="테마관" />
+												</span>
+												<div class="info">
+													<span class="title">어드민에서 최대 글자 15자로 지정</span>
+												</div>
+											</a>
+										</div>
+	
+										<div class="swiper-slide">
+											<a href="#" class="item-theme">
+												<span class="icon">
+													<img src="/assets/images/map/icon-box-type3.png" alt="테마관" />
+												</span>
+												<div class="info">
+													<span class="title">어드민에서 최대 글자 15자로 지정</span>
+												</div>
+											</a>
+										</div>
+									</div>
+	
+									<button class="swiper-button-prev">
+										<svg>
+											<title>이전</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+										</svg>
+									</button>
+									<button class="swiper-button-next">
+										<svg>
+											<title>다음</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+										</svg>
+									</button>
+									<div class="swiper-pagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //메인콘텐츠 -->
+
+			</div>
+		</div>
+		<!-- //content -->
+
+		<!-- footer -->
+		<div class="footer">
+			<div class="inner-cont">
+				<div class="footer-link">
+					<ul>
+						<li><a href="#" target="_blank">이용약관</a></li>
+						<li><a href="#" target="_blank">개인정보처리방침</a></li>
+						<li><a href="#" target="_blank">저작권정책</a></li>
+						<li><a href="#" target="_blank">이메일무단수집거부</a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					<p>ⓒ MIRAEN CO., LTD. ALL Right Reserved</p>
+				</div>
+			</div>
+		</div>
+		<!-- //footer -->
+	</div>
+</body>
+
+</html>

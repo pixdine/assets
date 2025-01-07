@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/ui.map.js"></script>
+
+	<style>
+		td, th {border: 1px solid #dbdbdb; padding: 10px;}
+		.m-wrap {display: flex; justify-content: stretch; position: relative; /*height: inherit;*/}
+		.test {flex-grow: 1; width: 33.333%; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb;}
+		.test li {position: relative; padding: 10px; height: 100px;}
+		.test li div {background-color: #dbdb; height: 100%;}
+		.test li.full {width: 300%; z-index: 1;}
+		.test li.full div {background-color: #dbdbdb;}
+		.test li.half {width: 200%; z-index: 1;}
+		.test li.half div {background-color: #aca6a7;}
+
+		.test li.row { z-index: 1;}
+		.test li.row div {background-color: #dbdbdb;}
+
+		.flex {display: flex; flex-wrap: wrap;}
+		.flex div {width:33.333%; border: 1px solid #dbdbdb;}
+	</style>
+	<script>
+		function mergeTable(target, index) {
+			var loop = null;
+			var start_idx = 0;  //최초 td테그의 인덱스를 담을 변수 입니다.
+			var add_num = 1;    //마지막 td 테그의 인덱스를 담을 변수 입니다.
+			$(target).find('tr').each(function (idx) {
+				var target_text = $(this).find('td').eq(index).text();
+				if (!loop) {  //최초 동작이면
+					loop = target_text;
+					start_idx = idx;
+				} else if (target_text == loop) {  //같은 열이 발견된 것 이라면
+					add_num++;
+					//같은열이긴 한데 근데 마지막이면
+					if (idx == $(target).find('tr').length - 1) {
+						$(target).find('tr').eq(start_idx).find('td').eq(index).attr("rowSpan", add_num).css('vertical-align', 'middle');
+						for (var i = start_idx + 1; i < start_idx + add_num; i++) {
+							$(target).find('tr').eq(i).find('td').eq(index).hide(); //hide로 변경
+						}
+					}
+				} else { //다른 텍스트가 발견된 것 이라면
+					if (add_num != 1) {    //머지가 필요한 경우라면
+						$(target).find('tr').eq(start_idx).find('td').eq(index).attr("rowSpan", add_num).css('vertical-align', 'middle');
+						for (var i = start_idx + 1; i < start_idx + add_num; i++) {
+							$(target).find('tr').eq(i).find('td').eq(index).hide(); //hide로 변경
+						}
+					}
+					start_idx = idx;
+					loop = target_text;
+					add_num = 1;
+				}
+			});
+		}
+		$(function(){
+			mergeTable('#first', 0);
+		});
+	</script>
+</head>
+
+
+<body>
+	<div class="flex">
+		<div class="left">1</div>
+		<div class="center">2</div>
+		<div class="right">3</div>
+	</div>
+	<div class="flex">
+		<div class="right">3</div>
+	</div>
+
+	<div class="m-wrap">
+		<ul class="test">
+			<li class="row">
+				<div>1</div>
+			</li>
+			<li>
+				<div>2</div>
+			</li>
+			<li>
+				<div>3</div>
+			</li>
+		</ul>
+		<ul class="test">
+			<li>
+				<div>1</div>
+			</li>
+			<li>
+				<div>2</div>
+			</li>
+			<li>
+				<div>3</div>
+			</li>
+		</ul>
+		<ul class="test">
+			<li>
+				<div>1</div>
+			</li>
+			<li>
+				<div>2</div>
+			</li>
+			<li>
+				<div>3</div>
+			</li>
+		</ul>
+	</div>
+
+	<table id="first">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+	</table>
+
+
+</body>
+
+</html>

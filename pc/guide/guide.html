@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<title>퍼블리싱 가이드</title>
+
+<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/all-grades.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/pc/css/elementary.css" rel="stylesheet" />
+<script src="/assets/js/jquery-3.7.0.min.js"></script>
+<script src="/assets/js/plugin/select2.min.js"></script>
+<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/assets/js/ui.js"></script>
+
+<!-- 가이드용(확인용으로 추가X) -->
+<script src="https://e.m-teacher.co.kr/assets/pc/guide/syntax-hightlight4/syntaxhighlighter.js"></script>
+<link href="https://e.m-teacher.co.kr/assets/pc/guide/syntax-hightlight4/theme-midnight.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./guide.css" rel="stylesheet" />
+
+<!-- 신규(추가필요) -->
+<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
+<script src="/assets/js/ui.map.js"></script>
+</head>
+
+<body>
+	<div class="guide-wrap">
+		<div class="guide-header">
+			<h1>PC Publishing Guide</h1>
+		</div>
+
+		<div class="guide-body">
+			<!------- Ttypography ------->
+			<section>
+				<h2>Ttypography</h2>
+				<div class="guide-box">
+					<ul>
+						<li>국문 영문 모두 Pretendard 폰트를 사용하며, 폰트 굵기는 font-weight로 구분한다.</li>
+						<li>폰트 속성은 Regular, Medium, Semibold 3가지만 사용한다.</li>
+						<li>기본 설정은 {font-family: Pretendard, "malgun gothic", "맑은 고딕", sans-serif; font-weight:400;}</li>
+					</ul>
+				</div>
+				<div class="guide-view guide-font">
+					<p style="font-weight: 400;">400 - Pretendard Regular <span class="sm">가나다라마바사아자차카타파하</span></p>
+					<p style="font-weight: 500;">500 - Pretendard Medium <span class="sm">가나다라마바사아자차카타파하</span></p>
+					<p style="font-weight: 600;">600 - Pretendard Semibold <span class="sm">가나다라마바사아자차카타파하</span></p>
+				</div>
+			</section>
+
+			<!------- Color ------->
+			<section>
+				<h2>Color</h2>
+				<div class="guide-box">
+					<ul>
+						<li>color-primary와 color-secondary는 엠티처에서 사용하는 변수명에 컬러값을 재정의함.</li>
+					</ul>
+				</div>
+				<div class="guide-view guide-color">
+					<ul>
+						<li><span class="bg" style="background-color: #5177FF; color: #fff;">#5177FF</span>--color-primary</li>
+						<li><span class="bg" style="background-color: #3959CC; color: #fff;">#3959CC</span>--color-secondary</li>
+						<li><span class="bg" style="background-color: #19244D; color: #fff;">#19244D</span>--color-tertiary</li>
+					</ul>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:css">
+					:root {
+						--color-primary: #5177FF;
+						--color-secondary: #3959CC;
+						--color-tertiary: #19244D;
+					}
+				</pre>
+			</section>
+
+			<!------- Button ------->
+			<section>
+				<h2>Button <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-view">
+					<table class="guide-table">
+						<colgroup>
+							<col style="width: 20%;">
+							<col span="3" style="width: 26.666%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>.size-md<br />(height:36px)</th>
+								<th>.size-lg<br />(height:40px)</th>
+								<th>.size-xl<br />(height:48px)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>default</th>
+								<td>
+									<a href="#" class="button size-md">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-md disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-lg">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-lg disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-xl">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-xl disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>.type-primary</th>
+								<td>
+									<a href="#" class="button size-md type-primary">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-primary">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-md type-primary disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-primary" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-lg type-primary">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-primary">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-lg type-primary disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-primary" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-xl type-primary">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-primary">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-xl type-primary disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-primary" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>.type-secondary</th>
+								<td>
+									<a href="#" class="button size-md type-secondary">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-secondary">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-md type-secondary disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-secondary" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-lg type-secondary">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-secondary">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-lg type-secondary disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-secondary" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-xl type-secondary">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-secondary">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-xl type-secondary disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-secondary" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>.type-gray</th>
+								<td>
+									<a href="#" class="button size-md type-gray">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-gray">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-md type-gray disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-gray" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-lg type-gray">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-gray">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-lg type-gray disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-gray" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-xl type-gray">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-gray">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-xl type-gray disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-gray" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>.type-line</th>
+								<td>
+									<a href="#" class="button size-md type-line">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-line">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-md type-line disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-md type-line" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-lg type-line">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-line">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-lg type-line disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-lg type-line" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+								<td>
+									<a href="#" class="button size-xl type-line">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-line">
+										<span>버튼</span>
+									</button>
+									<a href="#" class="button size-xl type-line disabled">
+										<span>링크</span>
+									</a>
+									<button type="button" class="button size-xl type-line" disabled>
+										<span>버튼</span>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default -->
+					<a href="#" class="button size-md type-primary">
+						<span>링크</span>
+					</a>
+					<button type="button" class="button size-md type-primary">
+						<span>버튼</span>
+					</button>
+
+					<!-- default : disabled -->
+					<a href="#" class="button size-md type-primary disabled">
+						<span>링크</span>
+					</a>
+					<button type="button" class="button size-md type-primary" disabled>
+						<span>버튼</span>
+					</button>
+
+					<!-- primary -->
+					<a href="#" class="button size-md type-primary">
+						<span>링크</span>
+					</a>
+					<button type="button" class="button size-md type-primary">
+						<span>버튼</span>
+					</button>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Input ------->
+			<section>
+				<h2>Input <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>				
+				<div class="guide-view">
+					<table class="guide-table">
+						<colgroup>
+							<col span="5" style="width: 20%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>placeholder</th>
+								<th>value</th>
+								<th>readonly</th>
+								<th>disabled</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>default <br />(height:40px)</th>
+								<td>
+									<input type="text" name="" id="" placeholder="입력해주세요." />
+								</td>
+								<td>
+									<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" />
+								</td>
+								<td>
+									<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" readonly />
+								</td>
+								<td>
+									<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" disabled />
+								</td>
+							</tr>
+							<tr>
+								<th>.size-md <br />(height:36px)</th>
+								<td>
+									<input type="text" name="" id="" class="size-md" placeholder="입력해주세요." />
+								</td>
+								<td>
+									<input type="text" name="" id="" class="size-md" placeholder="입력해주세요." value="입력값" />
+								</td>
+								<td>
+									<input type="text" name="" id="" class="size-md" placeholder="입력해주세요." value="입력값" readonly />
+								</td>
+								<td>
+									<input type="text" name="" id="" class="size-md" placeholder="입력해주세요." value="입력값" disabled />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default text field -->
+					<input type="text" name="" id="" placeholder="입력해주세요." />
+					<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" />
+					<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" readonly />
+					<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" disabled />
+				</pre>
+				<!-- //source pre -->
+				
+				<div class="guide-view">
+					<h3>.input-inner-extra</h3>
+					<table class="guide-table">
+						<colgroup>
+							<col span="5" style="width: 20%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>placeholder</th>
+								<th>value</th>
+								<th>readonly</th>
+								<th>disabled</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>search</th>
+								<td>
+									<div class="input-inner-extra">
+										<div class="clear-container">
+											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
+											<button type="button" class="button-clear">
+												<svg>
+													<title>삭제</title>
+													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+												</svg>
+											</button>
+										</div>
+										<button type="button" class="icon-button" title="검색">
+											<svg>
+												<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+											</svg>
+										</button>
+									</div>
+								</td>
+								<td>
+									<div class="input-inner-extra">
+										<div class="clear-container">
+											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" />
+											<button type="button" class="button-clear">
+												<svg>
+													<title>삭제</title>
+													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+												</svg>
+											</button>
+										</div>
+										<button type="button" class="icon-button" title="검색">
+											<svg>
+												<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+											</svg>
+										</button>
+									</div>
+								</td>
+								<td>
+									<div class="input-inner-extra readonly">
+										<div class="clear-container">
+											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" readonly />
+											<button type="button" class="button-clear">
+												<svg>
+													<title>삭제</title>
+													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+												</svg>
+											</button>
+										</div>
+										<button type="button" class="icon-button" title="검색">
+											<svg>
+												<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+											</svg>
+										</button>
+									</div>
+								</td>
+								<td>
+									<div class="input-inner-extra disabled">
+										<div class="clear-container">
+											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" disabled />
+											<button type="button" class="button-clear">
+												<svg>
+													<title>삭제</title>
+													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+												</svg>
+											</button>
+										</div>
+										<button type="button" class="icon-button" title="검색" disabled>
+											<svg>
+												<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default -->
+					<div class="input-inner-extra">
+						<div class="clear-container">
+							<input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
+							<button type="button" class="button-clear">
+								<svg>
+									<title>삭제</title>
+									<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="icon-button" title="검색">
+							<svg>
+								<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+							</svg>
+						</button>
+					</div>
+
+					<!-- readonly -->
+					<div class="input-inner-extra readonly">
+						<div class="clear-container">
+							<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" readonly />
+							<button type="button" class="button-clear">
+								<svg>
+									<title>삭제</title>
+									<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="icon-button" title="검색">
+							<svg>
+								<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+							</svg>
+						</button>
+					</div>
+
+					<!-- disabled -->
+					<div class="input-inner-extra disabled">
+						<div class="clear-container">
+							<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" disabled />
+							<button type="button" class="button-clear">
+								<svg>
+									<title>삭제</title>
+									<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+								</svg>
+							</button>
+						</div>
+						<button type="button" class="icon-button" title="검색" disabled>
+							<svg>
+								<use xlink:href="/assets/images/svg-sprite-solid.svg#icon-search"></use>
+							</svg>
+						</button>
+					</div>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Checkbox ------->
+			<section>
+				<h2>Checkbox <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-view">
+					<table class="guide-table">
+						<colgroup>
+							<col span="5" style="width: 20%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>default</th>
+								<th>checked</th>
+								<th>disabled</th>
+								<th>checked + disabled</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>default</th>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox1">
+										<label for="ox1"></label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox2" checked />
+										<label for="ox2"></label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox3" disabled />
+										<label for="ox3"></label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox4" checked disabled />
+										<label for="ox4"></label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th>text</th>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox5">
+										<label for="ox5">미선택</label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox6" checked />
+										<label for="ox6">선택</label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox7" disabled />
+										<label for="ox7">비활성화</label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="checkbox" id="ox8" checked disabled />
+										<label for="ox8">선택 비활성화</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 라벨 텍스트 없는 경우 -->
+					<span class="ox">
+						<input type="checkbox" id="ox1">
+						<label for="ox1"></label>
+					</span>
+					<!-- 라벨 텍스트 있는 경우 -->
+					<span class="ox">
+						<input type="checkbox" id="ox5">
+						<label for="ox5">텍스트</label>
+					</span>
+				</pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.ox-group</h3>
+					<table class="guide-table">
+						<colgroup>
+							<col style="width: 20%;">
+							<col style="width: auto;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>.ox-group</th>
+								<td>
+									<div class="ox-group">
+										<span class="ox">
+											<input type="checkbox" id="ox-check1-1" checked />
+											<label for="ox-check1-1">그룹1</label>
+										</span>
+										<span class="ox">
+											<input type="checkbox" id="ox-check1-2">
+											<label for="ox-check1-2">그룹2</label>
+										</span>
+										<span class="ox">
+											<input type="checkbox" id="ox-check1-3">
+											<label for="ox-check1-3">그룹3</label>
+										</span>
+										<span class="ox">
+											<input type="checkbox" id="ox-check1-4">
+											<label for="ox-check1-4">그룹4</label>
+										</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default : 가로형 -->
+					<div class="ox-group">
+						<span class="ox">
+							<input type="checkbox" id="ox-check1-1" checked />
+							<label for="ox-check1-1">그룹1</label>
+						</span>
+						<span class="ox">
+							<input type="checkbox" id="ox-check1-2">
+							<label for="ox-check1-2">그룹2</label>
+						</span>
+					</div>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Radio ------->
+			<section>
+				<h2>Radio <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-view">
+					<table class="guide-table">
+						<colgroup>
+							<col span="5" style="width: 20%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>default</th>
+								<th>checked</th>
+								<th>disabled</th>
+								<th>checked + disabled</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>default</th>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio1" id="ox-radio-1" />
+										<label for="ox-radio-1"></label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio1" id="ox-radio-2" checked />
+										<label for="ox-radio-2"></label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio1" id="ox-radio-3" disabled />
+										<label for="ox-radio-3"></label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio1-1" id="ox-radio-4" checked disabled />
+										<label for="ox-radio-4"></label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th>text</th>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio2" id="ox-radio-5" />
+										<label for="ox-radio-5">미선택</label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio2" id="ox-radio-6" checked />
+										<label for="ox-radio-6">선택</label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio2" id="ox-radio-7" disabled />
+										<label for="ox-radio-7">비활성화</label>
+									</span>
+								</td>
+								<td>
+									<span class="ox">
+										<input type="radio" name="radio2-1" id="ox-radio-8" checked disabled />
+										<label for="ox-radio-8">선택 비활성화</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 라벨 텍스트 없는 경우 -->
+					<span class="ox">
+						<input type="radio" name="radio1" id="ox-radio-1" />
+						<label for="ox-radio-1"></label>
+					</span>
+					<!-- 라벨 텍스트 있는 경우 -->
+					<span class="ox">
+						<input type="radio" name="radio2" id="ox-radio-5" />
+						<label for="ox-radio-5">텍스트</label>
+					</span>
+				</pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.ox-group</h3>
+					<div class="guide-box">
+						<ul>
+							<li>name의 값을 동일하게 사용해야 radio 그룹으로 동작합니다.</li>
+						</ul>
+					</div>
+					<table class="guide-table">
+						<colgroup>
+							<col style="width: 20%;">
+							<col style="width: auto;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>.ox-group</th>
+								<td>
+									<div class="ox-group">
+										<span class="ox">
+											<input type="radio" name="radio3" id="ox-radio-9" checked />
+											<label for="ox-radio-9">그룹1</label>
+										</span>
+										<span class="ox">
+											<input type="radio" name="radio3" id="ox-radio-10" />
+											<label for="ox-radio-10">그룹2</label>
+										</span>
+										<span class="ox">
+											<input type="radio" name="radio3" id="ox-radio-11" />
+											<label for="ox-radio-11">그룹3</label>
+										</span>
+										<span class="ox">
+											<input type="radio" name="radio3" id="ox-radio-12" />
+											<label for="ox-radio-12">그룹4</label>
+										</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default : 가로형 -->
+					<div class="ox-group">
+						<span class="ox">
+							<input type="radio" name="radio3" id="ox-radio-9" />
+							<label for="ox-radio-9">그룹1</label>
+						</span>
+						<span class="ox">
+							<input type="radio" name="radio3" id="ox-radio-10" />
+							<label for="ox-radio-10">그룹2</label>
+						</span>
+					</div>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Switcher ------->
+			<section>
+				<h2>Switcher <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-view">
+					<table class="guide-table">
+						<colgroup>
+							<col span="5" style="width: 20%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>default</th>
+								<th>checked</th>
+								<th>disabled</th>
+								<th>checked + disabled</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>default</th>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher1-1">
+										<label for="switcher1-1"></label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher1-2" checked />
+										<label for="switcher1-2"></label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher1-3" disabled />
+										<label for="switcher1-3"></label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher1-4" checked disabled />
+										<label for="switcher1-4"></label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th>text</th>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher2-1">
+										<label for="switcher2-1">텍스트</label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher2-2" checked />
+										<label for="switcher2-2">텍스트</label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher2-3" disabled />
+										<label for="switcher2-3">텍스트</label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher">
+										<input type="checkbox" id="switcher2-4" checked disabled />
+										<label for="switcher2-4">텍스트</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th>text + .reverse</th>
+								<td>
+									<span class="switcher reverse">
+										<input type="checkbox" id="switcher3-1">
+										<label for="switcher3-1">텍스트</label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher reverse">
+										<input type="checkbox" id="switcher3-2" checked />
+										<label for="switcher3-2">텍스트</label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher reverse">
+										<input type="checkbox" id="switcher3-3" disabled />
+										<label for="switcher3-3">텍스트</label>
+									</span>
+								</td>
+								<td>
+									<span class="switcher reverse">
+										<input type="checkbox" id="switcher3-4" checked disabled />
+										<label for="switcher3-4">텍스트</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 텍스트 라벨 없는 경우 -->
+					<span class="switcher">
+						<input type="checkbox" id="switcher1-1">
+						<label for="switcher1-1"></label>
+					</span>
+					<!-- 텍스트 라벨 있는 경우 -->
+					<span class="switcher">
+						<input type="checkbox" id="switcher2-1">
+						<label for="switcher2-1">텍스트</label>
+					</span>
+					<!-- reverse : 텍스트 라벨 있는 경우 -->
+					<span class="switcher reverse">
+						<input type="checkbox" id="switcher3-1">
+						<label for="switcher3-1">텍스트</label>
+					</span>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Select ------->
+			<section>
+				<h2>Select <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-view">
+					<select name="" id="">
+						<option value="one">옵션값 First</option>
+						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
+						<option value="three">옵션값 Third</option>
+					</select>
+
+					<select name="" id="" disabled>
+						<option value="one">옵션값 First</option>
+						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
+						<option value="three">옵션값 Third</option>
+					</select>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<select name="" id="">
+						<option value="one">옵션값 First</option>
+						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
+						<option value="three">옵션값 Third</option>
+					</select>
+
+					<select name="" id="" disabled>
+						<option value="one">옵션값 First</option>
+						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
+						<option value="three">옵션값 Third</option>
+					</select>
+				</pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.size-lg : height: 40px</h3>
+					<select name="" id="" class="size-lg">
+						<option value="one">옵션값 First</option>
+						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
+						<option value="three">옵션값 Third</option>
+					</select>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<select name="" id="" class="size-lg"><!-- D: .size-lg 추가 -->
+						<option value="one">옵션값 First</option>
+						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
+						<option value="three">옵션값 Third</option>
+					</select>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Checkbox Dropdown ------->
+			<section>
+				<h2>Checkbox Dropdown <span class="txt-sm txt-em">(추가)</span></h2>
+				<div class="guide-view">
+					<div class="filter-box"><!-- D: 비활성화 시 .disabled 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category1All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-1" />
+										<label for="category1-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-2" />
+										<label for="category1-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-3" />
+										<label for="category1-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="filter-box disabled"><!-- D: 비활성화 시 .disabled 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category1All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-1" />
+										<label for="category1-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-2" />
+										<label for="category1-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-3" />
+										<label for="category1-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default -->
+					<div class="filter-box">
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category1All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-1" />
+										<label for="category1-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-2" />
+										<label for="category1-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-3" />
+										<label for="category1-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- disabled -->
+					<div class="filter-box disabled"><!-- D: 비활성화 시 .disabled 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category1All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-1" />
+										<label for="category1-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-2" />
+										<label for="category1-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category1-3" />
+										<label for="category1-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.size-lg : height: 40px</h3>
+					<div class="filter-box size-lg"><!-- D: .size-lg 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category2All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2-1" />
+										<label for="category2-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2-2" />
+										<label for="category2-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2-3" />
+										<label for="category2-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<div class="filter-box size-lg"><!-- D: .size-lg 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category2All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2-1" />
+										<label for="category2-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2-2" />
+										<label for="category2-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category2-3" />
+										<label for="category2-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.size-sm : height: 32px</h3>
+					<div class="filter-box size-sm"><!-- D: .size-sm 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category3All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3-1" />
+										<label for="category3-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3-2" />
+										<label for="category3-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3-3" />
+										<label for="category3-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<div class="filter-box size-sm"><!-- D: .size-sm 추가 -->
+						<button type="button" class="filter-label">유형 선택</button>
+						<div class="filter-list">
+							<ul>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3All" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+										<label for="category3All">전체</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3-1" />
+										<label for="category3-1">옵션값 First</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3-2" />
+										<label for="category3-2">옵션값 Second</label>
+									</span>
+								</li>
+								<li>
+									<span class="ox">
+										<input type="checkbox" id="category3-3" />
+										<label for="category3-3">옵션값 Third</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Forms ------->
+			<section>
+				<h2>Forms <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-box">
+					<ul>
+						<li>.required 붙으면 * 나타납니다.</li>
+					</ul>
+				</div>
+				<table class="guide-table">
+					<colgroup>
+						<col span="2" style="width: 50%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>default</th>
+							<th>.required</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="forms">
+									<label for="user-name">이름</label>
+									<fieldset>
+										<input type="text" title="이름 입력란" name="" id="user-name" placeholder="이름을 입력해 주세요." />
+									</fieldset>
+								</div>
+							</td>
+							<td>
+								<div class="forms required">
+									<label for="place-name">장소명</label>
+									<fieldset>
+										<input type="text" title="장소명 입력란" name="" id="place-name" placeholder="장소명을 입력해주세요." />
+									</fieldset>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default -->
+					<div class="forms">
+						<label for="user-name">이름</label>
+						<fieldset>
+							<input type="text" title="이름 입력란" name="" id="user-name" placeholder="이름을 입력해 주세요." />
+						</fieldset>
+					</div>
+
+					<!-- required -->
+					<div class="forms required">
+						<label for="place-name">장소명</label>
+						<fieldset>
+							<input type="text" title="장소명 입력란" name="" id="place-name" placeholder="장소명을 입력해주세요." />
+						</fieldset>
+					</div>
+				</pre>
+				<!-- //source pre -->
+
+				<h3>fieldset</h3>
+				<div class="guide-box">
+					<ul>
+						<li>fieldset에 .flag-error 붙으면 caution 나타납니다.</li>
+					</ul>
+				</div>
+				<table class="guide-table">
+					<colgroup>
+						<col span="2" style="width: 50%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>default</th>
+							<th>.flag-error</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="forms">
+									<label for="default1">기본상태</label>
+									<!-- D: flag-error 클래스로 caution이 show/hide 됩니다. -->
+									<fieldset>
+										<div class="input-inner-extra">
+											<input type="text" name="" id="default1" placeholder="입력해 주세요." />
+										</div>
+										<span class="caution">오류 메시지 나타납니다.</span>
+									</fieldset>
+								</div>
+							</td>
+							<td>
+								<div class="forms">
+									<label for="default2">기본상태</label>
+									<!-- D: flag-error 클래스로 caution이 show/hide 됩니다. -->
+									<fieldset class="flag-error">
+										<div class="input-inner-extra">
+											<input type="text" name="" id="default2" placeholder="입력해 주세요." />
+										</div>
+										<span class="caution">오류 메시지 나타납니다.</span>
+									</fieldset>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<!------- Popup ------->
+			<section>
+				<h2>Popup <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-box">
+					<ul>
+						<li>target-obj의 값을 원하는 팝업의 id 값과 동일하게 넣어주면 팝업 실행됩니다.</li>
+						<li><strong>init-show</strong> 라고 속성값을 붙이면 모달 초기값이 show 됩니다.</li>
+						<li>클릭이벤트 없이 팝업 및 알럿 실행해야 하는 경우 : 아래 함수를 실행시켜 주면 됩니다.<br /><strong>openPopup({id: "모달or알럿 아이디"});</strong></li>
+						<li>특정 조건 이후 팝업&알럿이 닫혀야 하는 경우 : 아래 함수를 실행시켜 주면 됩니다.<br /><strong>closePopup("모달or알럿 아이디");</strong></li>
+					</ul>
+				</div>
+				<div class="guide-view">
+					<button class="button size-md" target-obj="popup-default">클릭시 팝업오픈 - 기본</button>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 버튼 -->
+					<button class="button size-md" target-obj="popup-default">클릭시 팝업오픈 - 기본</button>
+
+					<!-- 팝업 -->
+					<div class="popup" id="popup-default">
+						<div class="popup-container">
+							<button class="icon-button close-button" close-obj>
+								<svg>
+									<title>닫기</title>
+									<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+								</svg>
+							</button>
+							<div class="header">
+								기본 넓이 560px
+							</div>
+							<div class="body">
+								<p>
+									팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.
+								</p>
+							</div>
+							<div class="footer">
+								<button class="button size-xl type-dark" close-obj>취소</button>
+								<button class="button size-xl type-primary">확인</button>
+							</div>
+						</div>
+					</div>
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Pagination ------->
+			<section>
+				<h2>Pagination <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
+				<div class="guide-view">
+					<!-- pagination -->
+					<div class="pagination">
+						<!-- D: 이전 리스트 없는 경우 disabled 추가필요 -->
+						<button class="icon-button icon-first" disabled="">
+							<svg>
+								<title>첫페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-left"></use>
+							</svg>
+						</button>
+						<button class="icon-button icon-prev" disabled="">
+							<svg>
+								<title>이전페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+							</svg>
+						</button>
+						<button>1</button>
+						<!-- D: 선택된 버튼에 .current 클래스 추가 사용 -->
+						<button class="current">2</button>
+						<button>3</button>
+						<button>4</button>
+						<button>5</button>
+						<button class="icon-button icon-next">
+							<svg>
+								<title>다음페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+							</svg>
+						</button>
+						<button class="icon-button icon-last">
+							<svg>
+								<title>마지막페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-right"></use>
+							</svg>
+						</button>
+					</div>
+					<!-- //pagination -->
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- pagination -->
+					<div class="pagination">
+						<!-- D: 이전 리스트 없는 경우 disabled 추가필요 -->
+						<button class="icon-button icon-first" disabled="">
+							<svg>
+								<title>첫페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-left"></use>
+							</svg>
+						</button>
+						<button class="icon-button icon-prev" disabled="">
+							<svg>
+								<title>이전페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+							</svg>
+						</button>
+						<button>1</button>
+						<!-- D: 선택된 버튼에 .current 클래스 추가 사용 -->
+						<button class="current">2</button>
+						<button>3</button>
+						<button>4</button>
+						<button>5</button>
+						<button class="icon-button icon-next">
+							<svg>
+								<title>다음페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+							</svg>
+						</button>
+						<button class="icon-button icon-last">
+							<svg>
+								<title>마지막페이지</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-right"></use>
+							</svg>
+						</button>
+					</div>
+					<!-- //pagination -->
+				</pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Icon ------->
+			<section>
+				<h2>Icon</h2>
+				<div class="guide-view">
+					<h3>Map</h3>
+					<table class="guide-table">
+						<colgroup>
+							<col style="width: 20%;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>
+									지도 마커<br />
+									(아이콘 : 52*52 / 원본 : 104*104)<br /><br />
+									※ 예외 : MY 지도, 다른 선생님 지도<br />
+									(아이콘 : 40*67 / 원본 : 80*134)
+								</th>
+								<td>
+									<img src="/assets/images/map/marker/icon-marker1.png" alt="산" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker2.png" alt="계곡" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker3.png" alt="평야" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker4.png" alt="하천" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker5.png" alt="호수" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker6.png" alt="해변" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker7.png" alt="다리" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker8.png" alt="댐" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker9.png" alt="지명" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker10.png" alt="공원" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker11.png" alt="학교" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker12.png" alt="공공기관" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker13.png" alt="시장,쇼핑몰" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker14.png" alt="문화시설" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker15.png" alt="체육시설" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker16.png" alt="의료기관" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker17.png" alt="산업단지" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker18.png" alt="교통시설" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker19.png" alt="특산물" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker20.png" alt="관광명소" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker21.png" alt="문화축제" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker22.png" alt="문화재" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker23.png" alt="유적지" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker24.png" alt="VR" width="52px" height="52px" />
+									<img src="/assets/images/map/marker/icon-marker25.png" alt="MY 지도" width="40px" height="67px" />
+									<img src="/assets/images/map/marker/icon-marker26.png" alt="다른 선생님 지도" width="40px" height="67px" />
+									<img src="/assets/images/map/marker/icon-marker27.png" alt="장소명" width="52px" height="52px" />
+
+									<!-- source pre -->
+									<pre class="brush:html">
+										<img src="/assets/images/map/marker/icon-marker1.png" alt="산" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker2.png" alt="계곡" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker3.png" alt="평야" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker4.png" alt="하천" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker5.png" alt="호수" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker6.png" alt="해변" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker7.png" alt="다리" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker8.png" alt="댐" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker9.png" alt="지명" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker10.png" alt="공원" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker11.png" alt="학교" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker12.png" alt="공공기관" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker13.png" alt="시장,쇼핑몰" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker14.png" alt="문화시설" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker15.png" alt="체육시설" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker16.png" alt="의료기관" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker17.png" alt="산업단지" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker18.png" alt="교통시설" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker19.png" alt="특산물" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker20.png" alt="관광명소" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker21.png" alt="문화축제" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker22.png" alt="문화재" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker23.png" alt="유적지" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker24.png" alt="VR" width="52px" height="52px" />
+										<img src="/assets/images/map/marker/icon-marker25.png" alt="MY 지도" width="40px" height="67px" />
+										<img src="/assets/images/map/marker/icon-marker26.png" alt="다른 선생님 지도" width="40px" height="67px" />
+										<img src="/assets/images/map/marker/icon-marker27.png" alt="장소명" width="52px" height="52px" />
+									</pre>
+									<!-- //source pre -->
+								</td>
+							</tr>
+							<tr>
+								<th>
+									지도 마커 Hover<br />
+									(아이콘 : 60*70 / 원본 : 120*140)
+								</th>
+								<td>
+									<img src="/assets/images/map/marker/icon-marker1-hover.png" alt="산" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker2-hover.png" alt="계곡" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker3-hover.png" alt="평야" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker4-hover.png" alt="하천" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker5-hover.png" alt="호수" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker6-hover.png" alt="해변" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker7-hover.png" alt="다리" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker8-hover.png" alt="댐" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker9-hover.png" alt="지명" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker10-hover.png" alt="공원" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker11-hover.png" alt="학교" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker12-hover.png" alt="공공기관" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker13-hover.png" alt="시장,쇼핑몰" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker14-hover.png" alt="문화시설" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker15-hover.png" alt="체육시설" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker16-hover.png" alt="의료기관" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker17-hover.png" alt="산업단지" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker18-hover.png" alt="교통시설" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker19-hover.png" alt="특산물" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker20-hover.png" alt="관광명소" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker21-hover.png" alt="문화축제" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker22-hover.png" alt="문화재" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker23-hover.png" alt="유적지" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker24-hover.png" alt="VR" width="60px" height="70px" />
+									<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="MY 지도" width="40px" height="67px" />
+									<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="다른 선생님 지도" width="40px" height="67px" />
+									<img src="/assets/images/map/marker/icon-marker27-hover.png" alt="장소명" width="60px" height="70px" />
+
+									<!-- source pre -->
+									<pre class="brush:html">
+										<img src="/assets/images/map/marker/icon-marker1-hover.png" alt="산" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker2-hover.png" alt="계곡" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker3-hover.png" alt="평야" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker4-hover.png" alt="하천" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker5-hover.png" alt="호수" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker6-hover.png" alt="해변" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker7-hover.png" alt="다리" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker8-hover.png" alt="댐" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker9-hover.png" alt="지명" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker10-hover.png" alt="공원" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker11-hover.png" alt="학교" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker12-hover.png" alt="공공기관" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker13-hover.png" alt="시장,쇼핑몰" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker14-hover.png" alt="문화시설" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker15-hover.png" alt="체육시설" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker16-hover.png" alt="의료기관" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker17-hover.png" alt="산업단지" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker18-hover.png" alt="교통시설" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker19-hover.png" alt="특산물" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker20-hover.png" alt="관광명소" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker21-hover.png" alt="문화축제" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker22-hover.png" alt="문화재" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker23-hover.png" alt="유적지" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker24-hover.png" alt="VR" width="60px" height="70px" />
+										<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="MY 지도" width="40px" height="67px" />
+										<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="다른 선생님 지도" width="40px" height="67px" />
+										<img src="/assets/images/map/marker/icon-marker27-hover.png" alt="장소명" width="60px" height="70px" />
+									</pre>
+									<!-- //source pre -->
+								</td>
+							</tr>
+							<tr>
+								<th>
+									지도 마커 클러스터화
+								</th>
+								<td>
+									<div class="marker-cluster">2</div>
+
+									<!-- source pre -->
+									<pre class="brush:html">
+										<div class="marker-cluster">2</div>
+									</pre>
+									<!-- //source pre -->
+								</td>
+							</tr>
+							<tr>
+								<th>
+									장소/자료<br />
+									(아이콘 : 24*24 / 원본 : 48*48)
+								</th>
+								<td>
+									<img src="/assets/images/map/marker/icon-sm-marker1.png" alt="산" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker2.png" alt="계곡" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker3.png" alt="평야" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker4.png" alt="하천" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker5.png" alt="호수" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker6.png" alt="해변" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker7.png" alt="다리" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker8.png" alt="댐" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker9.png" alt="지명" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker10.png" alt="공원" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker11.png" alt="학교" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker12.png" alt="공공기관" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker13.png" alt="시장,쇼핑몰" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker14.png" alt="문화시설" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker15.png" alt="체육시설" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker16.png" alt="의료기관" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker17.png" alt="산업단지" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker19.png" alt="특산물" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker20.png" alt="관광명소" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker21.png" alt="문화축제" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker22.png" alt="문화재" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker23.png" alt="유적지" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker24.png" alt="VR" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker24-1.png" alt="초등" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker24-2.png" alt="중/고" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도" width="24px" height="24px" />
+									<img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도" width="24px" height="24px" />
+
+									<!-- source pre -->
+									<pre class="brush:html">
+										<img src="/assets/images/map/marker/icon-sm-marker1.png" alt="산" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker2.png" alt="계곡" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker3.png" alt="평야" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker4.png" alt="하천" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker5.png" alt="호수" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker6.png" alt="해변" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker7.png" alt="다리" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker8.png" alt="댐" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker9.png" alt="지명" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker10.png" alt="공원" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker11.png" alt="학교" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker12.png" alt="공공기관" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker13.png" alt="시장,쇼핑몰" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker14.png" alt="문화시설" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker15.png" alt="체육시설" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker16.png" alt="의료기관" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker17.png" alt="산업단지" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker19.png" alt="특산물" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker20.png" alt="관광명소" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker21.png" alt="문화축제" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker22.png" alt="문화재" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker23.png" alt="유적지" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker24.png" alt="VR" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker24-1.png" alt="초등" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker24-2.png" alt="중/고" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도" width="24px" height="24px" />
+										<img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도" width="24px" height="24px" />
+									</pre>
+									<!-- //source pre -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="guide-view">
+					<h3>sprite-icon</h3>
+					<div class="guide-box">
+						<ul>
+							<li>아이콘 추가 시 sprite-icon.svg 하단에 심볼 추가하고 아이디값 정의 / 컬러값을 currentColor로 변경</li>
+						</ul>
+					</div>
+					
+					<table class="guide-table">
+						<colgroup>
+							<col style="width: 25%;" span="4" />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>#icon-my-map</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>MY 지도</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-my-map"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-location</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>학교 위치</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-location"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-map-line</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>지역 경계 표시</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-map-line"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-blankmap</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>백지도</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-blankmap"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-sns-share</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>SNS 공유</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-sns-share"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-ai-class</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>AI클래스공유</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-ai-class"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-print</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>인쇄</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-print"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-distance</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>거리 재기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-distance"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-panorama</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>거리뷰</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-panorama"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-satellite</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>위성지도</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-satellite"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-close-round</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>삭제</title>
+											<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-close</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>닫기</title>
+											<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-close-md</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>닫기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-close-md"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-close-sm</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>닫기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-arrow-bottom</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>더보기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-download</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>다운로드</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-download"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-search</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>더보기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-search</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>검색</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- 팝업 -->
+	<div class="popup" id="popup-default">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>아이콘 - icon-close</title>
+					<use href="/assets/images/svg-sprite-solid.svg#icon-close"></use>
+				</svg>
+			</button>
+			<div class="header">
+				기본 넓이 560px
+			</div>
+			<div class="body">
+				<p>
+					팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.
+				</p>
+			</div>
+			<div class="footer">
+				<button class="button size-xl type-dark" close-obj>취소</button>
+				<button class="button size-xl type-primary">확인</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
