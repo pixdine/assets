@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	mapCommonUI();
 	mapPlugin();
-	bestTheme(".btn-best-theme", "show", 15000);
+	bestTheme(".btn-best-theme", "show", 10000);
 
 	/* tab 클릭 시 result-cont영역에 top 버튼 노출 */
 	$(".tab a").click(function(){ //퍼블 확인 용. 항상 개발에서 목록 호출 완료 후 topBtnShow(".result-cont") 기능을 호출해야 함.
@@ -11,24 +11,7 @@ $(document).ready(function () {
 		});
 		/* //지도 이동 시 개발에서 목록 호출 완료 후 setTime과 함께 실행 */
 	});
-
-	$(".map-toolbox .btn-panorama").on("click", function(e){
-		if ($(".map-toolbox .btn-distance").hasClass("active")) {
-			// 확인 창 표시
-			if (confirm("거리 재기 모드가 활성화되어 있습니다. 계속 진행하시겠습니까?")) {
-				// 사용자가 확인을 누른 경우
-				e.stopImmediatePropagation();
-				$(this).removeClass("active");
-				return false;
-			} else {
-				// 사용자가 취소를 누른 경우
-				e.stopImmediatePropagation();
-				return false;
-			}
-		}
-	});
 });
-
 
 $(window).on("load", function(){
 	/* 지도 페이지 : 지도 우측 컨트롤러 */
@@ -115,7 +98,7 @@ $(window).on("load", function(){
 const mapCommonUI = function(){
 	setCSS();
 	mapMainVisual();
-	mapZoomRange();
+	mapZoomRange.init();
 	searchAaccordion();
 	leftMenu();
 	clearInput("body");
@@ -312,16 +295,57 @@ const leftMenu = function(){
 }
 
 /* 지도 페이지 : 지도 Range */
-const mapZoomRange = function(){
-	$('.zoom-range input[type=range]').on('input', function(e) {
-		var min = e.target.min,
-		max = e.target.max,
-		val = e.target.value;
+const mapZoomRange = {
+	// Input range 변경 시 배경 크기 업데이트
+	updateRangeBg: function($rangeInput) {
+		const min = $rangeInput.attr("min");
+		const max = $rangeInput.attr("max");
+		const val = $rangeInput.val();
 
-		$(e.target).css({
-			'backgroundSize': (val - min) * 100 / (max - min) + '% 100%'
+		$rangeInput.css("backgroundSize", ((val - min) * 100 / (max - min)) + "% 100%");
+	},
+
+	// btn-zoom-in 클릭 시 동작
+	rangeZoomIn: function($rangeInput) {
+		const currentValue = parseFloat($rangeInput.val());
+		const max = parseFloat($rangeInput.attr("max"));
+		const step = parseFloat($rangeInput.attr("step")) || 1;
+
+		if (currentValue < max) {
+			$rangeInput.val(Math.min(currentValue + step, max)).trigger("input");
+		}
+	},
+
+	// btn-zoom-out 클릭 시 동작
+	rangeZoomOut: function($rangeInput) {
+		const currentValue = parseFloat($rangeInput.val());
+		const min = parseFloat($rangeInput.attr("min"));
+		const step = parseFloat($rangeInput.attr("step")) || 1;
+
+		if (currentValue > min) {
+			$rangeInput.val(Math.max(currentValue - step, min)).trigger("input");
+		}
+	},
+
+	// 초기화 및 이벤트 바인딩
+	init: function() {
+		const $rangeInput = $(".map-zoom .zoom-range input[type=range]");
+
+		// Input range 변경 시 배경 크기 업데이트
+		$rangeInput.on("input", () => {
+			this.updateRangeBg($rangeInput);
+		}).trigger("input");
+
+		// btn-zoom-in 버튼 클릭
+		$(".map-zoom .btn-zoom-in").on("click", () => {
+			this.rangeZoomIn($rangeInput);
 		});
-	}).trigger('input');
+
+		// btn-zoom-out 버튼 클릭
+		$(".map-zoom .btn-zoom-out").on("click", () => {
+			this.rangeZoomOut($rangeInput);
+		});
+	}
 }
 
 /* 지도 페이지 : 검색 영역 열기/닫기 */

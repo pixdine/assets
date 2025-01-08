@@ -34,14 +34,28 @@
 						<div class="map-image">
 							<img src="/assets/images/map/img-vr-map.png" alt="대한민국 지도" />
 
+							<!-- 전국 -->
+							<div class="marker all">
+								<button type="button">
+									<div>
+										<span class="title">전국</span>
+										<span class="number">9999</span>
+									</div>
+								</button>
+							</div>
+							<!-- //전국 -->
+
+							<!-- 마커 -->
+							<!-- D: 360VR이 없는 지역은 지역 버튼 미노출 -->
 							<div class="marker s1">
 								<button type="button">
 									<div>
 										<span class="title">서울</span>
-										<span class="number">11</span>
+										<span class="number">999</span>
 									</div>
 								</button>
 							</div>
+							<!-- //마커 -->
 
 							<div class="marker s2">
 								<button type="button">
@@ -189,7 +203,11 @@
 
 						<div class="vr-region">
 							<div class="region-title">
+								<!-- D: 초기/전국 선택 시 노출 -->
 								<p class="title">각 지역을 대표하는 명소로 떠나보세요!</p>
+
+								<!-- D: 각 지역 클릭 시 노출 -->
+								<p class="title"><strong class="name">서울</strong> 지역을 대표하는 명소로 떠나보세요!</p>
 							</div>
 							<ul class="region-list">
 								<!-- D: 최대 6개 노출 -->

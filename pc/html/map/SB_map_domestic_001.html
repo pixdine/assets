@@ -76,6 +76,11 @@
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">지역</strong>
+																<!-- 2025-01-08 : 현재 위치 추가 -->
+																<div class="aside">
+																	<span class="my-location">경상남도 창원시 마산합포구</span>
+																</div>
+																<!-- //2025-01-08 : 현재 위치 추가 -->
 															</div>
 															<div class="forms">
 																<fieldset>
@@ -151,31 +156,43 @@
 																				<li>
 																					<span class="ox">
 																						<input type="checkbox" id="srchCtgryCd2-1" />
-																						<label for="srchCtgryCd2-1">산,계곡,평야</label>
+																						<label for="srchCtgryCd2-1">산</label>
 																					</span>
 																				</li>
 																				<li>
 																					<span class="ox">
 																						<input type="checkbox" id="srchCtgryCd2-2" />
-																						<label for="srchCtgryCd2-2">하천, 호수, 해변</label>
+																						<label for="srchCtgryCd2-2">계곡</label>
 																					</span>
 																				</li>
 																				<li>
 																					<span class="ox">
 																						<input type="checkbox" id="srchCtgryCd2-3" />
-																						<label for="srchCtgryCd2-3">다리, 댐</label>
+																						<label for="srchCtgryCd2-3">평야</label>
 																					</span>
 																				</li>
 																				<li>
 																					<span class="ox">
 																						<input type="checkbox" id="srchCtgryCd2-4" />
-																						<label for="srchCtgryCd2-4">지명</label>
+																						<label for="srchCtgryCd2-4">하천</label>
 																					</span>
 																				</li>
 																				<li>
 																					<span class="ox">
 																						<input type="checkbox" id="srchCtgryCd2-5" />
-																						<label for="srchCtgryCd2-5">학교</label>
+																						<label for="srchCtgryCd2-5">호수</label>
+																					</span>
+																				</li>
+																				<li>
+																					<span class="ox">
+																						<input type="checkbox" id="srchCtgryCd2-6" />
+																						<label for="srchCtgryCd2-6">해변</label>
+																					</span>
+																				</li>
+																				<li>
+																					<span class="ox">
+																						<input type="checkbox" id="srchCtgryCd2-7" />
+																						<label for="srchCtgryCd2-7">학교</label>
 																					</span>
 																				</li>
 																			</ul>
@@ -191,6 +208,17 @@
 													<div class="result-box">
 														<div class="inner">
 															<ul class="result-list">
+																<!-- 2025-01-08 : 현재 위치 추가 -->
+																<li>
+																	<strong class="tit">현재 위치 :</strong>
+																	<div class="items">
+																		<div class="item">
+																			<span class="dep1">경상남도</span>
+																			<span class="dep2">창원시 마산합포구</span>
+																		</div>
+																	</div>
+																</li>
+																<!-- //2025-01-08 : 현재 위치 추가 -->
 																<li>
 																	<strong class="tit">지역 :</strong>
 																	<div class="items">
@@ -632,6 +660,22 @@
 																				</div>
 																			</div>
 																		</li>
+																		<li style="display: none;">
+																			<div class="place-item">
+																				<div class="item">
+																					<a href="#" class="name-info">
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+																						<strong class="title">독산역</strong>
+																					</a>
+																					<button type="button" class="button type-icon size-xs">
+																						<svg>
+																							<title>다운로드</title>
+																							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-download"></use>
+																						</svg>
+																					</button>
+																				</div>
+																			</div>
+																		</li>
 																	</ul>
 																	<!-- //리스트 -->
 				
@@ -717,7 +761,7 @@
 												<div class="search-result-wrap">
 													<!-- 최초 진입 시 노출 -->
 													<div class="nodata-box" style="display: none"><!-- D: style="display: none" 삭제 후 확인 가능 -->
-														<p>함께 공부할 장소와 자료를 <br />지도에서 검색해 보세요.</p><!-- 2025-01-07 : 문구수정 -->
+														<p>함께 공부할 장소와 자료를 <br />지도에서 검색해 보세요.</p><!-- 2025-01-08 : 문구수정 -->
 													</div>
 													<!-- //최초 진입 시 노출 -->
 													 
@@ -1444,7 +1488,7 @@
 												<dl class="dl-exp01">
 													<dt>MY 지도 목록</dt>
 													<dd>
-														<p class="sub-txt">선생님이 등록하신 자료를 확인할 수 있습니다.</p><!-- 2025-01-07 : 문구수정 -->
+														<p class="sub-txt">선생님이 등록하신 자료를 확인할 수 있습니다.</p><!-- 2025-01-08 : 문구수정 -->
 													</dd>
 												</dl>
 											</div>
@@ -1472,7 +1516,7 @@
 											<div class="teacher-map">
 												<div class="teacher-map-inner">
 													<div class="left-box">
-														다른 선생님 지도 자료 <!-- 2025-01-07 : 문구수정 -->
+														다른 선생님 지도 자료 <!-- 2025-01-08 : 문구수정 -->
 
 														<!-- 툴팁 안내 버튼 -->
 														<button type="button" class="tooltip-trigger" data-trigger="click" data-placement="auto-bottom" data-width="258" data-container="#layer-my-map .layer-container" data-closeable>
@@ -1657,7 +1701,7 @@
 					<button type="button" class="btn-zoom-in"><span class="blind">확대</span></button>
 					
 					<div class="zoom-range">
-						<input type="range" class="range" min="0" max="100" value="77" step="0.1" />
+						<input type="range" class="range" min="0" max="100" value="77" step="1" />
 					</div>
 					<button type="button" class="btn-zoom-out"><span class="blind">축소</span></button>
 				</div>
@@ -1666,23 +1710,6 @@
 		</div>
 		<!-- //content -->
 	</div>
-
-
-	<div class="popup-alert" id="alert">
-		<div class="popup-container">
-			<div class="body">
-				엠티처 자료는 ‘학교 수업’ 목적을 위해
-				사용할 수 있도록 저작권법의 보호를 받고 있습니다.
-				수업 외 목적으로 사용되지 않도록 주의해 주세요.
-			</div>
-			<div class="footer">
-				<button class="button size-lg type-dark" close-obj="">취소</button>
-				<button class="button size-lg type-primary">확인</button>
-			</div>
-		</div>
-	</div>
-
-
 </body>
 
 </html>
