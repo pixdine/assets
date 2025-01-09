@@ -63,6 +63,7 @@
 				<div class="guide-view guide-color">
 					<ul>
 						<li><span class="bg" style="background-color: #5177FF; color: #fff;">#5177FF</span>--color-primary</li>
+						<li><span class="bg" style="background-color: #EAF2FE; color: #666;">#5177FF</span>--color-primary-150</li>
 						<li><span class="bg" style="background-color: #3959CC; color: #fff;">#3959CC</span>--color-secondary</li>
 						<li><span class="bg" style="background-color: #19244D; color: #fff;">#19244D</span>--color-tertiary</li>
 					</ul>
@@ -71,10 +72,16 @@
 				<pre class="brush:css">
 					:root {
 						--color-primary: #5177FF;
+						--color-primary-150: #EAF2FE;
 						--color-secondary: #3959CC;
 						--color-tertiary: #19244D;
+						--button-primary: #5177FF;
+						--button-primary-hover: #3959CC;
+						--button-primary-disable: #F1F1F5;
+						--button-secondary: #19244D;
+						--button-secondary-hover: #091B58;
 					}
-				</pre>
+                </pre>
 			</section>
 
 			<!------- Button ------->
@@ -348,7 +355,7 @@
 					<button type="button" class="button size-md type-primary">
 						<span>버튼</span>
 					</button>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -410,7 +417,7 @@
 					<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" />
 					<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" readonly />
 					<input type="text" name="" id="" placeholder="입력해주세요." value="입력값" disabled />
-				</pre>
+                </pre>
 				<!-- //source pre -->
 				
 				<div class="guide-view">
@@ -562,7 +569,7 @@
 							</svg>
 						</button>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -648,12 +655,13 @@
 						<input type="checkbox" id="ox1">
 						<label for="ox1"></label>
 					</span>
+
 					<!-- 라벨 텍스트 있는 경우 -->
 					<span class="ox">
 						<input type="checkbox" id="ox5">
 						<label for="ox5">텍스트</label>
 					</span>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 
 				<div class="guide-view">
@@ -703,7 +711,7 @@
 							<label for="ox-check1-2">그룹2</label>
 						</span>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -789,12 +797,13 @@
 						<input type="radio" name="radio1" id="ox-radio-1" />
 						<label for="ox-radio-1"></label>
 					</span>
+
 					<!-- 라벨 텍스트 있는 경우 -->
 					<span class="ox">
 						<input type="radio" name="radio2" id="ox-radio-5" />
 						<label for="ox-radio-5">텍스트</label>
 					</span>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 
 				<div class="guide-view">
@@ -849,7 +858,7 @@
 							<label for="ox-radio-10">그룹2</label>
 						</span>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -962,17 +971,19 @@
 						<input type="checkbox" id="switcher1-1">
 						<label for="switcher1-1"></label>
 					</span>
+
 					<!-- 텍스트 라벨 있는 경우 -->
 					<span class="switcher">
 						<input type="checkbox" id="switcher2-1">
 						<label for="switcher2-1">텍스트</label>
 					</span>
+
 					<!-- reverse : 텍스트 라벨 있는 경우 -->
 					<span class="switcher reverse">
 						<input type="checkbox" id="switcher3-1">
 						<label for="switcher3-1">텍스트</label>
 					</span>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -1005,7 +1016,7 @@
 						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
 						<option value="three">옵션값 Third</option>
 					</select>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 
 				<div class="guide-view">
@@ -1023,7 +1034,7 @@
 						<option value="two" disabled="disabled">옵션값 Second (disabled)</option>
 						<option value="three">옵션값 Third</option>
 					</select>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -1162,7 +1173,7 @@
 							</ul>
 						</div>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 
 				<div class="guide-view">
@@ -1232,7 +1243,7 @@
 							</ul>
 						</div>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 
 				<div class="guide-view">
@@ -1302,7 +1313,7 @@
 							</ul>
 						</div>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -1362,7 +1373,7 @@
 							<input type="text" title="장소명 입력란" name="" id="place-name" placeholder="장소명을 입력해주세요." />
 						</fieldset>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 
 				<h3>fieldset</h3>
@@ -1454,7 +1465,7 @@
 							</div>
 						</div>
 					</div>
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -1535,7 +1546,7 @@
 						</button>
 					</div>
 					<!-- //pagination -->
-				</pre>
+                </pre>
 				<!-- //source pre -->
 			</section>
 
@@ -1554,7 +1565,7 @@
 									지도 마커<br />
 									(아이콘 : 52*52 / 원본 : 104*104)<br /><br />
 									※ 예외 : MY 지도, 다른 선생님 지도<br />
-									(아이콘 : 40*67 / 원본 : 80*134)
+									(아이콘 : 40*66 / 원본 : 80*134)
 								</th>
 								<td>
 									<img src="/assets/images/map/marker/icon-marker1.png" alt="산" width="52px" height="52px" />
@@ -1581,8 +1592,9 @@
 									<img src="/assets/images/map/marker/icon-marker22.png" alt="문화재" width="52px" height="52px" />
 									<img src="/assets/images/map/marker/icon-marker23.png" alt="유적지" width="52px" height="52px" />
 									<img src="/assets/images/map/marker/icon-marker24.png" alt="VR" width="52px" height="52px" />
-									<img src="/assets/images/map/marker/icon-marker25.png" alt="MY 지도" width="40px" height="67px" />
-									<img src="/assets/images/map/marker/icon-marker26.png" alt="다른 선생님 지도" width="40px" height="67px" />
+									<img src="/assets/images/map/marker/icon-marker25.png" alt="MY 지도" width="40px" height="66px" />
+									<img src="/assets/images/map/marker/icon-marker25-motion.gif" alt="MY 지도" width="40px" height="66px" />
+									<img src="/assets/images/map/marker/icon-marker26.png" alt="다른 선생님 지도" width="40px" height="66px" />
 									<img src="/assets/images/map/marker/icon-marker27.png" alt="장소명" width="52px" height="52px" />
 
 									<!-- source pre -->
@@ -1611,17 +1623,20 @@
 										<img src="/assets/images/map/marker/icon-marker22.png" alt="문화재" width="52px" height="52px" />
 										<img src="/assets/images/map/marker/icon-marker23.png" alt="유적지" width="52px" height="52px" />
 										<img src="/assets/images/map/marker/icon-marker24.png" alt="VR" width="52px" height="52px" />
-										<img src="/assets/images/map/marker/icon-marker25.png" alt="MY 지도" width="40px" height="67px" />
-										<img src="/assets/images/map/marker/icon-marker26.png" alt="다른 선생님 지도" width="40px" height="67px" />
+										<img src="/assets/images/map/marker/icon-marker25.png" alt="MY 지도" width="40px" height="66px" />
+										<img src="/assets/images/map/marker/icon-marker25-motion.gif" alt="MY 지도" width="40px" height="66px" />
+										<img src="/assets/images/map/marker/icon-marker26.png" alt="다른 선생님 지도" width="40px" height="66px" />
 										<img src="/assets/images/map/marker/icon-marker27.png" alt="장소명" width="52px" height="52px" />
-									</pre>
+                                    </pre>
 									<!-- //source pre -->
 								</td>
 							</tr>
 							<tr>
 								<th>
 									지도 마커 Hover<br />
-									(아이콘 : 60*70 / 원본 : 120*140)
+									(아이콘 : 60*70 / 원본 : 120*140)<br /><br />
+									※ 예외 : MY 지도, 다른 선생님 지도<br />
+									(아이콘 : 48*80 / 원본 : 96*160)
 								</th>
 								<td>
 									<img src="/assets/images/map/marker/icon-marker1-hover.png" alt="산" width="60px" height="70px" />
@@ -1648,8 +1663,8 @@
 									<img src="/assets/images/map/marker/icon-marker22-hover.png" alt="문화재" width="60px" height="70px" />
 									<img src="/assets/images/map/marker/icon-marker23-hover.png" alt="유적지" width="60px" height="70px" />
 									<img src="/assets/images/map/marker/icon-marker24-hover.png" alt="VR" width="60px" height="70px" />
-									<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="MY 지도" width="40px" height="67px" />
-									<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="다른 선생님 지도" width="40px" height="67px" />
+									<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="MY 지도" width="48px" height="80px" />
+									<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="다른 선생님 지도" width="48px" height="80px" />
 									<img src="/assets/images/map/marker/icon-marker27-hover.png" alt="장소명" width="60px" height="70px" />
 
 									<!-- source pre -->
@@ -1678,10 +1693,10 @@
 										<img src="/assets/images/map/marker/icon-marker22-hover.png" alt="문화재" width="60px" height="70px" />
 										<img src="/assets/images/map/marker/icon-marker23-hover.png" alt="유적지" width="60px" height="70px" />
 										<img src="/assets/images/map/marker/icon-marker24-hover.png" alt="VR" width="60px" height="70px" />
-										<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="MY 지도" width="40px" height="67px" />
-										<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="다른 선생님 지도" width="40px" height="67px" />
+										<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="MY 지도" width="48px" height="80px" />
+										<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="다른 선생님 지도" width="48px" height="80px" />
 										<img src="/assets/images/map/marker/icon-marker27-hover.png" alt="장소명" width="60px" height="70px" />
-									</pre>
+                                    </pre>
 									<!-- //source pre -->
 								</td>
 							</tr>
@@ -1695,7 +1710,7 @@
 									<!-- source pre -->
 									<pre class="brush:html">
 										<div class="marker-cluster">2</div>
-									</pre>
+                                    </pre>
 									<!-- //source pre -->
 								</td>
 							</tr>
@@ -1764,7 +1779,39 @@
 										<img src="/assets/images/map/marker/icon-sm-marker24-2.png" alt="중/고" width="24px" height="24px" />
 										<img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도" width="24px" height="24px" />
 										<img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도" width="24px" height="24px" />
-									</pre>
+                                    </pre>
+									<!-- //source pre -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="guide-view">
+					<h3>SNS list</h3>
+					
+					<table class="guide-table">
+						<colgroup>
+							<col style="width: 20%;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>SNS list</th>
+								<td>
+									<img src="/assets/images/map/icon-sns-x.svg" alt="엑스 아이콘">
+									<img src="/assets/images/map/icon-sns-facebook.svg" alt="페이스북 아이콘">
+									<img src="/assets/images/map/icon-sns-kakao.svg" alt="카카오톡 아이콘">
+									<img src="/assets/images/map/icon-sns-blog.svg" alt="블로그 아이콘">
+									<img src="/assets/images/map/icon-sns-band.svg" alt="밴드 아이콘">
+
+									<!-- source pre -->
+									<pre class="brush:html">
+										<img src="/assets/images/map/icon-sns-x.svg" alt="엑스 아이콘">
+										<img src="/assets/images/map/icon-sns-facebook.svg" alt="페이스북 아이콘">
+										<img src="/assets/images/map/icon-sns-kakao.svg" alt="카카오톡 아이콘">
+										<img src="/assets/images/map/icon-sns-blog.svg" alt="블로그 아이콘">
+										<img src="/assets/images/map/icon-sns-band.svg" alt="밴드 아이콘">
+                                    </pre>
 									<!-- //source pre -->
 								</td>
 							</tr>
@@ -1951,16 +1998,96 @@
 									<button class="icon-button">
 										<svg>
 											<title>더보기</title>
-											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
 										</svg>
 									</button>
 								</td>
-								<th>#icon-search</th>
+								<th>#icon-arrow-top</th>
 								<td>
 									<button class="icon-button">
 										<svg>
-											<title>검색</title>
-											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+											<title>위로 이동</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-top"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-del</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>삭제</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-del"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-modify</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>수정</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-modify"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-list</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>목록</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-list"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-caret-down</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>아이콘 화살표</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-caret-down"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-chevron-double-left</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>첫페이지</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-left"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-chevron-left</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>이전</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-chevron-right</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>다음페이지</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-chevron-double-right</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>마지막페이지</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-right"></use>
 										</svg>
 									</button>
 								</td>

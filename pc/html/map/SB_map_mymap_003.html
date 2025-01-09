@@ -44,8 +44,9 @@
 				<h3>MY 지도 등록</h3>
 			</div>
 			<div class="body">
-				<form action="">
+				<form action="" class="form my-map-form">
 					<div class="essential-comment">필수 입력</div>
+
 					<div class="table-type1 type-view">
 						<table>
 							<caption>MY 지도 등록 폼 테이블</caption>
@@ -98,14 +99,6 @@
 											</span>
 										</div>
 
-										<!-- 링크자료 선택 시 노출 -->
-										<div class="data-reg">
-											<fieldset>
-												<input type="text" title="url 입력란" name="url-link" id="url-link" placeholder="url을 입력해주세요." />
-											</fieldset>
-										</div>
-										<!-- //링크자료 선택 시 노출 -->
-
 										<!-- 파일자료 선택 시 노출 -->
 										<div class="data-reg">
 											<fieldset>
@@ -131,6 +124,14 @@
 											</ul>
 										</div>
 										<!-- //파일자료 선택 시 노출 -->
+
+										<!-- 링크자료 선택 시 노출 -->
+										<div class="data-reg">
+											<fieldset>
+												<input type="text" title="url 입력란" name="url-link" id="url-link" placeholder="url을 입력해주세요." />
+											</fieldset>
+										</div>
+										<!-- //링크자료 선택 시 노출 -->
 
 										<!-- My Class 자료 선택 시 노출 -->
 										<div class="data-reg">
@@ -173,50 +174,83 @@
 										</div>
 									</td>
 								</tr>
-								<tr>
-									<th>테마 선택</th>
-									<td>
-										<fieldset>
-											<input type="text" title="테마 입력란" name="nation" id="nation" placeholder="테마를 선택해주세요." />
-											<button type="button" class="button size-lg type-secondary"><span>저장</span></button>
-										</fieldset>
-									</td>
-								</tr>
-								<tr>
-									<th>교과서 선택</th>
-									<td>
-										<fieldset>
-											<div class="input-inner-extra readonly">
-												<input type="text" title="교과 선택" name="textbook-info" id="textbook-info" readonly />
-												<button type="button" class="button-delete">
-													<svg>
-														<title>삭제</title>
-														<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
-													</svg>
-												</button>
-											</div>
-
-											<!-- D: 클릭 시 교과 선택 팝업 노출 -->
-											<button type="button" class="button size-lg type-secondary" target-obj="popup-textbook-select">
-												<span>교과 선택</span>
-											</button>
-										</fieldset>
-									</td>
-								</tr>
-								
 							</tbody>
 						</table>
 					</div>
 
+					<!-- 부가 항목 등록 -->
+					<div class="accordion">
+						<ul class="accd-items">
+							<!-- D: .action 아코디언 클릭영역, .pane이 펼쳐지는 영역 -->
+							<li>
+								<a href="#" class="accd-depth action">
+									<div class="depth-wrap">
+										<strong class="title">부가 항목 등록</strong>
+									</div>
+								</a>
+
+								<div class="pane">
+
+									<div class="table-type1 type-view">
+										<table>
+											<caption>MY 지도 등록 추가입력 폼 테이블</caption>
+											<colgroup>
+												<col width="136px">
+												<col width="*">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>테마 선택</th>
+													<td>
+														<fieldset>
+															<select name="themeCd" id="themeCd" class="size-lg">
+																<option value="">테마를 선택해주세요.</option>
+																<option value="theme1">박물관</option>
+															</select>
+															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="테마를 추가해주세요." />
+															<button type="button" class="button size-lg type-secondary"><span>테마 추가</span></button>
+														</fieldset>
+													</td>
+												</tr>
+												<tr>
+													<th>교과서 선택</th>
+													<td>
+														<fieldset>
+															<div class="input-inner-extra readonly">
+																<input type="text" title="교과 선택" name="textbook-info" id="textbook-info" readonly />
+																<button type="button" class="button-delete">
+																	<svg>
+																		<title>삭제</title>
+																		<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+																	</svg>
+																</button>
+															</div>
+				
+															<!-- D: 교과 선택 클릭 시 교과 선택 팝업 노출 -->
+															<button type="button" class="button size-lg type-secondary" onclick="openPopup({id: 'popup-textbook-select'})">
+																<span>교과 선택</span>
+															</button>
+														</fieldset>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- //부가 항목 등록 -->
+
 					<!-- 저작권 및 활용 동의 -->
-					<!-- D: 공유여부에서 나만 보기 선택 시 저작권 및 활용 동의 미노출 -->
-					<div class="agree-box">
+					<!-- D: 공유여부의 학교 공개, 전체 공개 선택 시 노출 -->
+					<div class="box-info">
 						<span class="ox">
 							<input type="checkbox" id="agree1" />
 							<label for="agree1"><span class="required">저작권 및 활용 동의</span></label>
 						</span>
-						<p>본 자료에 사용된 폰트, 이미지, 영상 등의 모든 콘텐츠는 저작권법에 위배되지 않으며, 저작권 침해가 확인될 경우 별도 안내 없이 자료가 삭제될 수 있습니다. <br />
-						학교 공개 및 전체 공개로 업로드한 자료는 엠티처 사이트 내 자유롭게 활용될 수 있음에 동의합니다.</p>
+						<p>본 자료에 사용된 폰트, 이미지, 영상 등의 모든 콘텐츠는 저작권법에 위배되지 않으며, 저작권 침해가 확인될 경우 별도 안내 없이 자료가 삭제될 수 있습니다. 학교 공개 및 전체 공개로 업로드한 자료는 엠티처 사이트 내 자유롭게 활용될 수 있음에 동의합니다.</p>
 					</div>
 					<!-- //저작권 및 활용 동의 -->
 				</form>
@@ -228,7 +262,6 @@
 		</div>
 	</div>
 	<!-- //popup : MY 지도 등록 -->
-
 
 	<!-- popup : 교과 선택 -->
 	<div class="popup" id="popup-textbook-select">

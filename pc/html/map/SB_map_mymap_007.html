@@ -56,7 +56,7 @@
 						</button>
 						<button type="button" class="button size-md"><!-- D: 비활성화 시 disabled 추가 -->
 							<svg>
-								<title>삭제</title>
+								<title>수정</title>
 								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-modify"></use>
 							</svg>
 							<span>수정</span>
@@ -90,7 +90,7 @@
 								<th scope="col" class="sort-desc">No.</th>
 								<th scope="col" class="sort-desc">지도 유형</th>
 								<th scope="col" class="sort-desc">장소명</th>
-								<th scope="col" class="sort-asc">위치</th>
+								<th scope="col" class="sort-desc">위치</th>
 								<th scope="col" class="sort-desc">공유 여부</th>
 								<th scope="col" class="sort-desc">테마</th>
 							</tr>
@@ -109,41 +109,6 @@
 					</table>
 				</div>
 
-				<!-- pagination -->
-				<!-- D: 등록된 자료가 없는 경우 미노출 -->
-				<div class="pagination">
-					<!-- D: 이전 리스트 없는 경우 disabled 추가필요 -->
-					<button class="icon-button icon-first" disabled="">
-						<svg>
-							<title>첫페이지</title>
-							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-left"></use>
-						</svg>
-					</button>
-					<button class="icon-button icon-prev" disabled="">
-						<svg>
-							<title>이전페이지</title>
-							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
-						</svg>
-					</button>
-					<button class="current">1</button><!-- D: 선택된 버튼에 .current 클래스 추가 사용 -->
-					<button>2</button>
-					<button>3</button>
-					<button>4</button>
-					<button>5</button>
-					<button class="icon-button icon-next">
-						<svg>
-							<title>다음페이지</title>
-							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
-						</svg>
-					</button>
-					<button class="icon-button icon-last">
-						<svg>
-							<title>마지막페이지</title>
-							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-double-right"></use>
-						</svg>
-					</button>
-				</div>
-				<!-- //pagination -->
 			</div>
 		</div>
 	</div>
