@@ -76,10 +76,16 @@
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">지역</strong>
+																<!-- 현재 위치 추가 - D: 학교가 등록 안된 경우 미래엔 주소 위치로 노출 -->
+																<div class="aside">
+																	<span class="my-location">경상남도 창원시 마산합포구</span>
+																</div>
+																<!-- //현재 위치 추가 -->
 															</div>
 															<div class="forms">
 																<fieldset>
 																	<select name="srchCitesCd" id="srchCitesCd" class="size-lg">
+																		<option value="">시/도</option>
 																		<option value="11">서울특별시</option>
 																		<option value="26">부산광역시</option>
 																		<option value="27">대구광역시</option>
@@ -89,6 +95,7 @@
 																		<option value="31">울산광역시</option>
 																	</select>
 																	<select name="srchCitesCd" id="srchCityCntyDst" class="size-lg">
+																		<option value="">시/군/구</option>
 																		<option value="680">강남구</option>
 																		<option value="740">강동구</option>
 																		<option value="305">강북구</option>
@@ -96,6 +103,7 @@
 																</fieldset>
 															</div>
 														</div>
+
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">장소유형</strong>
@@ -203,6 +211,18 @@
 													<div class="result-box">
 														<div class="inner">
 															<ul class="result-list">
+																<!-- D: 현재 위치 추가 -->
+																<li>
+																	<strong class="tit">현재 위치 :</strong>
+																	<div class="items">
+																		<div class="item">
+																			<span class="dep1">경상남도</span>
+																			<span class="dep2">창원시 마산합포구</span>
+																		</div>
+																	</div>
+																</li>
+																<!-- //D: 현재 위치 추가 -->
+
 																<li>
 																	<strong class="tit">지역 :</strong>
 																	<div class="items">
@@ -322,7 +342,7 @@
 																			<div class="place-item">
 																				<div class="item">
 																					<a href="#" class="name-info">
-																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker22.png" alt="문화재" /></span>
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker20.png" alt="문화재" /></span>
 																						<strong class="title">경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁</strong>
 																					</a>
 																					<button type="button" class="button type-icon size-xs">
@@ -347,7 +367,7 @@
 																						<li>
 																							<a href="#">
 																								<!-- D: MY 지도인 경우 해당 영역 추가 -->
-																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도"></span>
+																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도"></span>
 																								<!-- //D: MY 지도인 경우 해당 영역 추가 -->
 																								<span class="text">[선생님의 자료] 경복궁</span>
 																							</a>
@@ -355,7 +375,7 @@
 																						<li>
 																							<a href="#">
 																								<!-- D: 다른 선생님 지도인 경우 해당 영역 추가 -->
-																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도"></span>
+																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
 																								<!-- //D: 다른 선생님 지도인 경우 해당 영역 추가 -->
 																								<span class="text">[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴</span>
 																							</a>
@@ -424,7 +444,7 @@
 																			<div class="place-item">
 																				<div class="item">
 																					<a href="#" class="name-info">
-																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도" /></span>
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도" /></span>
 																						<strong class="title">독산역</strong>
 																					</a>
 																					<button type="button" class="button type-icon size-xs">
@@ -440,7 +460,7 @@
 																			<div class="place-item">
 																				<div class="item">
 																					<a href="#" class="name-info">
-																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도"></span>
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
 																						<strong class="title">독산역</strong>
 																					</a>
 																					<button type="button" class="button type-icon size-xs">
@@ -861,7 +881,15 @@
 				<div class="dmap-area">
 					<div class="map-api" id="map" style="background: url(/assets/images/map/@map.png) no-repeat center center / cover"><!-- 지도 넣는 곳 : id="map" (이 안에 지도 관련 API 삽입. style부분은 확인용으로 지도 이미지 넣은 것으로 실 개발 시 넣지 마세요!) -->
 
+
 					</div>
+
+					<!-- 개발 : 거리뷰 팝업 관련 (API) -->
+					<div id="panoramaPreviewerPopup">
+						<div id="pano" style="width:300px;height:200px;"></div>
+					</div>
+					<!-- //개발 : 거리뷰 팝업 관련 (API) -->
+	
 				</div>
 			</div>
 			<!-- //지도 영역 -->
@@ -914,7 +942,7 @@
 												<dl class="dl-exp01">
 													<dt>MY 지도 목록</dt>
 													<dd>
-														<p class="sub-txt">선생님이 등록하신 자료의 목록을 확인할 수 있습니다.</p>
+														<p class="sub-txt">선생님이 등록하신 자료를 확인할 수 있습니다.</p>
 													</dd>
 												</dl>
 											</div>
@@ -924,7 +952,7 @@
 									<div class="body">
 										<div class="my-map-setting">
 											<div class="buttons type-vertical">
-												<button type="button" class="button size-lg type-primary">
+												<button type="button" class="button size-lg type-primary" id="regMap">
 													<svg>
 														<title>등록</title>
 														<use xlink:href="/assets/images/map/sprite-icon.svg#icon-modify"></use>
@@ -942,7 +970,7 @@
 											<div class="teacher-map">
 												<div class="teacher-map-inner">
 													<div class="left-box">
-														다른 선생님 지도
+														다른 선생님 지도 자료
 
 														<!-- 툴팁 안내 버튼 -->
 														<button type="button" class="tooltip-trigger" data-trigger="click" data-placement="auto-bottom" data-width="258" data-container="#layer-my-map .layer-container" data-closeable>
@@ -972,6 +1000,80 @@
 								</div>
 							</div>
 							<!-- //layer : MY 지도 관리 -->
+						</li>
+					</ul>
+
+					<ul class="map-control">
+						<li>
+							<button type="button" class="btn-ai-class">
+								<svg>
+									<title>AI클래스공유</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-ai-class"></use>
+								</svg>
+								<span>AI클래스 공유</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-sns-share" method-type="toggle" target-obj="layer-sns-share">
+								<svg>
+									<title>SNS 공유</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-sns-share"></use>
+								</svg>
+								<span>SNS 공유</span>
+							</button>
+							<!-- layer : SNS 공유 -->
+							<div class="layer-wrap" id="layer-sns-share" no-dimd>
+								<div class="layer-container">
+									<button class="icon-button close-button" close-obj>
+										<svg>
+											<title>닫기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-close-md"></use>
+										</svg>
+									</button>
+									<div class="header">
+										<strong class="title">SNS 공유</strong>
+									</div>
+									<div class="body">
+										<div class="sns-share">
+											<div class="sns-list">
+												<a href="#" class="sns-x" title="X">
+													<img src="/assets/images/map/icon-sns-x.svg" alt="엑스 아이콘">
+												</a>
+												<a href="#" class="sns-facebook" title="페이스북">
+													<img src="/assets/images/map/icon-sns-facebook.svg" alt="페이스북 아이콘">
+												</a>
+												<a href="#" class="sns-kakao" title="카카오톡">
+													<img src="/assets/images/map/icon-sns-kakao.svg" alt="카카오톡 아이콘">
+												</a>
+												<a href="#" class="sns-blog" title="블로그">
+													<img src="/assets/images/map/icon-sns-blog.svg" alt="블로그 아이콘">
+												</a>
+												<a href="#" class="sns-band" title="밴드">
+													<img src="/assets/images/map/icon-sns-band.svg" alt="밴드 아이콘">
+												</a>
+											</div>
+	
+											<div class="forms margin-top-md">
+												<fieldset>
+													<input type="text" id="" class="size-md" title="복사하기 URL" readonly value="https://mteacher.dooray.com/task/3559561921307754051?">
+													<button type="button" class="button size-md type-primary"><span>URL 복사</span></button>
+												</fieldset>
+											</div>
+	
+											<div class="share-period">
+												<fieldset>
+													SNS 공유기간
+													<input type="text" id="" class="size-md" title="기간 입력란" value="1">
+													일 (최대 7일)
+												</fieldset>
+											</div>
+	
+											<p class="txt-exp01">설정하신 공유 기간 동안 자료를 확인할 수 있으며, 공유 기간이 지나면 이용이 종료됩니다.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- //layer : SNS 공유 -->
 						</li>
 					</ul>
 
@@ -1013,7 +1115,7 @@
 							</button>
 						</li>
 						<li>
-							<button type="button" class="btn-distance">
+							<button type="button" class="btn-distance" id="distance">
 								<svg>
 									<title>거리 재기</title>
 									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-distance"></use>
@@ -1022,7 +1124,7 @@
 							</button>
 						</li>
 						<li>
-							<button type="button" class="btn-panorama">
+							<button type="button" class="btn-panorama control-on" id="street">
 								<svg>
 									<title>거리뷰</title>
 									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-panorama"></use>
@@ -1051,7 +1153,7 @@
 					<button type="button" class="btn-zoom-in"><span class="blind">확대</span></button>
 					
 					<div class="zoom-range">
-						<input type="range" class="range" min="0" max="100" value="77" step="0.1" />
+						<input type="range" class="range" min="0" max="100" value="77" step="1" />
 					</div>
 					<button type="button" class="btn-zoom-out"><span class="blind">축소</span></button>
 				</div>

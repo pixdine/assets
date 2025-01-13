@@ -30,6 +30,9 @@
 .guide-table th {background-color: #fafafa; font-weight: 600;}
 .guide-table thead + tbody td {text-align: center;}
 
+.guide-icon-wrap {display: flex; flex-wrap: wrap; gap: 10px;}
+.guide-icon-wrap ~ .guide-icon-wrap {margin-top: 10px;}
+
 .guide-btn-area {text-align: right;}
 .guide-btn-area .btn {display: inline-flex; position: relative; padding: 5px 10px; border-radius: 4px; border: 1px solid #202020; font-size: 12px; color: #202020;}
 .ia .guide-header {min-width: 1320px;}
@@ -44,7 +47,7 @@
 .ia .guide-table .sm {margin-top: 10px; font-size: 13px; font-weight: 600; color: #444;}
 .ia .guide-table .sm strong {color: #96adeb;}
 .ia .guide-table .desc {text-align: left; font-size: 12px;}
-.ia .guide-table .desc .txt-em {color: #00f;}
+.ia .guide-table .desc .txt-em {color: #f00;}
 .ia .guide-btn-area ~ .guide-table {margin-top: 16px;}
 
 @media (max-width:768px){

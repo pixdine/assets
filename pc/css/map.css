@@ -142,6 +142,7 @@ select.size-lg+.select2-container .select2-selection--single .select2-selection_
 .button.type-icon.size-xs {min-width: 24px; min-height: 24px;}
 .button.type-icon.size-xs svg {width: 16px; height: 16px;}
 .button.type-gray {border-color: #F1F1F5; color: #5A5C63;}
+.button.type-primary.active {background-color: var(--button-primary-hover); border-color: var(--button-primary-hover); color: #fff;}
 .button.type-primary:disabled, .button.type-primary.disabled,
 .button.type-secondary:disabled, .button.type-secondary.disabled,
 .button:disabled.type-gray, .button.disabled.type-gray {opacity: 1; background-color: #F1F1F5; border-color: #F1F1F5; color: #C5C8CE;}
@@ -305,7 +306,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .result-box .result-list li ~ li .dep2 {cursor: pointer;}
 
 .search-btn-area .btn-action {z-index: 1; display: flex; align-items: center; justify-content: center; gap: 4px; position: relative; width: 100%; height: 36px; background:#fff; border-bottom: 4px solid #F1F1F5; font-size: 13px; font-weight: 400; text-align: center; color: #5A5C63;}
-.search-btn-area .btn-action::after {content: ""; display: inline-block; width: 20px; height: 20px; background: url("/assets/images/map/icon-caret-down.svg") no-repeat center; transition: transform 0.5s;}
+.search-btn-area .btn-action::after {content: ""; display: inline-block; width: 20px; height: 20px; background: url("/assets/images/map/icon-caret-down.svg") no-repeat center;}
 .search-btn-area .btn-action.active::after {transform: rotate(-180deg);}
 
 .search-result-wrap {display: flex; flex-direction: column; flex: 1; overflow-y: hidden; position: relative; background-color: #fff;}
@@ -331,11 +332,17 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .search-list > li::before {content: ""; display: block; width: calc(100% - 48px); height: 1px; margin: -1px auto 0; background-color: #DBDBE4;}
 .search-list > li:first-child::before {display: none;}
 .search-list > li [class ^="place-item"] {padding: 16px 24px;}
+
+.search-vr-list > li::before {content: ""; display: block; width: calc(100% - 48px); height: 1px; margin: -1px auto 0; background-color: #DBDBE4;}
+.search-vr-list > li:first-child::before {display: none;}
+.search-vr-list > li [class ^="place-item"] {padding: 16px 24px;}
+.search-vr-list > li [class ^="place-item"] .item-list {padding-left: 0;}
+
 [class ^="place-item"] .item {display: flex; justify-content: space-between; gap: 8px}
 [class ^="place-item"] .item [class ^="name-info"] {display: flex; flex: 1; min-width: 0;}
 [class ^="place-item"] .item [class ^="name-info"] .icon {flex-shrink: 0; width: 24px; height: 24px; margin-right: 6px;}
 [class ^="place-item"] .item [class ^="name-info"] .title {align-self: center; display: block; width: 100%; min-width: 0; font-size: 16px; font-weight: 600; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
-[class ^="place-item"] .item [class ^="name-info"] .google {display: inline-flex; align-items: center; position: relative; font-size: 13px; font-weight: 400; color: #5A5C63;}
+[class ^="place-item"] .item [class ^="name-info"] .google {display: inline-flex; align-items: center; position: relative; margin-left: 8px; font-size: 13px; font-weight: 400; color: #5A5C63;}
 [class ^="place-item"] .item [class ^="name-info"] .google::after {content: ""; display: inline-block; width: 12px; height: 12px; background: url("/assets/images/map/icon-arrow-right-sm.svg") no-repeat center;}
 [class ^="place-item"] .item .item-info {display: flex; gap: 8px; width: 100%;}
 [class ^="place-item"] .item .item-info .thumb {display: block; position: relative; overflow: hidden; width: 62px; height: 46px; border-radius: 4px; border: 1px solid #F1F1F5;}
@@ -344,8 +351,6 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 [class ^="place-item"] .item .item-info .title {display: block; font-size: 16px; font-weight: 600; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 [class ^="place-item"] .item .item-info .text {display: block; font-size: 14px; font-weight: 400; line-height: 20px; color: #5A5C63; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 [class ^="place-item"] .item .item-info .title ~ .text {margin-top: 2px;}
-.search-list.type-vr [class ^="place-item"] .item-list {padding: 0;}
-
 [class ^="place-item"] .item .button {align-self: flex-start; border: 0;}
 /* .place-item .item .button:hover {background-color: transparent;}
 .place-item .item .button.size-xs svg {width: 16px; height: 16px; color: #5A5C63;} */
@@ -399,6 +404,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .dmap-area {z-index: 0; position: relative; height: 100%;}
 .map-api {position: relative; overflow: hidden; width: 100%; height: 100%; user-select: none;}
 .map-api img {vertical-align: top;}
+/* MY 지도 등록 시 지도 영역 커서 변경 */
 #map.active, #map.active * {cursor: url("/assets/images/map/cursor.svg") 2 2, auto;}
 
 /* 우측 사이드 메뉴 */
@@ -412,9 +418,9 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .map-control.my-map > li > .btn-my-map:hover svg,
 .map-control.my-map > li > .btn-my-map.active svg {color: #fff;}
 .map-control {z-index: 1; position: relative; background-color: #fff; border-radius: 4px; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4); pointer-events: auto;}
-.map-control > li {position: relative; border-bottom: 1px solid #F1F1F5;}
-.map-control > li:last-child {border: 0;}
-.map-control > li > [class ^="btn-"] {display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; position: relative; width: 52px; min-height: 52px; padding: 7px; font-size: 10px; font-weight: 600; line-height: 14px; color: #5A5C63;}
+.map-control > li {position: relative;}
+.map-control > li:last-child > [class ^="btn-"] {border-bottom: 0;}
+.map-control > li > [class ^="btn-"] {display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; position: relative; width: 52px; min-height: 52px; padding: 8px 6px 7px 6px; font-size: 10px; font-weight: 600; line-height: 14px; color: #5A5C63; border-bottom: 1px solid #F1F1F5;}
 .map-control > li > [class ^="btn-"] svg {fill: rgba(0,0,0,0); color: #989BA2; width: 20px; height: 20px;}
 .map-control > li > [class ^="btn-"]:hover,
 .map-control > li > [class^="btn-"].active:not(.btn-my-map) {background-color: var(--color-primary-150); color: var(--color-primary);}
@@ -503,7 +509,11 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .marker-info-window .item-list li .icon {flex-shrink: 0; width: 24px; height: 24px; margin: 0 4px 0 0;}
 
 /* 클러스터 마커 */
-.marker-cluster {cursor:pointer; display:block; width:60px; height:70px; font-size:18px; font-weight: 600; line-height: 336%; color: #5177FF; text-align:center; background:url("/assets/images/map/marker/icon-marker-cluster.png"); background-size:cover; overflow: hidden;}
+.marker-cluster1 {cursor:pointer; display:block; width:60px; height:70px; font-size:20px; font-weight: 600; line-height: 290%; color: #fff; text-align:center; background:url("/assets/images/map/marker/cluster-marker-1.png"); background-size:cover; overflow: hidden;}
+.marker-cluster2 {cursor:pointer; display:block; width:60px; height:70px; font-size:16px; font-weight: 600; line-height: 380%; color: #fff; text-align:center; background:url("/assets/images/map/marker/cluster-marker-2.png"); background-size:cover; overflow: hidden;}
+.marker-cluster3 {cursor:pointer; display:block; width:60px; height:70px; font-size:16px; font-weight: 600; line-height: 380%; color: #fff; text-align:center; background:url("/assets/images/map/marker/cluster-marker-3.png"); background-size:cover; overflow: hidden;}
+.marker-cluster4 {cursor:pointer; display:block; width:60px; height:70px; font-size:12px; font-weight: 600; line-height: 500%; color: #fff; text-align:center; background:url("/assets/images/map/marker/cluster-marker-4.png"); background-size:cover; overflow: hidden;}
+.marker-cluster5 {cursor:pointer; display:block; width:60px; height:70px; font-size:12px; font-weight: 600; line-height: 500%; color: #fff; text-align:center; background:url("/assets/images/map/marker/cluster-marker-5.png"); background-size:cover; overflow: hidden;}
 
 /* .marker-info-window .arrow-area {position: absolute; top: 12px; left: -6px; z-index: -1; width: 17px; height: 15px; box-shadow: rgba(0, 0, 0,0.12) 2px 1px 5px 0; transform: rotateZ(408deg) skew(6deg);}
 .marker-info-window .arrow-area::before {content: ""; display: block; height: 100%; background-color: #fff;} */
@@ -686,11 +696,11 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .vr-map .map-image .marker .title {display: block; font-size: 12px; font-weight: 500; line-height: 18px;}
 .vr-map .map-image .marker .number {display: block; font-size: 18px; font-weight: 600; line-height: .95;}
 .vr-map .map-image .marker.all .title {font-size: 16px; line-height: 1;}
-.vr-map .map-image .marker.all .number {font-size: 24px; line-height: 1;}
+.vr-map .map-image .marker.all .number {font-size: 20px; line-height: 1;}
 .vr-map .map-image .marker:hover, .vr-map .map-image .marker:focus, .vr-map .map-image .marker.active {z-index: 1;}
 .vr-map .map-image .marker:hover button, .vr-map .map-image .marker:focus button, .vr-map .map-image .marker.active button {background-color: #DCEAFB; border-color: var(--color-primary);}
 .vr-map .map-image .marker:hover button .text-box, .vr-map .map-image .marker:focus button .text-box, .vr-map .map-image .marker.active button .text-box {color: var(--color-primary);}
-.vr-map .map-image .marker.all {right: 88px; top: -15px; width: 170px; height: 64px; border-radius: 100px;}/* 전국 */
+.vr-map .map-image .marker.all {right: 88px; top: -15px; width: 170px; height: 64px; border-radius: 100px; background-color: rgba(255, 255, 255, 0.2);}/* 전국 */
 .vr-map .map-image .marker.s1 {left: 16%; top: 14.5%;}/* 서울 */
 .vr-map .map-image .marker.s2 {left: 8.5%; top: 22.5%;}/* 인천 */
 .vr-map .map-image .marker.s3 {left: 26%; top: 20%;}/* 경기 */

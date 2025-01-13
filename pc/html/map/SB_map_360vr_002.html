@@ -76,10 +76,16 @@
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">지역</strong>
+																<!-- 현재 위치 추가 - D: 학교가 등록 안된 경우 미래엔 주소 위치로 노출 -->
+																<div class="aside">
+																	<span class="my-location">경상남도 창원시 마산합포구</span>
+																</div>
+																<!-- //현재 위치 추가 -->
 															</div>
 															<div class="forms">
 																<fieldset>
 																	<select name="srchCitesCd" id="srchCitesCd" class="size-lg">
+																		<option value="">시/도</option>
 																		<option value="11">서울특별시</option>
 																		<option value="26">부산광역시</option>
 																		<option value="27">대구광역시</option>
@@ -89,6 +95,7 @@
 																		<option value="31">울산광역시</option>
 																	</select>
 																	<select name="srchCitesCd" id="srchCityCntyDst" class="size-lg">
+																		<option value="">시/군/구</option>
 																		<option value="680">강남구</option>
 																		<option value="740">강동구</option>
 																		<option value="305">강북구</option>
@@ -96,6 +103,7 @@
 																</fieldset>
 															</div>
 														</div>
+
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">학교급</strong>
@@ -105,7 +113,7 @@
 																<fieldset>
 																	<select name="srchSubjectLevel" id="srchSubjectLevel" class="size-lg">
 																		<option value="">전체</option>
-																		<option value="srchSubjectLevel1">초등</option>
+																		<option value="srchSubjectLevel1" selected>초등</option>
 																		<option value="srchSubjectLevel2">중/고등</option>
 																	</select>
 																</fieldset>
@@ -117,6 +125,18 @@
 													<div class="result-box">
 														<div class="inner">
 															<ul class="result-list">
+																<!-- D: 현재 위치 추가 -->
+																<li>
+																	<strong class="tit">현재 위치 :</strong>
+																	<div class="items">
+																		<div class="item">
+																			<span class="dep1">경상남도</span>
+																			<span class="dep2">창원시 마산합포구</span>
+																		</div>
+																	</div>
+																</li>
+																<!-- //D: 현재 위치 추가 -->
+
 																<li>
 																	<strong class="tit">지역 :</strong>
 																	<div class="items">
@@ -157,7 +177,7 @@
 															<div class="result-inner">
 																<div class="sort">
 																	<div class="sort-inner">
-																		<span class="total">360˚ VR 리스트 <strong>(15)</strong></span>
+																		<span class="total">360˚ VR 리스트 <strong>(17)</strong></span>
 																	</div>
 																</div>
 			
@@ -169,7 +189,7 @@
 		
 																<div class="search-list-box">
 																	<!-- 리스트 -->
-																	<ul class="search-list type-vr"><!-- D: VR 리스트인 경우 .type-vr 추가 -->
+																	<ul class="search-vr-list">
 																		<li>
 																			<div class="place-item">
 																				<div class="item">
@@ -389,7 +409,7 @@
 												<div class="search-result-wrap">
 													<!-- 최초 진입 시 노출 -->
 													<div class="nodata-box" style="display: none"><!-- D: style="display: none" 삭제 후 확인 가능 -->
-														<p>함께 공부할 자료/장소를 <br />지도에서 검색해보세요.</p>
+														<p>함께 공부할 자료를 <br />지도에서 검색해 보세요.</p>
 													</div>
 													<!-- //최초 진입 시 노출 -->
 													 
@@ -410,7 +430,7 @@
 	
 																<div class="search-list-box">
 																	<!-- 리스트 -->
-																	<ul class="search-list type-vr"><!-- D: VR 리스트인 경우 .type-vr 추가 -->
+																	<ul class="search-vr-list">
 																		<li>
 																			<div class="place-item">
 																				<div class="item">
@@ -588,6 +608,7 @@
 														</a>
 														<!-- //top버튼 -->
 													</div>
+
 												</div>
 												<!-- //검색리스트영역 -->
 											</div>
@@ -614,7 +635,7 @@
 
 						<div style="position: absolute; left: 510px; top: 400px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
 							<!-- 마커이미지 -->
-							<img src="/assets/images/map/marker/icon-marker24.png" alt="VR" width="52px" height="52px" />
+							<img src="/assets/images/map/marker/icon-marker25.png" alt="VR" width="52px" height="52px" />
 							<!-- //마커이미지 -->
 						</div>
 						<div style="position: absolute; left: 536px; top: 425px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
@@ -627,7 +648,7 @@
 
 						<div style="position: absolute; left: 606px; top: 381px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
 							<!-- 마커이미지 -->
-							<img src="/assets/images/map/marker/icon-marker24-hover.png" alt="VR" width="60px" height="70px" />
+							<img src="/assets/images/map/marker/icon-marker25-hover.png" alt="VR" width="60px" height="70px" />
 							<!-- //마커이미지 -->
 						</div>
 						<div style="position: absolute; left:636px; top: 425px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
@@ -647,23 +668,23 @@
 											<li>
 												<a href="#">
 													<!-- D: 초등인 경우 해당 영역 추가 -->
-													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker24-1.png" alt="초등"></span>
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25-1.png" alt="초등"></span>
 													<!-- //D: 초등인 경우 해당 영역 추가 -->
-													<span class="text">[선생님의 자료] 경복궁</span>
+													<span class="text">경복궁 산책</span>
 												</a>
 											</li>
 											<li>
 												<a href="#">
-													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker24-1.png" alt="초등"></span>
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25-1.png" alt="초등"></span>
 													<span class="text">경복궁의 근정정</span>
 												</a>
 											</li>
 											<li>
 												<a href="#">
 													<!-- D: 중/고등인 경우 해당 영역 추가 -->
-													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker24-2.png" alt="중/고등"></span>
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25-2.png" alt="중/고등"></span>
 													<!-- //D: 중/고등인 경우 해당 영역 추가 -->
-													<span class="text">경복궁의 지형 경복궁의 지형 경복궁의 지형경복궁의 지형경복궁의 지형경복궁의 지형경복궁의 지형경복궁의 지형</span>
+													<span class="text">경복궁의 지형 경복궁의 지형 경복궁의 지형 경복궁의 지형 경복궁의 지형 경복궁의 지형 경복궁의 지형</span>
 												</a>
 											</li>
 										</ul>
@@ -674,8 +695,7 @@
 							<!-- //마커정보창 -->
 						</div>
 
-
-					</div>
+					</div>	
 				</div>
 			</div>
 			<!-- //지도 영역 -->
@@ -686,7 +706,7 @@
 					<button type="button" class="btn-zoom-in"><span class="blind">확대</span></button>
 					
 					<div class="zoom-range">
-						<input type="range" class="range" min="0" max="100" value="77" step="0.1" />
+						<input type="range" class="range" min="0" max="100" value="77" step="1" />
 					</div>
 					<button type="button" class="btn-zoom-out"><span class="blind">축소</span></button>
 				</div>

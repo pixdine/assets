@@ -35,7 +35,7 @@
 							<img src="/assets/images/map/img-vr-map.png" alt="대한민국 지도" />
 
 							<!-- 전국 -->
-							<div class="marker all">
+							<div class="marker all active"><!-- D: 디폴트 전국 노출 / 마커 클릭 시 .active 추가 -->
 								<button type="button">
 									<div class="text-box">
 										<span class="title">전국</span>
@@ -45,9 +45,8 @@
 							</div>
 							<!-- //전국 -->
 
-							<!-- 마커 -->
-							<!-- D: 360VR이 없는 지역은 지역 버튼 미노출 -->
-							<div class="marker s1">
+							<!-- 서울 -->
+							<div class="marker s1"><!-- D: 360VR이 없는 지역은 해당 영역 미노출 -->
 								<button type="button">
 									<div class="text-box">
 										<span class="title">서울</span>
@@ -55,8 +54,9 @@
 									</div>
 								</button>
 							</div>
-							<!-- //마커 -->
+							<!-- //서울 -->
 
+							<!-- 인천 -->
 							<div class="marker s2">
 								<button type="button">
 									<div class="text-box">
@@ -65,7 +65,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //인천 -->
 
+							<!-- 경기 -->
 							<div class="marker s3">
 								<button type="button">
 									<div class="text-box">
@@ -74,7 +76,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //경기 -->
 
+							<!-- 강원 -->
 							<div class="marker s4">
 								<button type="button">
 									<div class="text-box">
@@ -83,7 +87,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //강원 -->
 
+							<!-- 충북 -->
 							<div class="marker s5">
 								<button type="button">
 									<div class="text-box">
@@ -92,7 +98,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //충북 -->
 
+							<!-- 충남 -->
 							<div class="marker s6">
 								<button type="button">
 									<div class="text-box">
@@ -101,7 +109,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //충남 -->
 
+							<!-- 경북 -->
 							<div class="marker s7">
 								<button type="button">
 									<div class="text-box">
@@ -110,7 +120,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //경북 -->
 
+							<!-- 대전 -->
 							<div class="marker s8">
 								<button type="button">
 									<div class="text-box">
@@ -119,7 +131,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //대전 -->
 
+							<!-- 대구 -->
 							<div class="marker s9">
 								<button type="button">
 									<div class="text-box">
@@ -128,7 +142,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //대구 -->
 
+							<!-- 울산 -->
 							<div class="marker s10">
 								<button type="button">
 									<div class="text-box">
@@ -137,7 +153,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //울산 -->
 
+							<!-- 전북 -->
 							<div class="marker s11">
 								<button type="button">
 									<div class="text-box">
@@ -146,7 +164,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //전북 -->
 
+							<!-- 경남 -->
 							<div class="marker s12">
 								<button type="button">
 									<div class="text-box">
@@ -155,7 +175,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //경남 -->
 
+							<!-- 부산 -->
 							<div class="marker s13">
 								<button type="button">
 									<div class="text-box">
@@ -164,7 +186,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //부산 -->
 
+							<!-- 광주 -->
 							<div class="marker s14">
 								<button type="button">
 									<div class="text-box">
@@ -173,7 +197,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //광주 -->
 
+							<!-- 전남 -->
 							<div class="marker s15">
 								<button type="button">
 									<div class="text-box">
@@ -182,7 +208,9 @@
 									</div>
 								</button>
 							</div>
+							<!-- //전남 -->
 
+							<!-- 제주 -->
 							<div class="marker s16">
 								<button type="button">
 									<div class="text-box">
@@ -191,6 +219,7 @@
 									</div>
 								</button>
 							</div>
+							<!-- //제주 -->
 						</div>
 					</div>
 				</div>
@@ -204,10 +233,10 @@
 						<div class="vr-region">
 							<div class="region-title">
 								<!-- D: 초기/전국 선택 시 노출 -->
-								<!-- <p class="title">각 지역을 대표하는 명소로 떠나보세요!</p> -->
+								<p class="title">각 지역을 대표하는 명소로 떠나보세요!</p>
 
 								<!-- D: 각 지역 클릭 시 노출 -->
-								<p class="title"><strong class="name">서울</strong> 지역을 대표하는 명소로 떠나보세요!</p>
+								<!-- <p class="title"><strong class="name">서울</strong> 지역을 대표하는 명소로 떠나보세요!</p> -->
 							</div>
 							<ul class="region-list">
 								<!-- D: 최대 6개 노출 -->

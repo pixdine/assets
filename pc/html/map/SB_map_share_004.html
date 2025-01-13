@@ -61,7 +61,7 @@
 										<ul>
 											<!-- D: li에 .active가 붙어있으면 그 탭이 활성화되고 .disabled가 붙으면 비활성화됨. -->
 											<li class="active"><a href="#tab1-1">대한민국</a></li>
-											<li class="disabled"><a href="#tab1-2">지도 검색</a></li>
+											<li class="disabled"><a href="#tab1-2">지도 검색</a></li><!-- D: SNS 공유 수신화면 일 때 .disabled 추가 -->
 										</ul>
 									</div>
 
@@ -76,11 +76,17 @@
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">지역</strong>
+																<!-- 현재 위치 추가 - D: 학교가 등록 안된 경우 미래엔 주소 위치로 노출 -->
+																<div class="aside">
+																	<span class="my-location">경상남도 창원시 마산합포구</span>
+																</div>
+																<!-- //현재 위치 추가 -->
 															</div>
 															<div class="forms">
 																<fieldset>
 																	<select name="srchCitesCd" id="srchCitesCd" class="size-lg share-none" disabled><!-- D: SNS 공유 수신화면 일 때 .share-none 추가, disabled 속성추가 -->
-																		<option value="11">서울특별시</option>
+																		<option value="">시/도</option>
+																		<option value="11" selected>서울특별시</option>
 																		<option value="26">부산광역시</option>
 																		<option value="27">대구광역시</option>
 																		<option value="28">인천광역시</option>
@@ -89,13 +95,15 @@
 																		<option value="31">울산광역시</option>
 																	</select>
 																	<select name="srchCitesCd" id="srchCityCntyDst" class="size-lg share-none" disabled><!-- D: SNS 공유 수신화면 일 때 .share-none 추가, disabled 속성추가 -->
-																		<option value="680">강남구</option>
+																		<option value="">시/군/구</option>
+																		<option value="680" selected>강남구</option>
 																		<option value="740">강동구</option>
 																		<option value="305">강북구</option>
 																	</select>
 																</fieldset>
 															</div>
 														</div>
+
 														<div class="search-item">
 															<div class="inner-header">
 																<strong class="title">장소유형</strong>
@@ -203,6 +211,18 @@
 													<div class="result-box">
 														<div class="inner">
 															<ul class="result-list">
+																<!-- D: 현재 위치 추가 -->
+																<li>
+																	<strong class="tit">현재 위치 :</strong>
+																	<div class="items">
+																		<div class="item">
+																			<span class="dep1">경상남도</span>
+																			<span class="dep2">창원시 마산합포구</span>
+																		</div>
+																	</div>
+																</li>
+																<!-- //D: 현재 위치 추가 -->
+
 																<li>
 																	<strong class="tit">지역 :</strong>
 																	<div class="items">
@@ -262,8 +282,8 @@
 																		<span class="total">자료 <strong>(17)</strong></span>
 																	</div>
 
-																	<!-- D: 리스트가 없으면 해당 영역 미노출 -->
-																	<div class="sort-group">
+																	<!-- D: SNS 공유 수신화면 일 때 해당 영역 미노출 -->
+																	<div class="sort-group" style="display: none;">
 																		<div class="filter-box">
 																			<button type="button" class="filter-label">자료유형</button>
 																			<div class="filter-list">
@@ -306,7 +326,7 @@
 																		<button type="button" class="button size-md"><span>전체 다운로드</span></button>
 																		<!-- //전체 다운로드 -->
 																	</div>
-																	<!-- //D: 리스트가 없으면 해당 영역 미노출 -->
+																	<!-- //D: SNS 공유 수신화면 일 때 해당 영역 미노출 -->
 																</div>
 			
 																<!-- 검색결과 없음 -->
@@ -322,7 +342,7 @@
 																			<div class="place-item">
 																				<div class="item">
 																					<a href="#" class="name-info">
-																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker22.png" alt="문화재" /></span>
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker20.png" alt="문화재" /></span>
 																						<strong class="title">경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁</strong>
 																					</a>
 																					<button type="button" class="button type-icon size-xs">
@@ -347,7 +367,7 @@
 																						<li>
 																							<a href="#">
 																								<!-- D: MY 지도인 경우 해당 영역 추가 -->
-																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도"></span>
+																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도"></span>
 																								<!-- //D: MY 지도인 경우 해당 영역 추가 -->
 																								<span class="text">[선생님의 자료] 경복궁</span>
 																							</a>
@@ -355,7 +375,7 @@
 																						<li>
 																							<a href="#">
 																								<!-- D: 다른 선생님 지도인 경우 해당 영역 추가 -->
-																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도"></span>
+																								<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
 																								<!-- //D: 다른 선생님 지도인 경우 해당 영역 추가 -->
 																								<span class="text">[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴</span>
 																							</a>
@@ -424,7 +444,7 @@
 																			<div class="place-item">
 																				<div class="item">
 																					<a href="#" class="name-info">
-																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker25.png" alt="MY 지도" /></span>
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도" /></span>
 																						<strong class="title">독산역</strong>
 																					</a>
 																					<button type="button" class="button type-icon size-xs">
@@ -440,7 +460,7 @@
 																			<div class="place-item">
 																				<div class="item">
 																					<a href="#" class="name-info">
-																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="다른 선생님 지도"></span>
+																						<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
 																						<strong class="title">독산역</strong>
 																					</a>
 																					<button type="button" class="button type-icon size-xs">
@@ -1217,7 +1237,7 @@
 										<option value="">소단원</option>
 										<option value="chapter3-1">전체</option>
 									</select>
-									<select class="fluid share-none" name="srchChpDptCd" id="srchChpDptCd" disabled>
+									<select class="fluid share-none" name="srchChpDptCd" id="srchChpDptCd">
 										<option value="">차시</option>
 										<option value="chapter1-1">[1차시] 우리 고장의 여러 장소를 살펴볼까요</option>
 										<option value="chapter1-2">[2~3차시] 우리 고장의 모습을 그려 볼까요</option>
@@ -1298,19 +1318,139 @@
 				<div class="dmap-area">
 					<div class="map-api" id="map" style="background: url(/assets/images/map/@map.png) no-repeat center center / cover"><!-- 지도 넣는 곳 : id="map" (이 안에 지도 관련 API 삽입. style부분은 확인용으로 지도 이미지 넣은 것으로 실 개발 시 넣지 마세요!) -->
 
-						<div style="position: absolute; left: 510px; top: 400px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+						<div style="position: absolute; left: 540px; top: 398px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
 							<!-- 마커 이미지 -->
-							<img src="/assets/images/map/marker/icon-marker22.png" alt="문화재" width="52px" height="52px" />
+							<img src="/assets/images/map/marker/icon-marker20.png" alt="문화재" width="52px" height="52px" />
 							<!-- //마커 이미지 -->
 						</div>
-						<div style="position: absolute; left: 536px; top: 425px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+						<div style="position: absolute; left: 566px; top: 425px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
 							<!-- 마커 텍스트영역 -->
 							<div class="marker-text-area">
 								<strong class="marker-title">경복궁</strong>
 							</div>
 							<!-- //마커 텍스트영역 -->
 						</div>
+
+						<div style="position: absolute; left: 606px; top: 380px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 오버 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker20-hover.png" alt="문화재" width="60px" height="70px" />
+							<!-- //마커 오버 이미지 -->
+						</div>
+						<div style="position: absolute; left:636px; top: 425px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 오버 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">경복궁</strong>
+							</div>
+							<!-- //마커 오버 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 560px; top: 250px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker28.png" alt="장소명" width="52px" height="52px" />
+							<!-- //장소 마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 586px; top: 275px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">창덕궁</strong>
+							</div>
+							<!-- //장소 마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 630px; top: 232px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 오버 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker28-hover.png" alt="장소명" width="60px" height="70px" />
+							<!-- //장소 마커 오버 이미지 -->
+						</div>
+						<div style="position: absolute; left: 660px; top: 275px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 오버 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">창덕궁</strong>
+							</div>
+							<!-- //장소 마커 오버 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 980px; top: 300px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker26.png" alt="MY 지도" width="40px" height="66px" />
+							<!-- //MY 지도 마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 1000px; top: 347px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">MY 지도</strong>
+							</div>
+							<!-- //MY 지도 마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 1040px; top: 286px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 오버 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="MY 지도" width="48px" height="80px" />
+							<!-- //MY 지도 마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 1064px; top: 347px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 오버 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">MY 지도</strong>
+							</div>
+							<!-- //MY 지도 마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 836px; top: 250px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 클러스터화 -->
+							<div class="marker-cluster1">9</div>
+							<!-- //마커 클러스터화 -->
+						</div>
+
+						<div style="position: absolute; left: 676px; top: 384px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커정보창 -->
+							<div class="marker-info-window">
+								<div class="info-inner">
+									<div class="item-list">
+										<ul>
+											<li>
+												<a href="#">
+													<span class="text">[학습활동지] 경복궁의 문화</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span class="text">[학습정리PPT] 경복궁의 역사 탐구</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<!-- D: MY 지도인 경우 해당 영역 추가 -->
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도"></span>
+													<!-- //D: MY 지도인 경우 해당 영역 추가 -->
+													<span class="text">[선생님의 자료] 경복궁</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<!-- D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
+													<!-- //D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+													<span class="text">[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="arrow-area"></div>
+							</div>
+							<!-- //마커정보창 -->
+						</div>
+
+
 					</div>
+
+					<!-- 개발 : 거리뷰 팝업 관련 (API) -->
+					<div id="panoramaPreviewerPopup">
+						<div id="pano" style="width:300px;height:200px;"></div>
+					</div>
+					<!-- //개발 : 거리뷰 팝업 관련 (API) -->
+	
 				</div>
 			</div>
 			<!-- //지도 영역 -->
@@ -1319,17 +1459,10 @@
 			<div class="side-menu">
 	
 				<!-- 맵 툴박스 -->
+				<!-- D: SNS 공유 수신화면 일 때 인쇄, 거리재기만 노출 -->
 				<div class="map-toolbox">
+
 					<ul class="map-control">
-						<li>
-							<button type="button" class="btn-location"><!-- D: 선택 시 버튼에 active 클래스 추가 -->
-								<svg>
-									<title>학교 위치</title>
-									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-location"></use>
-								</svg>
-								<span>학교 위치</span>
-							</button>
-						</li>
 						<li>
 							<button type="button" class="btn-print">
 								<svg>
@@ -1337,6 +1470,15 @@
 									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-print"></use>
 								</svg>
 								<span>인쇄</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-distance" id="distance">
+								<svg>
+									<title>거리 재기</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-distance"></use>
+								</svg>
+								<span>거리 재기</span>
 							</button>
 						</li>
 					</ul>
@@ -1351,7 +1493,7 @@
 					<button type="button" class="btn-zoom-in"><span class="blind">확대</span></button>
 					
 					<div class="zoom-range">
-						<input type="range" class="range" min="0" max="100" value="77" step="0.1" />
+						<input type="range" class="range" min="0" max="100" value="77" step="1" />
 					</div>
 					<button type="button" class="btn-zoom-out"><span class="blind">축소</span></button>
 				</div>
