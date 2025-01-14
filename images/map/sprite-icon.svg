@@ -58,6 +58,10 @@
 	<path d="M20 20L4 4" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"/>
 </symbol>
 
+<symbol id="icon-close-lg" viewBox="0 0 40 40" fill="none">
+	<path d="M17.6435 19.9995L4.65527 7.01131L7.01229 4.6543L20.0005 17.6424L32.9887 4.6543L35.3457 7.01131L22.3575 19.9995L35.3457 32.9875L32.9887 35.3447L20.0005 22.3565L7.01229 35.3447L4.65527 32.9875L17.6435 19.9995Z" fill="white"/>
+</symbol>
+
 <symbol id="icon-close-md" viewBox="0 0 20 20" fill="none">
 	<path d="M16.6663 3.33337L3.33301 16.6667" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"/>
 	<path d="M16.6663 16.6667L3.33301 3.33337" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round"/>

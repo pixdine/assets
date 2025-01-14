@@ -207,7 +207,7 @@
 																<option value="">테마를 선택해주세요.</option>
 																<option value="theme1">박물관</option>
 															</select>
-															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="테마를 추가해주세요." />
+															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="추가할 테마를 입력해 주세요." />
 															<button type="button" class="button size-lg type-secondary"><span>테마 추가</span></button>
 														</fieldset>
 													</td>
@@ -344,6 +344,63 @@
 										</fieldset>
 									</td>
 								</tr>
+								<!-- D: 대단원, 중단원, 소단원, 차시는 선택값에 따라 나올 수 있고 안나올 수 있음 -->
+								<tr>
+									<th class="required">대단원</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpCd1" id="textBookChpCd1" class="size-lg" disabled>
+												<option value="">교과서를 선택해주세요</option>
+												<option value="">선택안함</option>
+												<option value="chapterCd1-1">1. 우리 고장의 모습</option>
+												<option value="chapterCd1-2">2. 우리가 알아보는 고장 이야기</option>
+												<option value="chapterCd1-3">3. 교통과 통신수단의 변화</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<!--
+								<tr>
+									<th class="required">중단원</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpCd2" id="textBookChpCd2" class="size-lg" disabled>
+												<option value="">선택안함</option>
+												<option value="chapterCd2-1">1. 우리가 생각하는 고장의 모습</option>
+												<option value="chapterCd2-2">2. 하늘에서 내려다 본 우리 고장의 모습</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th class="required">소단원</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpCd3" id="textBookChpCd3" class="size-lg" disabled>
+												<option value="">선택안함</option>
+												<option value="textBookChpCd3-1">전체</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								-->
+								<tr>
+									<th class="required">차시</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpDptCd" id="textBookChpDptCd" class="size-lg" disabled>
+												<option value="">단원을 선택해주세요</option>
+												<option value="">선택안함</option>
+												<option value="chapterDptCd-1">[1차시] 우리 고장의 여러 장소를 살펴볼까요</option>
+												<option value="chapterDptCd-2">[2~3차시] 우리 고장의 모습을 그려 볼까요</option>
+												<option value="chapterDptCd-3">[4~5차시] 우리 고장의 모습을 비교해 볼까요</option>
+												<option value="chapterDptCd-4">[6~7차시] 고장의 모습에 관한 서로의 생각을 들어 볼까요</option>
+												<option value="chapterDptCd-5">[8차시] 뚝딱뚝딱 정리하기</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<!-- //D: 대단원, 중단원, 소단원, 차시는 선택값에 따라 나올 수 있고 안나올 수 있음 -->
 								
 							</tbody>
 						</table>

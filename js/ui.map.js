@@ -117,64 +117,96 @@ const mapPlugin = function () {
 /* plugin : Swiper */
 const mapSwiper = function (){
 	//디지털 지도 메인 : 자료실
-	sliderLibrary(".library-slider .slider", 3, 3, 24);
+	sliderLibrary(".library-slider .slider", 3, 24);
 
 	//디지털 지도 메인 : 선생님 테마관
 	sliderTheme(".theme-slider .slider");
+
+	//디지털 지도 : 사용 가이드
+	sliderGuide(".guide-slider .slider");
 }
 
-const sliderLibrary = function(item, viewNo, groupNo, gap) {
-	const swiper = new Swiper(item, {
-		slidesPerView: viewNo,
-		slidesPerGroup: groupNo,
-		spaceBetween: gap,
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
-		},
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: true,
-		}
-	});
+const sliderLibrary = function(item, viewNo, gap) {
+	const slideCount = $(item).find(".swiper-slide").length;
+
+	if(slideCount > 3){
+		$(item).find(".controller").show();
+		const swiper = new Swiper(item, {
+			slidesPerView: viewNo,
+			spaceBetween: gap,
+			navigation: {
+				// 버튼
+				nextEl: ".controller .button-next",
+				prevEl: ".controller .button-prev",
+			},
+			pagination: {
+				el: ".controller .swiper-pagination",
+				type: "fraction",
+				clickable: true,
+			}
+		});
+	} else {
+		$(item).find(".controller").hide();
+	}
 }
 
 const sliderTheme = function (item) {
 	const slideCount = $(item).find(".swiper-slide").length;
 
-	const swiper = new Swiper(item, {
-		speed: 400,
-		autoplay: {
-			disableOnInteraction: false,
-		},
-		loop: slideCount > 1, // 슬라이드가 2개 이상일 때만 loop 활성화
-		navigation: slideCount > 1
-			? {
+	if(slideCount > 1){
+		$(item).find(".controller").show();
+		const swiper = new Swiper(item, {
+			speed: 400,
+			loop: true,
+			slidesPerView: 1,
+			autoplay: {
+				disableOnInteraction: false,
+			},
+			navigation: {
+				// 버튼
+				nextEl: ".controller .button-next",
+				prevEl: ".controller .button-prev",
+			},
+			pagination: {
+				el: ".controller .swiper-pagination",
+				type: "fraction",
+				clickable: true,
+			}
+		});
+
+		// 슬라이드 hover 시 autoplay 제어
+		$(item).find(".swiper-slide").on("mouseover", function () {
+			swiper.autoplay.stop();
+		});
+		$(item).find(".swiper-slide").on("mouseleave", function () {
+			swiper.autoplay.start();
+		});
+
+	} else {
+		$(item).find(".controller").hide();
+	}
+}
+
+const sliderGuide = function (item) {
+	const slideCount = $(item).find(".swiper-slide").length;
+
+	if(slideCount > 1){
+		$(item).find(".controller").show();
+		const swiper = new Swiper(item, {
+			slidesPerView: 1,
+			navigation: {
+				// 버튼
 				nextEl: ".swiper-button-next",
 				prevEl: ".swiper-button-prev",
-			}
-		: false,
-		pagination: slideCount > 1
-			? {
+			},
+			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
 			}
-		: false,
-	});
-
-
-	// 슬라이드가 2개 이상일 때만 navigation 버튼을 표시
-	if (slideCount <= 1) {
-		$(item).find(".swiper-button-next, .swiper-button-prev").hide();
+		});
+	} else {
+		$(item).find(".controller").hide();
 	}
-
-	// 슬라이드 hover 시 autoplay 제어
-	$(item).find(".swiper-slide").on("mouseover", function () {
-		swiper.autoplay.stop();
-	});
-	$(item).find(".swiper-slide").on("mouseleave", function () {
-		swiper.autoplay.start();
-	});
 }
 
 /* plugin : Tooltip */

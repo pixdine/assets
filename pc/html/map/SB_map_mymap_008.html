@@ -207,7 +207,7 @@
 																<option value="">테마를 선택해주세요.</option>
 																<option value="theme1">박물관</option>
 															</select>
-															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="테마를 추가해주세요." />
+															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="추가할 테마를 입력해 주세요." />
 															<button type="button" class="button size-lg type-secondary"><span>테마 추가</span></button>
 														</fieldset>
 													</td>
@@ -217,7 +217,7 @@
 													<td>
 														<fieldset>
 															<div class="input-inner-extra readonly">
-																<input type="text" title="교과 선택" name="textbook-info" id="textbook-info" readonly />
+																<input type="text" title="교과 선택" name="textbook-info" id="textbook-info" value="국정 | 초등학교 | 2022개정 | 1학년 | 2학기 [2022개정] 이행복 테스트 | 1. 대단원명" readonly />
 																<button type="button" class="button-delete">
 																	<svg>
 																		<title>삭제</title>
@@ -306,7 +306,7 @@
 										<fieldset>
 											<select name="textBookCd" id="textBookCd" class="size-lg">
 												<option value="">선택</option>
-												<option value="textBookCd1">[2015개정] 사회 3-1</option>
+												<option value="textBookCd1" selected>[2015개정] 사회 3-1</option>
 												<option value="textBookCd2">[2015개정] 사회 3-2</option>
 												<option value="textBookCd3">[2015개정] 사회 4-1</option>
 											</select>
@@ -317,7 +317,7 @@
 									<th>국정/검정/인정</th>
 									<td>
 										<fieldset>
-											<input type="text" name="subjectType" id="subjectType" placeholder="교과서 선택 시 자동 입력" readonly />
+											<input type="text" name="subjectType" id="subjectType" placeholder="교과서 선택 시 자동 입력" value="검정" readonly />
 										</fieldset>
 									</td>
 								</tr>
@@ -325,7 +325,7 @@
 									<th>교육과정</th>
 									<td>
 										<fieldset>
-											<input type="text" name="subjectRevision" id="subjectRevision" placeholder="교과서 선택 시 자동 입력" readonly />
+											<input type="text" name="subjectRevision" id="subjectRevision" placeholder="교과서 선택 시 자동 입력" value="2015개정" readonly />
 										</fieldset>
 									</td>
 								</tr>
@@ -333,7 +333,7 @@
 									<th>학년/학기</th>
 									<td>
 										<fieldset>
-											<input type="text" name="gradeTerm" id="gradeTerm" placeholder="교과서 선택 시 자동 입력" readonly />
+											<input type="text" name="gradeTerm" id="gradeTerm" placeholder="교과서 선택 시 자동 입력" value="공통학년 공통학기" readonly />
 										</fieldset>
 									</td>
 								</tr>
@@ -341,11 +341,64 @@
 									<th>과목</th>
 									<td>
 										<fieldset>
-											<input type="text" name="subjectCode" id="subjectCode" placeholder="교과서 선택 시 자동 입력" readonly />
+											<input type="text" name="subjectCode" id="subjectCode" placeholder="교과서 선택 시 자동 입력" value="사회" readonly />
 										</fieldset>
 									</td>
 								</tr>
-								
+								<!-- D: 대단원, 중단원, 소단원, 차시는 선택값에 따라 나올 수 있고 안나올 수 있음 -->
+								<tr>
+									<th class="required">대단원</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpCd1" id="textBookChpCd1" class="size-lg">
+												<option value="">선택안함</option>
+												<option value="chapterCd1-1" selected>1. 우리 고장의 모습</option>
+												<option value="chapterCd1-2">2. 우리가 알아보는 고장 이야기</option>
+												<option value="chapterCd1-3">3. 교통과 통신수단의 변화</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th class="required">중단원</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpCd2" id="textBookChpCd2" class="size-lg">
+												<option value="">선택안함</option>
+												<option value="chapterCd2-1" selected>1. 우리가 생각하는 고장의 모습</option>
+												<option value="chapterCd2-2">2. 하늘에서 내려다 본 우리 고장의 모습</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th class="required">소단원</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpCd3" id="textBookChpCd3" class="size-lg">
+												<option value="">선택안함</option>
+												<option value="textBookChpCd3-1" selected>전체</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th class="required">차시</th>
+									<td>
+										<fieldset>
+											<select name="textBookChpDptCd" id="textBookChpDptCd" class="size-lg">
+												<option value="">선택안함</option>
+												<option value="chapterDptCd-1" selected>[1차시] 우리 고장의 여러 장소를 살펴볼까요</option>
+												<option value="chapterDptCd-2">[2~3차시] 우리 고장의 모습을 그려 볼까요</option>
+												<option value="chapterDptCd-3">[4~5차시] 우리 고장의 모습을 비교해 볼까요</option>
+												<option value="chapterDptCd-4">[6~7차시] 고장의 모습에 관한 서로의 생각을 들어 볼까요</option>
+												<option value="chapterDptCd-5">[8차시] 뚝딱뚝딱 정리하기</option>
+											</select>
+										</fieldset>
+									</td>
+								</tr>
+								<!-- //D: 대단원, 중단원, 소단원, 차시는 선택값에 따라 나올 수 있고 안나올 수 있음 -->
+
 							</tbody>
 						</table>
 					</div>
