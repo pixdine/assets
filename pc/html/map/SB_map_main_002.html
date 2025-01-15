@@ -21,6 +21,23 @@
 	<!-- 신규(추가필요) -->
 	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
 	<script src="/assets/js/ui.map.js"></script>
+
+	<style>
+		@keyframes blink {
+			0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+		}
+		.blinking {
+		animation: blink 1s infinite; /* 1초 간격으로 무한 반복 */
+		}
+	</style>
 </head>
 
 <!-- Body Content -->
@@ -111,6 +128,7 @@
 					<div class="card item-domestic">
 						<div class="image-box">
 							<img src="/assets/images/map/img-dmap-visual01.png" alt="대한민국" />
+							<img src="/assets/images/map/img-dmap-visual01_blink.png" alt="대한민국" class="blinking" />
 						</div>
 						<div class="detail-box">
 							<div class="box-cont">
@@ -124,6 +142,7 @@
 					<div class="card item-world">
 						<div class="image-box">
 							<img src="/assets/images/map/img-dmap-visual02.png" alt="세계" />
+							<img src="/assets/images/map/img-dmap-visual02_blink.png" alt="대한민국" class="blinking" />
 						</div>
 						<div class="detail-box">
 							<div class="box-cont">
