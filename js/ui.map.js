@@ -291,8 +291,15 @@ const topBtnShow = function(_target){
 	_target = $(_target);
 
 	_target.each(function(){
+		const bottomFixed = $(this).siblings(".bottom-fixed");
+		const isBottomFixed = bottomFixed.length > 0 && bottomFixed.css("display") !== "none";
+
 		if($(this).outerHeight() < $(this).children().outerHeight()){
-			$(this).children().css("margin-bottom","40px");
+			if (isBottomFixed) {
+				$(this).children().css("margin-bottom", "0");
+			} else {
+				$(this).children().css("margin-bottom", "40px");
+			}
 
 			$(this).scroll(function(){
 				if($(this).scrollTop() > 0){
