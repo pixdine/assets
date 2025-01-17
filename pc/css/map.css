@@ -342,7 +342,6 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .search-vr-list > li::before {content: ""; display: block; width: calc(100% - 48px); height: 1px; margin: -1px auto 0; background-color: #DBDBE4;}
 .search-vr-list > li:first-child::before {display: none;}
 .search-vr-list > li [class ^="place-item"] {padding: 16px 24px;}
-.search-vr-list > li [class ^="place-item"] .item-list {padding-left: 0;}
 
 [class ^="place-item"] .item {display: flex; justify-content: space-between; gap: 8px}
 [class ^="place-item"] .item [class ^="name-info"] {display: flex; flex: 1; min-width: 0;}
@@ -360,7 +359,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 [class ^="place-item"] .item .button {align-self: flex-start; border: 0;}
 /* .place-item .item .button:hover {background-color: transparent;}
 .place-item .item .button.size-xs svg {width: 16px; height: 16px; color: #5A5C63;} */
-[class ^="place-item"] .item-list {padding-left: 24px;}
+[class ^="place-item"] .item-list {margin: 0 24px;}
 [class ^="place-item"] .item-list li {position: relative; max-height: 40px; margin-top: 8px; padding-left: 7px; font-size: 14px; line-height: 20px; text-align: left;}
 [class ^="place-item"] .item-list li::before {content: ""; position: absolute; top: 8px; left: 0; width: 3px; height: 3px; border-radius: 50%; background-color: #5A5C63;}
 [class ^="place-item"] .item-list li a {display: flex;}
@@ -508,7 +507,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .marker-info-window {display: block; width: 240px; border-radius: 8px; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);}
 .marker-info-window .info-inner {background-color: #fff; border-radius: 8px; overflow: hidden;}
 .marker-info-window .item-list li {position: relative;}
-.marker-info-window .item-list li > a {display: flex; align-items: center; position: relative; padding: 10px 12px 10px 19px; border-bottom: 1px solid #F1F1F5; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left;}
+.marker-info-window .item-list li > a {display: flex; align-items: center; position: relative; height: 40px; padding: 0 12px 0 19px; border-bottom: 1px solid #F1F1F5; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left;}
 .marker-info-window .item-list li > a:hover {background-color: #F7F7FB;}
 .marker-info-window .item-list li > a::before {content: ""; position: absolute; top: 19px; left: 12px; width: 3px; height: 3px; border-radius: 50%; background-color: #5A5C63;}
 .marker-info-window .item-list li:last-child > a {border-bottom: 0;}
@@ -588,9 +587,9 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 
 /* 디지털 지도 수업 자료실 핵심 사용 가이드 */
 .dmap-guide-layer {display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 100; background-color: rgba(0, 0, 0, 0.8);}
-.dmap-guide-layer .close-button {z-index: 101; position: absolute; right: 32px; top: 32px; width: 40px; height: 40px; color: #fff;}
+.dmap-guide-layer .close-button {z-index: 101; position: absolute; right: 32px; top: 32px; width: 40px; height: 40px; color: #fff; border: 0;}
 .dmap-guide-layer .close-button:hover {color: #fff;}
-.dmap-guide-layer .close-button svg {width: 100%; height: 100%; fill: transparent;}
+.dmap-guide-layer .close-button svg {width: 100%; height: 100%;}
 .dmap-guide-layer .bottom {z-index: 1; position: absolute; left: 0; bottom: 0; width: 100%; padding: 14px 24px; background-color: rgba(0, 0, 0, 0.6); line-height: 1;}
 .dmap-guide-layer .bottom .ox [type=checkbox] + label {color: #fff;}
 .dmap-guide, .dmap-guide .guide-content, .dmap-guide .guide-content .body {width: 100%; height: 100%;}
@@ -664,6 +663,27 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .main-visual .card:focus-within .detail-box > *:not(.title) {transition-duration: 0s;}
 .main-visual .card.item-domestic .detail-box {left:0; width: 100vw;}
 .main-visual .card.item-domestic .detail-box > div {width: 1544px; margin: 0 auto;}
+
+.blinking {opacity: 0;}
+
+.main-visual .card:hover .image-box .blinking {animation: blink .75s infinite;}
+
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
+
+
+
 /* 자료실 & 테마관 */
 .main-content {margin-top: 24px;}
 .main-content .inner-cont {display: flex; align-items: center; gap: 24px;}
