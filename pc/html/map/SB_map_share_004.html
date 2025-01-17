@@ -1012,23 +1012,32 @@
 																		</li>
 																	</ul>
 																	<!-- //리스트 -->
-	
-																	<!-- 더보기 영역 -->
-																	<div class="btn-area">
-																		<!-- 더보기 버튼 -->
-																		<button type="button" class="btn-more">
-																			<span>더보기</span>
-																			<svg>
-																				<title>더보기</title>
-																				<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
-																			</svg>
-																		</button>
-																		<!-- //더보기 버튼 -->
-																	</div>
-																	<!-- //더보기 영역 -->
 																</div>
 															</div>
 														</div>
+
+														<!-- 이전/다음 영역 -->
+														<!-- D: 기준 개수 미만인 경우 이전/다음 영역 미노출 -->
+														<div class="bottom-fixed" style="display: none;">
+															<div class="buttons">
+																<button type="button" class="btn-prev" disabled><!-- D: 비활성화 시 disabled 추가 -->
+																	<svg>
+																		<title>이전</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+																	</svg>
+																	<span>이전</span>
+																</button>
+																<button type="button" class="btn-next">																	
+																	<span>다음</span>
+																	<svg>
+																		<title>다음</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+																	</svg>
+																</button>
+															</div>
+														</div>
+														<!-- //이전/다음 영역 -->
+
 														<!-- top버튼 -->
 														<a href="javascript:;" class="btn-top" title="위로 이동">
 															<svg>
@@ -1162,23 +1171,32 @@
 																		</li>
 																	</ul>
 																	<!-- //리스트 -->
-	
-																	<!-- 더보기 영역 -->
-																	<div class="btn-area">
-																		<!-- 더보기 버튼 -->
-																		<button type="button" class="btn-more">
-																			<span>더보기</span>
-																			<svg>
-																				<title>더보기</title>
-																				<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
-																			</svg>
-																		</button>
-																		<!-- //더보기 버튼 -->
-																	</div>
-																	<!-- //더보기 영역 -->
 																</div>
 															</div>
 														</div>
+
+														<!-- 이전/다음 영역 -->
+														<!-- D: 기준 개수 미만인 경우 이전/다음 영역 미노출 -->
+														<div class="bottom-fixed" style="display: none;">
+															<div class="buttons">
+																<button type="button" class="btn-prev" disabled><!-- D: 비활성화 시 disabled 추가 -->
+																	<svg>
+																		<title>이전</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+																	</svg>
+																	<span>이전</span>
+																</button>
+																<button type="button" class="btn-next">																	
+																	<span>다음</span>
+																	<svg>
+																		<title>다음</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+																	</svg>
+																</button>
+															</div>
+														</div>
+														<!-- //이전/다음 영역 -->
+
 														<!-- top버튼 -->
 														<a href="javascript:;" class="btn-top" title="위로 이동">
 															<svg>
@@ -1210,34 +1228,33 @@
 							<strong class="title">연계 교과</strong>
 							<div class="forms">
 								<fieldset>
-									<!-- D: SNS 공유 수신화면 일 때 select에 .share-none 추가, disabled 속성추가 -->
-									<select class="level share-none" name="srchSchLvlCd" id="srchSchLvlCd" disabled>
+									<select class="level" name="srchSchLvlCd" id="srchSchLvlCd">
 										<option value="">학교급</option>
 										<option value="ele">초등</option>
 										<option value="mid">중학</option>
 										<option value="high">고등</option>
 									</select>
-									<select class="fluid share-none" name="srchSbjCd" id="srchSbjCd" disabled>
+									<select class="fluid" name="srchSbjCd" id="srchSbjCd">
 										<option value="">교과서명</option>
 										<option value="social">사회 3-1</option>
 										<option value="social">사회 3-2</option>
 									</select>
-									<select class="fluid share-none" name="srchChpCd1" id="srchChpCd1" disabled>
+									<select class="fluid" name="srchChpCd1" id="srchChpCd1">
 										<option value="">대단원</option>
 										<option value="chapter1-1">1. 우리 고장의 모습</option>
 										<option value="chapter1-2">2. 우리가 알아보는 고장 이야기</option>
 										<option value="chapter1-3">3. 교통과 통신수단의 변화</option>
 									</select>
-									<select class="fluid share-none" name="srchChpCd2" id="srchChpCd2" disabled>
+									<select class="fluid" name="srchChpCd2" id="srchChpCd2">
 										<option value="">중단원</option>
 										<option value="chapter2-1">1. 우리가 생각하는 고장의 모습</option>
 										<option value="chapter2-2">2. 하늘에서 내려다 본 우리 고장의 모습</option>
 									</select>
-									<select class="fluid share-none" name="srchChpCd3" id="srchChpCd3" disabled>
+									<select class="fluid" name="srchChpCd3" id="srchChpCd3">
 										<option value="">소단원</option>
 										<option value="chapter3-1">전체</option>
 									</select>
-									<select class="fluid share-none" name="srchChpDptCd" id="srchChpDptCd">
+									<select class="fluid" name="srchChpDptCd" id="srchChpDptCd">
 										<option value="">차시</option>
 										<option value="chapter1-1">[1차시] 우리 고장의 여러 장소를 살펴볼까요</option>
 										<option value="chapter1-2">[2~3차시] 우리 고장의 모습을 그려 볼까요</option>
@@ -1247,6 +1264,13 @@
 									</select>
 								</fieldset>
 							</div>
+							<button type="button" class="button size-md type-secondary" id="btnConnSbj">
+								<svg>
+									<title>닫기</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+								</svg>
+								<span>검색</span>
+							</button>
 						</div>
 					</div>
 					<!-- //연계 교과 -->

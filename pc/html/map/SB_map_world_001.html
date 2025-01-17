@@ -1066,23 +1066,32 @@
 																		</li>
 																	</ul>
 																	<!-- //리스트 -->
-	
-																	<!-- 더보기 영역 -->
-																	<div class="btn-area">
-																		<!-- 더보기 버튼 -->
-																		<button type="button" class="btn-more">
-																			<span>더보기</span>
-																			<svg>
-																				<title>더보기</title>
-																				<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
-																			</svg>
-																		</button>
-																		<!-- //더보기 버튼 -->
-																	</div>
-																	<!-- //더보기 영역 -->
 																</div>
 															</div>
 														</div>
+
+														<!-- 이전/다음 영역 -->
+														<!-- D: 기준 개수 미만인 경우 이전/다음 영역 미노출 -->
+														<div class="bottom-fixed">
+															<div class="buttons">
+																<button type="button" class="btn-prev" disabled><!-- D: 비활성화 시 disabled 추가 -->
+																	<svg>
+																		<title>이전</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+																	</svg>
+																	<span>이전</span>
+																</button>
+																<button type="button" class="btn-next">																	
+																	<span>다음</span>
+																	<svg>
+																		<title>다음</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+																	</svg>
+																</button>
+															</div>
+														</div>
+														<!-- //이전/다음 영역 -->
+
 														<!-- top버튼 -->
 														<a href="javascript:;" class="btn-top" title="위로 이동">
 															<svg>
@@ -1126,23 +1135,32 @@
 																		<!-- //D: 세계 : 구글검색인 경우 -->
 																	</ul>
 																	<!-- //리스트 -->
-	
-																	<!-- 더보기 영역 -->
-																	<div class="btn-area" style="display: none;">
-																		<!-- 더보기 버튼 -->
-																		<button type="button" class="btn-more">
-																			<span>더보기</span>
-																			<svg>
-																				<title>더보기</title>
-																				<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
-																			</svg>
-																		</button>
-																		<!-- //더보기 버튼 -->
-																	</div>
-																	<!-- //더보기 영역 -->
 																</div>
 															</div>
 														</div>
+
+														<!-- 이전/다음 영역 -->
+														<!-- D: 기준 개수 미만인 경우 이전/다음 영역 미노출 -->
+														<div class="bottom-fixed" style="display: none;">
+															<div class="buttons">
+																<button type="button" class="btn-prev" disabled><!-- D: 비활성화 시 disabled 추가 -->
+																	<svg>
+																		<title>이전</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+																	</svg>
+																	<span>이전</span>
+																</button>
+																<button type="button" class="btn-next">																	
+																	<span>다음</span>
+																	<svg>
+																		<title>다음</title>
+																		<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+																	</svg>
+																</button>
+															</div>
+														</div>
+														<!-- //이전/다음 영역 -->
+
 														<!-- top버튼 -->
 														<a href="javascript:;" class="btn-top" title="위로 이동">
 															<svg>
@@ -1210,6 +1228,13 @@
 									</select>
 								</fieldset>
 							</div>
+							<button type="button" class="button size-md type-secondary" id="btnConnSbj">
+								<svg>
+									<title>닫기</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+								</svg>
+								<span>검색</span>
+							</button>
 						</div>
 					</div>
 					<!-- //연계 교과 -->
