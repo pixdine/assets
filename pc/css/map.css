@@ -342,6 +342,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .search-vr-list > li::before {content: ""; display: block; width: calc(100% - 48px); height: 1px; margin: -1px auto 0; background-color: #DBDBE4;}
 .search-vr-list > li:first-child::before {display: none;}
 .search-vr-list > li [class ^="place-item"] {padding: 16px 24px;}
+.search-vr-list > li [class ^="place-item"] .item-list {margin: 0 0 0 70px;}
 
 [class ^="place-item"] .item {display: flex; justify-content: space-between; gap: 8px}
 [class ^="place-item"] .item [class ^="name-info"] {display: flex; flex: 1; min-width: 0;}
@@ -376,12 +377,11 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 
 /* 연계 교과 */
 .chapter-box {z-index: 1; position: absolute; left: 332px; right: 0; top: 0; height:68px; background-color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid #DBDBE4;}
-.chapter-box .select-chapter {display: flex; align-items: center; gap: 24px; width: 100%; height: 100%; padding: 0 20px 0 32px;}
-.chapter-box .title {flex-shrink: 0; display: block; font-size: 14px; font-weight: 500; line-height: 20px; color: #000;}
+.chapter-box .select-chapter {display: flex; align-items: center; gap: 6px; width: 100%; height: 100%; padding: 0 20px 0 32px;}
+.chapter-box .title {flex-shrink: 0; display: block; margin-right: 18px; font-size: 14px; font-weight: 500; line-height: 20px; color: #000;}
 .chapter-box .forms {flex: 1;}
 .chapter-box .forms fieldset {flex-wrap: nowrap; gap: 6px;}
-.chapter-box .forms select, .chapter-box .forms .select2-container {min-width: 151px;}
-.chapter-box .forms select.level + .select2-container {flex: 0; width: 151px;}
+.chapter-box .forms select.level + .select2-container {max-width: 150px; width: 100% !important;}
 
 /* 주제별 자료실 */
 .library-box {z-index: 1; display: none; position: absolute; left: 364px; top: 80px; padding: 15px; background-color: #F7F7FB; border: 1px solid var(--color-tertiary); border-radius: 8px; font-size: 14px; line-height: 20px; font-weight: 500; color: #000;}
@@ -398,11 +398,25 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .best-theme .btn-best-theme {display: inline-flex; align-items: center; gap: 2px; position: absolute; left: 50%; top: -36px; transform: translateX(-50%); padding: 8px 24px; background-color: var(--button-secondary); border-radius: 4px 4px 0 0; font-size: 14px; font-weight: 600; line-height: 20px; color: #fff;}
 .best-theme .btn-best-theme:hover, .best-theme .btn-best-theme:focus {background-color: var(--button-secondary-hover);}
 .best-theme .btn-best-theme::after {content: ""; display: block; width: 16px; height: 16px; background: url("/assets/images/map/icon-arrow-bottom.svg") no-repeat center; transition: transform 0.5s;}
-.theme-box {padding: 24px; background-color: rgba(255,255, 255, 0.8); border: 1px solid #19244D; border-radius: 12px;}
-.theme-box .title {display: block; margin-bottom: 16px; font-size: 16px; font-weight: 500; line-height: 24px;}
+.theme-box {padding: 23px; background-color: rgba(255,255, 255, 0.8); border: 1px solid #19244D; border-radius: 12px;}
+.theme-box .title {display: block; margin-bottom: 16px; padding: 4px 0; font-size: 16px; font-weight: 500; line-height: 24px;}
 .theme-box .text {display: inline-block; margin-top: 16px; padding-left: 10px; font-size: 12px; font-weight: 400; line-height: 18px; color: #5A5C63;}
-.theme-list {display: flex; gap: 24px; justify-content: center;}
-.theme-list .item-theme {width: 304px;}
+.best-theme-slider {position: relative; max-width: 1128px;}
+.best-theme-slider .slider {overflow-x: hidden;}
+.best-theme-slider .swiper-slide {width: 360px; margin-right: 24px;}
+.best-theme-slider .swiper-slide:only-child {margin: 0 auto !important;}
+.best-theme-slider .swiper-button-prev {left: -42px;}
+.best-theme-slider .swiper-button-next {right: -42px;}
+.best-theme-slider .controller {display: block; position: absolute; right: 0; top: -48px;}
+.best-theme-slider .indicator {position: absolute; right: 73px; top: 6px; width: max-content;}
+.best-theme-slider .indicator .swiper-pagination-fraction {position: relative; left: unset; top: unset; bottom: unset; font-size: 14px; font-weight: 400; line-height: 20px; color: #989BA2; text-align: right;}
+.best-theme-slider .indicator .swiper-pagination-current {color: #000; font-weight: 600;}
+.best-theme-slider .controls {display: inline-flex;}
+.best-theme-slider .controls .slider-button {display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background-color: #fff; border: 1px solid #DBDBE4; color: #989BA2;}
+.best-theme-slider .controls .slider-button.swiper-button-disabled {color: #DBDBE4;}
+.best-theme-slider .controls .slider-button svg {width: 16px; height: 16px;}
+.best-theme-slider .controls .button-prev {border-radius: 4px 0 0 4px;}
+.best-theme-slider .controls .button-next {border-radius: 0 4px 4px 0; border-left: 0;}
 
 /* 지도 영역 */
 .dmap-cont {display:block; position:relative; height:100%; background-color: #f6f4ee;}
@@ -646,7 +660,9 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .main-visual .card {display: flex; align-items: flex-end; flex-direction: column; position: relative; transition: transform 0.5s ease, flex-grow 0.5s ease; overflow: hidden;}
 .main-visual .card .image-box {position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(217deg, #fff0f9 20%, #c1f0ff)}
 .main-visual .card .image-box img {position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; transition: .3s;}
+.main-visual .card .image-box .blinking {opacity: 0;}
 .main-visual .card:hover .image-box img {transform: scale(1.2);}
+.main-visual .card:hover .image-box .blinking {animation: blink .75s infinite;}
 .main-visual .card.item-domestic {flex-grow: 2; transform-origin: left;}
 .main-visual .card.item-world {flex-grow: 0.968; transform-origin: right;}
 .main-visual .dimed {display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); pointer-events: none;}
@@ -663,27 +679,6 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .main-visual .card:focus-within .detail-box > *:not(.title) {transition-duration: 0s;}
 .main-visual .card.item-domestic .detail-box {left:0; width: 100vw;}
 .main-visual .card.item-domestic .detail-box > div {width: 1544px; margin: 0 auto;}
-
-.blinking {opacity: 0;}
-
-.main-visual .card:hover .image-box .blinking {animation: blink .75s infinite;}
-
-@keyframes blink {
-	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
-
-
-
-
 /* 자료실 & 테마관 */
 .main-content {margin-top: 24px;}
 .main-content .inner-cont {display: flex; align-items: center; gap: 24px;}
@@ -705,6 +700,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .main-sect .controls .button-next {border-radius: 0 4px 4px 0; border-left: 0;}
 /* 자료실 */
 .library-slider {position: relative;}
+.library-slider .slider {overflow-x: hidden;}
 .library-slider .swiper-slide {width: 328px; margin-right: 24px;}
 .library-slider .swiper-slide:only-child {margin: 0 auto !important;}
 .library-slider .swiper-button-prev {left: -42px;}
@@ -715,12 +711,13 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .library-slider .item-box .title, .library-slider .item-box .desc {display: block; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .library-slider .item-box .title {font-size: 18px; font-weight: 600; line-height: 26px;}
 .library-slider .item-box .desc {font-size: 14px; font-weight: 400; line-height: 20px; color: #5A5C63;}
+
 /* 테마관 */
 .theme-slider {position: relative;}
 .item-theme {display: flex; align-items: center; position: relative; height: 78px; padding: 16px 52px 16px 20px; background-color: var(--color-primary-150); border-radius: 8px; text-align: left;}
 .item-theme::before {content: ""; display: block; position: absolute; right: 20px; bottom: 16px; width: 20px; height: 20px; background: url("/assets/images/map/icon-arrow-right.svg") no-repeat center center;}
 .item-theme .info {display: flex; flex: 1; flex-direction: column; position: relative; overflow: hidden;}
-.item-theme .title, .item-theme .desc {display: block; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.item-theme .title, .item-theme .desc {display: block; margin: 0; padding: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .item-theme .title {font-size: 16px; font-weight: 600; line-height: 24px;}
 .item-theme .desc {font-size: 14px; font-weight: 400; line-height: 20px; color: #5A5C63;}
 .item-theme .desc .name {font-weight: 400; color: var(--color-primary);}
@@ -746,7 +743,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .vr-map .map-image .marker:hover, .vr-map .map-image .marker:focus, .vr-map .map-image .marker.active {z-index: 1;}
 .vr-map .map-image .marker:hover button, .vr-map .map-image .marker:focus button, .vr-map .map-image .marker.active button {background-color: #DCEAFB; border-color: var(--color-primary);}
 .vr-map .map-image .marker:hover button .text-box, .vr-map .map-image .marker:focus button .text-box, .vr-map .map-image .marker.active button .text-box {color: var(--color-primary);}
-.vr-map .map-image .marker.all {right: 88px; top: -15px; width: 170px; height: 64px; border-radius: 100px; background-color: rgba(255, 255, 255, 0.2);}/* 전국 */
+.vr-map .map-image .marker.all {right: 88px; top: -15px; width: 162px; height: 64px; border-radius: 100px;}/* 전국 */
 .vr-map .map-image .marker.s1 {left: 16%; top: 14.5%;}/* 서울 */
 .vr-map .map-image .marker.s2 {left: 8.5%; top: 22.5%;}/* 인천 */
 .vr-map .map-image .marker.s3 {left: 26%; top: 20%;}/* 경기 */
@@ -780,6 +777,18 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .region-list li .item .detail-box {margin-top: 9px;}
 .region-list li .item .detail-box .title {display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-overflow: ellipsis; overflow: hidden; height: 48px; margin: 0; font-size: 16px; font-weight: 600; line-height: 24px;}
 
+/* keyframes */
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
 
 /* Media Query */
 @media (max-height: 930px) {

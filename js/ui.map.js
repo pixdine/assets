@@ -117,16 +117,19 @@ const mapPlugin = function () {
 /* plugin : Swiper */
 const mapSwiper = function (){
 	//디지털 지도 메인 : 자료실
-	sliderLibrary(".library-slider .slider", 3, 24);
+	sliderMultiView(".library-slider .slider", 3, 24);
 
 	//디지털 지도 메인 : 선생님 테마관
-	sliderTheme(".theme-slider .slider");
+	sliderLoopView(".theme-slider .slider", 1, 0);
+
+	//디지털 지도 : 베스트 테마
+	sliderMultiView(".best-theme-slider .slider", 3, 24);
 
 	//디지털 지도 : 사용 가이드
 	sliderGuide(".guide-slider .slider");
 }
 
-const sliderLibrary = function(item, viewNo, gap) {
+const sliderMultiView = function(item, viewNo, gap) {
 	const slideCount = $(item).find(".swiper-slide").length;
 
 	if(slideCount > 3){
@@ -150,7 +153,7 @@ const sliderLibrary = function(item, viewNo, gap) {
 	}
 }
 
-const sliderTheme = function (item) {
+const sliderLoopView = function (item, viewNo, gap) {
 	const slideCount = $(item).find(".swiper-slide").length;
 
 	if(slideCount > 1){
@@ -158,7 +161,8 @@ const sliderTheme = function (item) {
 		const swiper = new Swiper(item, {
 			speed: 400,
 			loop: true,
-			slidesPerView: 1,
+			slidesPerView: viewNo,
+			spaceBetween: gap,
 			autoplay: {
 				disableOnInteraction: false,
 			},
