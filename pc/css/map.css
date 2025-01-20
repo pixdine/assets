@@ -400,7 +400,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .best-theme .btn-best-theme::after {content: ""; display: block; width: 16px; height: 16px; background: url("/assets/images/map/icon-arrow-bottom.svg") no-repeat center; transition: transform 0.5s;}
 .theme-box {padding: 23px; background-color: rgba(255,255, 255, 0.8); border: 1px solid #19244D; border-radius: 12px;}
 .theme-box .title {display: block; margin-bottom: 16px; padding: 4px 0; font-size: 16px; font-weight: 500; line-height: 24px;}
-.theme-box .text {display: inline-block; margin-top: 16px; padding-left: 10px; font-size: 12px; font-weight: 400; line-height: 18px; color: #5A5C63;}
+.theme-box .txt-exp01 {display: inline-block; margin-top: 16px;}
 .best-theme-slider {position: relative; max-width: 1128px;}
 .best-theme-slider .slider {overflow-x: hidden;}
 .best-theme-slider .swiper-slide {width: 360px; margin-right: 24px;}
@@ -568,7 +568,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .filter-box.share-none.disabled .filter-label::before {display: none;}
 
 /* list sort */
-.list-sort {display: flex; justify-content: space-between;}
+.list-sort {display: flex; justify-content: space-between; align-items: center;}
 .list-sort .sort-inner {display: inline-flex; align-items: center;}
 .list-sort .total {font-size: 13px; font-weight: 400; line-height: 18px; color: #5A5C63;}
 .list-sort .total strong {font-weight: 400;}
@@ -705,7 +705,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .library-slider .swiper-slide:only-child {margin: 0 auto !important;}
 .library-slider .swiper-button-prev {left: -42px;}
 .library-slider .swiper-button-next {right: -42px;}
-.library-slider .item-box {display: flex; align-items: center; position: relative; height: 78px; padding: 16px 52px 16px 20px; background-color: #F7F7FB; border-radius: 8px; text-align: left;}
+.library-slider .item-box {display: flex; align-items: center; position: relative; height: 78px; padding: 16px 52px 16px 20px; background-color: #F7F7FB; border: 1px solid #DBDBE4; border-radius: 8px; text-align: left;}
 .library-slider .item-box::before {content: ""; display: block; position: absolute; right: 20px; bottom: 16px; width: 20px; height: 20px; background: url("/assets/images/map/icon-arrow-right.svg") no-repeat center center;}
 .library-slider .item-box .info {display: flex; flex: 1; flex-direction: column; position: relative; overflow: hidden;}
 .library-slider .item-box .title, .library-slider .item-box .desc {display: block; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
@@ -714,7 +714,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 
 /* 테마관 */
 .theme-slider {position: relative;}
-.item-theme {display: flex; align-items: center; position: relative; height: 78px; padding: 16px 52px 16px 20px; background-color: var(--color-primary-150); border-radius: 8px; text-align: left;}
+.item-theme {display: flex; align-items: center; position: relative; height: 78px; padding: 16px 52px 16px 20px; background-color: var(--color-primary-150); border: 1px solid #C6D2FF; border-radius: 8px; text-align: left;}
 .item-theme::before {content: ""; display: block; position: absolute; right: 20px; bottom: 16px; width: 20px; height: 20px; background: url("/assets/images/map/icon-arrow-right.svg") no-repeat center center;}
 .item-theme .info {display: flex; flex: 1; flex-direction: column; position: relative; overflow: hidden;}
 .item-theme .title, .item-theme .desc {display: block; margin: 0; padding: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
@@ -727,39 +727,60 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .main-360vr {display: flex;  min-height: 1080px;}
 .main-360vr .left-section, .main-360vr .right-section {flex: 1;}
 .vr-map {padding: 133px 0 23px;}
-.vr-map .map-image {position: relative; width: 100%; max-width: 738px; margin: 0 auto;}
+.vr-map .map-image {position: relative; width: 738px; margin: 0 70px 0 152px;}
 .vr-map .map-image .marker {display: flex; align-items: center; justify-content: center; position: absolute; background-color: rgba(0, 0, 0, 0.1);}
-.vr-map .map-image .marker:not(.all) {width: 80px; height: 80px; border-radius: 50%;}
+.vr-map .map-image .marker:not(.all) {border-radius: 50%; transform: translate(-50%, -50%);}
 .vr-map .map-image .marker button {background-color: #fff; border: 1px solid #fff; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);}
-.vr-map .map-image .marker:not(.all) button {width: 64px; height: 64px; border-radius: 100%;}
+.vr-map .map-image .marker:not(.all) button {border-radius: 50%;}
 .vr-map .map-image .marker.all button {width: 146px; height: 48px; padding: 0 16px; border-radius: 100px;}
 .vr-map .map-image .marker .text-box {display: flex; align-items: center; color: #5A5C63; transition: color .2s ease;}
-.vr-map .map-image .marker:not(.all) button .text-box {flex-direction: column; justify-content: center; margin-top: -2px;}
+.vr-map .map-image .marker:not(.all) button .text-box {flex-direction: column; justify-content: center;}
 .vr-map .map-image .marker.all button .text-box {justify-content: space-between;}
-.vr-map .map-image .marker .title {display: block; font-size: 12px; font-weight: 500; line-height: 18px;}
-.vr-map .map-image .marker .number {display: block; font-size: 18px; font-weight: 600; line-height: .95;}
+.vr-map .map-image .marker .title {display: block; font-weight: 500;}
+.vr-map .map-image .marker .number {display: block; font-weight: 600; margin-top: -2px;}
 .vr-map .map-image .marker.all .title {font-size: 16px; line-height: 1;}
-.vr-map .map-image .marker.all .number {font-size: 20px; line-height: 1;}
+.vr-map .map-image .marker.all .number {font-size: 20px; line-height: 1; margin-top: 0;}
 .vr-map .map-image .marker:hover, .vr-map .map-image .marker:focus, .vr-map .map-image .marker.active {z-index: 1;}
 .vr-map .map-image .marker:hover button, .vr-map .map-image .marker:focus button, .vr-map .map-image .marker.active button {background-color: #DCEAFB; border-color: var(--color-primary);}
 .vr-map .map-image .marker:hover button .text-box, .vr-map .map-image .marker:focus button .text-box, .vr-map .map-image .marker.active button .text-box {color: var(--color-primary);}
 .vr-map .map-image .marker.all {right: 88px; top: -15px; width: 162px; height: 64px; border-radius: 100px;}/* 전국 */
-.vr-map .map-image .marker.s1 {left: 16%; top: 14.5%;}/* 서울 */
-.vr-map .map-image .marker.s2 {left: 8.5%; top: 22.5%;}/* 인천 */
-.vr-map .map-image .marker.s3 {left: 26%; top: 20%;}/* 경기 */
-.vr-map .map-image .marker.s4 {right: 38%; top: 14%;}/* 강원 */
-.vr-map .map-image .marker.s5 {left: 33%; top: 28%;}/* 충북 */
-.vr-map .map-image .marker.s6 {left: 6.5%; top: 32%;}/* 충남 */
-.vr-map .map-image .marker.s7 {right: 32%; top: 33%;}/* 경북 */
-.vr-map .map-image .marker.s8 {left: 28%; top: 41%;}/* 대전 */
-.vr-map .map-image .marker.s9 {right: 36%; top: 43%;}/* 대구 */
-.vr-map .map-image .marker.s10 {right: 21%; top: 49%;}/* 울산 */
-.vr-map .map-image .marker.s11 {left: 18%; top: 50%;}/* 전북 */
-.vr-map .map-image .marker.s12 {right: 46%; top: 57%;}/* 경남 */
-.vr-map .map-image .marker.s13 {right: 27%; top: 59%;}/* 부산 */
-.vr-map .map-image .marker.s14 {left: 8%; top: 62%;}/* 광주 */
-.vr-map .map-image .marker.s15 {left: 24%; top: 63%;}/* 전남 */
-.vr-map .map-image .marker.s16 {left: 5%; bottom: 6%;}/* 제주 */
+.vr-map .map-image .marker.su {left: calc(21% - (8px/2)); top: calc(18% - (8px/2));}/* 서울 */
+.vr-map .map-image .marker.ic {left: calc(12.5% - (8px/2)); top: calc(29% - (8px/2));}/* 인천 */
+.vr-map .map-image .marker.gg {left: calc(31% - (8px/2)); top: calc(24% - (8px/2));}/* 경기 */
+.vr-map .map-image .marker.gw {left: calc(57% - (8px/2)); top: calc(19% - (8px/2));}/* 강원 */
+.vr-map .map-image .marker.cb {left: calc(37% - (8px/2)); top: calc(33.5% - (8px/2));}/* 충북 */
+.vr-map .map-image .marker.cn {left: calc(10.5% - (8px/2)); top: calc(37.5% - (8px/2));}/* 충남 */
+.vr-map .map-image .marker.gb {left: calc(65% - (8px/2)); top: calc(38% - (8px/2));}/* 경북 */
+.vr-map .map-image .marker.dj {left: calc(33% - (8px/2)); top: calc(45% - (8px/2));}/* 대전 */
+.vr-map .map-image .marker.dg {left: calc(58% - (8px/2)); top: calc(50% - (8px/2));}/* 대구 */
+.vr-map .map-image .marker.us {left: calc(74% - (8px/2)); top: calc(55% - (8px/2));}/* 울산 */
+.vr-map .map-image .marker.jb {left: calc(24% - (8px/2)); top: calc(54.5% - (8px/2));}/* 전북 */
+.vr-map .map-image .marker.gn {left: calc(49% - (8px/2)); top: calc(61% - (8px/2));}/* 경남 */
+.vr-map .map-image .marker.bs {left: calc(69% - (8px/2)); top: calc(64% - (8px/2));}/* 부산 */
+.vr-map .map-image .marker.gj {left: calc(17.5% - (8px/2)); top: calc(62% - (8px/2));}/* 광주 */
+.vr-map .map-image .marker.jn {left: calc(29% - (8px/2)); top: calc(67% - (8px/2));}/* 전남 */
+.vr-map .map-image .marker.jj {left: calc(11% - (8px/2)); top: calc(90% - (8px/2));}/* 제주 */
+.vr-map .map-image .marker.lv1 {width: 64px; height: 64px;}/* lv1 (1~5) */
+.vr-map .map-image .marker.lv1 button {width: 48px; height: 48px;}
+.vr-map .map-image .marker.lv1 .title {font-size: 13px; line-height: 18px;}
+.vr-map .map-image .marker.lv1 .number {font-size: 13px; line-height: 18px;}
+.vr-map .map-image .marker.lv2 {width: 72px; height: 72px;}/* lv2 (6~15) */
+.vr-map .map-image .marker.lv2 button {width: 56px; height: 56px;}
+.vr-map .map-image .marker.lv2 .title {font-size: 15px; line-height: 22px;}
+.vr-map .map-image .marker.lv2 .number {font-size: 15px; line-height: 22px;}
+.vr-map .map-image .marker.lv3 {width: 80px; height: 80px;}/* lv3 (16~25) */
+.vr-map .map-image .marker.lv3 button {width: 64px; height: 64px;}
+.vr-map .map-image .marker.lv3 .title {font-size: 16px; line-height: 24px;}
+.vr-map .map-image .marker.lv3 .number {font-size: 16px; line-height: 24px;}
+.vr-map .map-image .marker.lv4 {width: 88px; height: 88px;}/* lv4 (26~35) */
+.vr-map .map-image .marker.lv4 button {width: 72px; height: 72px;}
+.vr-map .map-image .marker.lv4 .title {font-size: 18px; line-height: 26px;}
+.vr-map .map-image .marker.lv4 .number {font-size: 18px; line-height: 26px;}
+.vr-map .map-image .marker.lv5 {width: 96px; height: 96px;}/* lv5 (36이상) */
+.vr-map .map-image .marker.lv5 button {width: 80px; height: 80px;}
+.vr-map .map-image .marker.lv5 .title {font-size: 20px; line-height: 28px;}
+.vr-map .map-image .marker.lv5 .number {font-size: 20px; line-height: 28px;}
+
 .vr-detail {width: 760px; height: 100%; margin-left: 12px; padding: 110px 48px 148px; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); color: #fff; text-align: center;}
 .vr-detail .text-box .title {font-size: 64px; font-weight: 600; line-height: 80px;}
 .vr-detail .text-box .text {font-size: 20px; font-weight: 400; line-height: 28px; color: #C5C8CE;}
