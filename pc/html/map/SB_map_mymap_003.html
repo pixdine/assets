@@ -63,6 +63,16 @@
 										</fieldset>
 									</td>
 								</tr>
+								<!-- 2025-01-20 : 기존 마커에 중복 등록 시 - 장소명이 아닌 자료명으로 노출됨 -->
+								<tr>
+									<th class="required">자료명</th>
+									<td>
+										<fieldset>
+											<input type="text" title="자료명 입력란" name="place-name" id="place-name" placeholder="자료명을 입력해주세요." />
+										</fieldset>
+									</td>
+								</tr>
+								<!-- //2025-01-20 : 기존 마커에 중복 등록 시 - 장소명이 아닌 자료명으로 노출됨 -->
 								<tr>
 									<th class="required">위치</th>
 									<td>
@@ -70,8 +80,9 @@
 											<input type="text" title="구분 입력란" name="nation" id="nation" class="inp-sm" value="대한민국" readonly />
 											<input type="text" title="우편번호 입력란" name="zipCode" id="zipCode" class="inp-sm" value="03045" readonly />
 											<input type="text" title="주소 입력란" name="address1" id="address1" value="서울 종로구 사직로 161" readonly />
-											<button type="button" class="button size-lg type-secondary">
-												<span>주소 검색</span>
+											<!-- 2025-01-20 : 버튼명 변경 (주소 검색 → 주소 변경) -->
+											<button type="button" class="button size-lg type-secondary"><!-- D: 기존 카카오 주소검색 API 팝업 호출 -->
+												<span>주소 변경</span>
 											</button>
 										</fieldset>
 										<!-- D: 오류 시 .flag-error 추가 -->
@@ -81,6 +92,25 @@
 										</fieldset>
 									</td>
 								</tr>
+								<!-- 2025-01-20 : 세계일 때 위치 케이스 추가 -->
+								<tr>
+									<th class="required">위치</th>
+									<td>
+										<fieldset>
+											<input type="text" title="구분 입력란" name="nation" id="nation" class="inp-sm" value="세계" readonly />
+											<input type="text" title="주소 입력란" name="address1" id="address1" value="Piazza del Duomo, 56126 Pisa PI, 이탈리아" readonly />
+											<button type="button" class="button size-lg type-secondary" onclick="openPopup({id: 'popup-address'})">
+												<span>주소 변경</span>
+											</button>
+										</fieldset>
+										<!-- D: 오류 시 .flag-error 추가 -->
+										<fieldset class="flag-error">
+											<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." />
+											<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
+										</fieldset>
+									</td>
+								</tr>
+								<!-- //2025-01-20 : 세계일 때 위치 케이스 추가 -->
 								<tr>
 									<th class="required">자료등록</th>
 									<td>
@@ -133,26 +163,26 @@
 										</div>
 										<!-- //링크자료 선택 시 노출 -->
 
-										<!-- My Class 자료 선택 시 노출 -->
+										<!-- 2025-01-20 수정 : My Class 자료 선택 시 노출 -->
 										<div class="data-reg">
 											<fieldset>
-												<div class="file-upload">
-													<div class="inner-form">
-														<input type="file" name="" id="file2" placeholder="파일을 첨부해주세요.">
-														<button id="" class="button-delete">
-															<svg>
-																<title>삭제</title>
-																<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
-															</svg>
-														</button>
-													</div>
-													<label for="file2" class="button size-lg type-secondary">
-														<span>자료 검색</span>
-													</label>
+												<div class="input-inner-extra readonly">
+													<input type="text" title="자료 검색" name="data-search" id="data-search" readonly />
+													<button type="button" class="button-delete">
+														<svg>
+															<title>삭제</title>
+															<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+														</svg>
+													</button>
 												</div>
+	
+												<!-- D: 자료 검색 클릭 시 My Class 자료 선택 팝업 노출 -->
+												<button type="button" class="button size-lg type-secondary" onclick="openPopup({id: 'popup-my-class'})">
+													<span>자료 검색</span>
+												</button>
 											</fieldset>
 										</div>
-										<!-- //My Class 자료 선택 시 노출 -->
+										<!-- //2025-01-20 수정 : My Class 자료 선택 시 노출 -->
 									</td>
 								</tr>
 								<tr>
@@ -178,14 +208,14 @@
 						</table>
 					</div>
 
-					<!-- 부가 항목 등록 -->
+					<!-- 추가 입력 -->
 					<div class="accordion">
 						<ul class="accd-items">
 							<!-- D: .action 아코디언 클릭영역, .pane이 펼쳐지는 영역 -->
 							<li>
 								<a href="#" class="accd-depth action">
 									<div class="depth-wrap">
-										<strong class="title">부가 항목 등록</strong>
+										<strong class="title">추가 입력</strong><!-- D: 2025-01-20 : 문구 변경 -->
 									</div>
 								</a>
 
@@ -212,6 +242,21 @@
 														</fieldset>
 													</td>
 												</tr>
+												<!-- 2025-01-20 : 기존 마커에 중복 등록 시 - 테마 선택 비활성화(disabled 추가) -->
+												<tr>
+													<th>테마 선택</th>
+													<td>
+														<fieldset>
+															<select name="themeCd" id="themeCd" class="size-lg" disabled>
+																<option value="">테마를 선택해주세요.</option>
+																<option value="theme1">박물관</option>
+															</select>
+															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="추가할 테마를 입력해 주세요." disabled />
+															<button type="button" class="button size-lg type-secondary" disabled><span>테마 추가</span></button>
+														</fieldset>
+													</td>
+												</tr>
+												<!-- //2025-01-20 : 기존 마커에 중복 등록 시 - 테마 선택 비활성화(disabled 추가) -->
 												<tr>
 													<th>교과서 선택</th>
 													<td>
@@ -241,7 +286,7 @@
 							</li>
 						</ul>
 					</div>
-					<!-- //부가 항목 등록 -->
+					<!-- //추가 입력 -->
 
 					<!-- 저작권 및 활용 동의 -->
 					<!-- D: 공유여부의 학교 공개, 전체 공개 선택 시 노출 -->
@@ -414,5 +459,176 @@
 		</div>
 	</div>
 	<!-- //popup : 교과 선택 -->
+
+	<!-- 2025-01-20 popup : 세계 > 주소 변경 팝업 추가 -->
+	<div class="popup popup-fix" id="popup-address">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<h3>주소 변경</h3>
+			</div>
+			<div class="body">
+				<!-- 검색 영역 -->
+				<form action="">
+					<fieldset>
+						<div class="input-inner-extra">
+							<div class="clear-container">
+								<input type="search" name="worldAddrKeyword" id="worldAddrKeyword" placeholder="해외 주소를 입력해주세요." />
+								<button type="button" class="button-clear">
+									<svg>
+										<title>삭제</title>
+										<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
+									</svg>
+								</button>
+							</div>
+							<button type="button" class="icon-button" title="검색">
+								<svg>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+								</svg>
+							</button>
+						</div>
+					</fieldset>
+				</form>
+				<!-- //검색 영역 -->
+
+				<!-- 검색 결과 (검색 전 미노출) -->
+				<div class="cont-area addr-info-box">
+					<!-- 검색결과 없음 -->
+					<div class="nodata-box">
+						<p>검색 결과가 없습니다.</p>
+					</div>
+					<!-- //검색결과 없음 -->
+
+					<!-- 리스트 -->
+					<ul class="addr-list">
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="addr-item">
+								<span class="txt-addr">Piazza del Duomo, 56126 Pisa PI, 이탈리아</span>
+								<span class="txt-loc">"43.722952", "10.396597"</span>
+							</a>
+						</li>
+					</ul>
+					<!-- //리스트 -->
+				</div>
+				<!-- //검색 결과 (검색 전 미노출) -->
+			</div>
+		</div>
+	</div>
+	<!-- //2025-01-20 popup : 세계 > 주소 변경 팝업 추가 -->
+
+	<!-- 2025-01-20 popup : My Class 자료 선택 추가 -->
+	<div class="popup popup-fix" id="popup-my-class">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<h3>My Class 자료 선택</h3>
+			</div>
+			<div class="body">
+				<div class="cont-area">
+					<!-- 자료없는 경우 -->
+					<div class="nodata-box">
+						<p>등록된 내 자료가 없습니다.</p>
+					</div>
+					<!-- //자료없는 경우 -->
+
+					<!-- 테이블 -->
+					<div class="table-type1 type-hover">
+						<table>
+							<caption>My Class 자료 선택 목록</caption>
+							<colgroup>
+								<col width="20%">
+								<col width="80%">
+							</colgroup>
+							<thead>
+									<th scope="col">구분</th>
+									<th scope="col">제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>나만 보기</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											<div class="inline-wrap">
+												<p class="title">경복궁의 이해</p>
+											</div>
+											<ul class="divider-group type-brace">
+												<li>1학년</li>
+												<li>공통학기</li>
+												<li>공통</li>
+											</ul>
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>함께 보기</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											<div class="inline-wrap">
+												<p class="title">온라인 불국사 여행</p>
+											</div>
+											<ul class="divider-group type-brace">
+												<li>1학년</li>
+												<li>공통학기</li>
+												<li>공통</li>
+											</ul>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- //테이블 -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //2025-01-20 popup : My Class 자료 선택 추가 -->
 </body>
 </html>
