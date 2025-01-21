@@ -745,7 +745,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .item-theme .title, .item-theme .desc {display: block; margin: 0; padding: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 .item-theme .title {font-size: 16px; font-weight: 600; line-height: 24px;}
 .item-theme .desc {font-size: 14px; font-weight: 400; line-height: 20px; color: #5A5C63;}
-.item-theme .desc .name {font-weight: 400; color: var(--color-primary);}
+.item-theme .desc .name {font-weight: 400; color: var(--color-primary); white-space: nowrap;}
 
 /* 360 VR 메인 */
 .vr-main {width: 100%; min-width: 1320px; min-height: 100%; background: url("/assets/images/map/bg-vr.png") no-repeat center center / cover; line-height: 0;}
