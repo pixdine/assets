@@ -59,7 +59,7 @@
 									<th class="required">장소명</th>
 									<td>
 										<fieldset>
-											<input type="text" title="장소명 입력란" name="place-name" id="place-name" placeholder="장소명을 입력해주세요." value="경복궁" readonly />
+											<input type="text" title="장소명 입력란" name="place-name" id="place-name" placeholder="장소명을 입력해주세요." value="경복궁" />
 										</fieldset>
 									</td>
 								</tr>
@@ -68,7 +68,7 @@
 									<th class="required">자료명</th>
 									<td>
 										<fieldset>
-											<input type="text" title="자료명 입력란" name="place-name" id="place-name" placeholder="자료명을 입력해주세요." value="경복궁" readonly />
+											<input type="text" title="자료명 입력란" name="place-name" id="place-name" placeholder="자료명을 입력해주세요." value="경복궁의 역사" />
 										</fieldset>
 									</td>
 								</tr>
@@ -92,6 +92,23 @@
 										</fieldset>
 									</td>
 								</tr>
+								<!-- D: LMS 기등록 마커에 자료등록인 경우(input은 readonly / 주소 변경 버튼은 미노출) -->
+								<tr>
+									<th class="required">위치</th>
+									<td>
+										<fieldset>
+											<input type="text" title="구분 입력란" name="nation" id="nation" class="inp-sm" value="대한민국" readonly />
+											<input type="text" title="우편번호 입력란" name="zipCode" id="zipCode" class="inp-sm" value="03045" readonly />
+											<input type="text" title="주소 입력란" name="address1" id="address1" value="서울 종로구 사직로 161" readonly />
+										</fieldset>
+										<fieldset class="">
+											<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." value="123" readonly />
+											<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
+										</fieldset>
+									</td>
+								</tr>
+								<!-- //D: LMS 기등록 마커에 자료등록인 경우(input은 readonly / 주소 변경 버튼은 미노출) -->
+
 								<!-- 2025-01-20 : 세계일 때 위치 케이스 추가 -->
 								<tr>
 									<th class="required">위치</th>
@@ -104,8 +121,8 @@
 											</button>
 										</fieldset>
 										<!-- D: 오류 시 .flag-error 추가 -->
-										<fieldset class="flag-error">
-											<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." />
+										<fieldset class="">
+											<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." readonly />
 											<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
 										</fieldset>
 									</td>
