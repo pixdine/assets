@@ -412,29 +412,6 @@ const searchAaccordion = function(){
 	});
 }
 
-/* 지도 페이지 : 검색 영역 열기/닫기(모션) */
-/*
-const searchAaccordion = function(){
-	$(".pane-wrap .pane .btn-action").on("click", function (e) {
-		e.preventDefault();
-		const $pane = $(this).closest(".pane");
-		var $targetHeight = $(".tab").outerHeight() + $pane.find(".search-area").outerHeight();
-		var $resultBoxHeight = $pane.find(".result-box .inner").outerHeight();
-
-		if (!$(this).hasClass("active")) {
-			$(this).addClass("active");
-			$(".search-tabs").animate({ marginTop :-$targetHeight });
-			$(".result-box").animate({ height : $resultBoxHeight });
-		} else {
-			$pane.find(".btn-action").removeClass("active");
-			$(".search-tabs").animate({ marginTop : 0 });
-			$(this).removeClass("active");
-			$(".result-box").animate({ height : 0 });
-		}
-	});
-}
-*/
-
 /* 지도 페이지 : 체크박스 드롭다운 */
 const checkboxDropdown = function(el){
 	var $el = $(el);
@@ -479,62 +456,4 @@ const bestTheme = function(_target, _type, _time){ // _target : 클릭할 버튼
 			_target.parent().addClass("active");
 		}
 	});
-}
-
-//레이어 닫기
-const layerClose = function(_target, _type){
-	_target = $(_target);
-	if(_type == "remove"){
-		_target.remove();
-	} else {
-		_target.hide();
-	}
-}
-
-//map control 버튼 활성화 관련
-const mapCont = function(_target){
-	_target = $(_target);
-	multi_active = ["btn-satellite","btn-panorama","btn-distance"]; //active 클래스가 유지되어야 하는 버튼 클래스 배열
-	exc_active = ["btn-print"]; //active 적용안되어야 될 버튼 클래스 배열
-
-	_target.find("> button").click(function(){
-
-		// 버튼의 모든 클래스 가져오기
-		const buttonClasses = $(this).attr("class").split(" ");
-
-		// "active" 클래스를 제외한 클래스들만 필터링
-		const filteredClasses = buttonClasses.filter(cls => cls !== "active");
-
-		// 필터링된 클래스들이 multi_active 배열에 포함되는지 확인
-		let isMatch = filteredClasses.every(cls => multi_active.includes(cls));
-		let isExc = filteredClasses.every(cls => exc_active.includes(cls));
-
-		// 결과 출력
-		if (isMatch) {
-			if($(this).hasClass("active")){
-				$(this).removeClass("active");
-			} else {
-				$(this).addClass("active");
-			}
-		} else {
-			if($(this).hasClass("active")){
-				$(this).removeClass("active");
-			} else {
-				$(this).closest(_target).find("button").removeClass("active");
-				$(this).addClass("active");
-			}
-		}
-
-		if(isExc) {
-			$(this).removeClass("active");
-		}
-
-	});
-}
-
-//active 활성화
-const layerActive = function(_target){
-	_target = $(_target);
-
-	_target.show();
 }
