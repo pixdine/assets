@@ -399,10 +399,10 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 /* 베스트 테마 */
 .best-theme {z-index: 1; display: block; position: absolute; left: calc(50% + 166px); bottom: 0; transform: translateX(-50%) translateY(100%); transition:transform 0.25s; padding-bottom: 24px; text-align:center;}
 .best-theme.active {transform:translateX(-50%) translateY(0);}
-.best-theme.active .btn-best-theme::after {transform: rotate(-180deg);}
+.best-theme.active .btn-best-theme::after {transform: rotate(0deg);}
 .best-theme .btn-best-theme {display: inline-flex; align-items: center; gap: 2px; position: absolute; left: 50%; top: -36px; transform: translateX(-50%); padding: 8px 24px; background-color: var(--button-secondary); border-radius: 4px 4px 0 0; font-size: 14px; font-weight: 600; line-height: 20px; color: #fff;}
 .best-theme .btn-best-theme:hover, .best-theme .btn-best-theme:focus {background-color: var(--button-secondary-hover);}
-.best-theme .btn-best-theme::after {content: ""; display: block; width: 16px; height: 16px; background: url("/assets/images/map/icon-arrow-bottom.svg") no-repeat center; transition: transform 0.5s;}
+.best-theme .btn-best-theme::after {content: ""; display: block; width: 16px; height: 16px; background: url("/assets/images/map/icon-arrow-bottom.svg") no-repeat center; transition: transform 0.5s; transform: rotate(180deg);}
 .theme-box {padding: 23px; background-color: rgba(255,255, 255, 0.8); border: 1px solid var(--color-tertiary); border-radius: 12px;}
 .theme-box .title {display: block; margin-bottom: 16px; padding: 4px 0; font-size: 16px; font-weight: 500; line-height: 24px;}
 .theme-box .txt-exp01 {display: inline-block; margin-top: 16px;}
