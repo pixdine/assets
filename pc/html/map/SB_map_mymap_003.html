@@ -63,7 +63,7 @@
 										</fieldset>
 									</td>
 								</tr>
-								<!-- 2025-01-20 : 기존 마커에 중복 등록 시 - 장소명이 아닌 자료명으로 노출됨 -->
+								<!-- 2025-01-20 : LMS 기등록 마커에 자료등록 시(장소명이 아닌 자료명으로 노출됨) -->
 								<tr>
 									<th class="required">자료명</th>
 									<td>
@@ -72,7 +72,7 @@
 										</fieldset>
 									</td>
 								</tr>
-								<!-- //2025-01-20 : 기존 마커에 중복 등록 시 - 장소명이 아닌 자료명으로 노출됨 -->
+								<!-- //2025-01-20 : LMS 기등록 마커에 자료등록 시(장소명이 아닌 자료명으로 노출됨) -->
 								<tr>
 									<th class="required">위치</th>
 									<td>
@@ -102,10 +102,6 @@
 											<button type="button" class="button size-lg type-secondary" onclick="openPopup({id: 'popup-address'})">
 												<span>주소 변경</span>
 											</button>
-										</fieldset>
-										<!-- D: 오류 시 .flag-error 추가 -->
-										<fieldset class="flag-error">
-											<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." />
 											<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
 										</fieldset>
 									</td>
@@ -209,6 +205,7 @@
 					</div>
 
 					<!-- 추가 입력 -->
+					<!-- D: LMS 기등록 마커에 자료등록 시 추가 입력 부분 미노출 -->
 					<div class="accordion">
 						<ul class="accd-items">
 							<!-- D: .action 아코디언 클릭영역, .pane이 펼쳐지는 영역 -->
@@ -242,21 +239,6 @@
 														</fieldset>
 													</td>
 												</tr>
-												<!-- 2025-01-20 : 기존 마커에 중복 등록 시 - 테마 선택 비활성화(disabled 추가) -->
-												<tr>
-													<th>테마 선택</th>
-													<td>
-														<fieldset>
-															<select name="themeCd" id="themeCd" class="size-lg" disabled>
-																<option value="">테마를 선택해주세요.</option>
-																<option value="theme1">박물관</option>
-															</select>
-															<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="추가할 테마를 입력해 주세요." disabled />
-															<button type="button" class="button size-lg type-secondary" disabled><span>테마 추가</span></button>
-														</fieldset>
-													</td>
-												</tr>
-												<!-- //2025-01-20 : 기존 마커에 중복 등록 시 - 테마 선택 비활성화(disabled 추가) -->
 												<tr>
 													<th>교과서 선택</th>
 													<td>
