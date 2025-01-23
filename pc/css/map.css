@@ -646,32 +646,35 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .guide-slider .swiper-pagination-bullet {background-color: #C5C8CE; opacity: 1;}
 .guide-slider .swiper-pagination-bullet-active {background-color: var(--button-primary);}
 
+/* 디지털 지도 메인, 360 VR 메인 공통 헤더 */
+.main-header {background-color: #F7F7FB;}
+.main-header .header-top .logo, .main-header .header-top .logo > a {display: inline-flex; align-items: center;}
+.main-header .header-top {width: 100%; height: 40px; border-bottom: 1px solid #DBDBE4;}
+.main-header .header-top .inner-cont {display: flex; align-items: center; justify-content: space-between; max-width: 1544px; height: 100%; margin: 0 auto;}
+.main-header .header-top .aside {display: flex; align-items: center; height: 100%;}
+.main-header .header-top .aside > a, .main-header .header-top .aside .dropdown, .main-header .header .aside .btn-mteacher {font-size: 12px; font-weight: 400; line-height: 18px; color: #989BA2;}
+.main-header .header-top .aside > :not(:first-child) {position: relative; margin-left: 21px;}
+.main-header .header-top .aside > :not(:first-child)::before {content: ""; position: absolute; top: 50%; left: -10px; width: 1px; height: 10px; background-color: #DBDBE4; transform: translateY(-50%);}
+.main-header .header-top .aside .btn-mteacher {display: inline-flex; gap: 2px; align-items: center; position: relative; font-weight: 600; color: #02A39F;}
+.main-header .header-top .aside .btn-mteacher::before {content: ""; display: inline-block; width: 13px; height: 11px; background: url("/assets/images/map/icon-mteacher.svg") no-repeat center center;}
+.main-header .header-top .aside .dropdown {line-height: 1;}
+.main-header .header-top .aside .dropdown svg {width: 12px; height: 12px;}
+.main-header .header-top .aside .dropdown .btn-mteacher.active svg {transform: rotateZ(180deg);}
+.main-header .header-top .aside .items {display: none; left: 50% !important; margin-top: 7px; padding: 12px; min-width: auto !important; max-width: 224px; border-color: #02A39F; border-radius: 0px 0px 4px 4px; transform: translateX(-50%); box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.12); font-size: 13px;}
+.main-header .header-top .aside .items::before,
+.main-header .header-top .aside .items::after {content: ""; display: block; position: absolute; left: 50%; width: 0; height: 0; transform: translate(-50%, -100%);}
+.main-header .header-top .aside .items::before {top: -1px; border-bottom: 8px solid #02A39F; border-left: 12px solid transparent; border-right: 12px solid transparent;}
+.main-header .header-top .aside .items::after {top: 1px; border-bottom: 9px solid #fff; border-left: 13px solid transparent; border-right: 13px solid transparent;}
+.main-header .header-top .aside .items .button {position: relative; padding-top: 11px; padding-bottom: 11px; padding-left: 12px; padding-right: 32px; min-width: 130px; color: #626262; text-align: left; white-space: normal !important;}
+.main-header .header-top .aside .items .button svg {position: absolute; top: 50%; right: 12px; width: 12px; height: 12px; margin-top: -6px; color: #989BA2;}
+.main-header .header-top .aside .items .button:hover,
+.main-header .header-top .aside .items .button:focus {background-color: #F7F7FB; color: #02A39F; font-weight: 600;}
+.main-header .header-top .aside .items .button:hover svg,
+.main-header .header-top .aside .items .button:focus svg {color: #02A39F;}
+
 /* 디지털지도 메인 */
 .dmap-main {position: relative; min-width: 1544px; background-color: #F7F7FB;}
 .dmap-main .inner-cont {max-width: 1544px; margin: 0 auto;}
-.dmap-main .header-top .logo, .dmap-main .header-top .logo > a {display: inline-flex; align-items: center;}
-.dmap-main .header-top {width: 100%; min-width: 1544px; height: 40px; background-color: #F7F7FB; border-bottom: 1px solid #DBDBE4;}
-.dmap-main .header-top .inner-cont {display: flex; align-items: center; justify-content: space-between;height: 100%;}
-.dmap-main .header-top .aside {display: flex; align-items: center; height: 100%;}
-.dmap-main .header-top .aside > a, .dmap-main .header-top .aside .dropdown, .dmap-main .header .aside .btn-mteacher {font-size: 12px; font-weight: 400; line-height: 18px; color: #989BA2;}
-.dmap-main .header-top .aside > :not(:first-child) {position: relative; margin-left: 21px;}
-.dmap-main .header-top .aside > :not(:first-child)::before {content: ""; position: absolute; top: 50%; left: -10px; width: 1px; height: 10px; background-color: #DBDBE4; transform: translateY(-50%);}
-.dmap-main .header-top .aside .btn-mteacher {display: inline-flex; gap: 2px; align-items: center; position: relative; font-weight: 600; color: #02A39F;}
-.dmap-main .header-top .aside .btn-mteacher::before {content: ""; display: inline-block; width: 13px; height: 11px; background: url("/assets/images/map/icon-mteacher.svg") no-repeat center center;}
-.dmap-main .header-top .aside .dropdown {line-height: 1;}
-.dmap-main .header-top .aside .dropdown svg {width: 12px; height: 12px;}
-.dmap-main .header-top .aside .dropdown .btn-mteacher.active svg {transform: rotateZ(180deg);}
-.dmap-main .header-top .aside .items {display: none; left: 50% !important; margin-top: 7px; padding: 12px; min-width: auto !important; max-width: 224px; border-color: #02A39F; border-radius: 0px 0px 4px 4px; transform: translateX(-50%); box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.12); font-size: 13px;}
-.dmap-main .header-top .aside .items::before,
-.dmap-main .header-top .aside .items::after {content: ""; display: block; position: absolute; left: 50%; width: 0; height: 0; transform: translate(-50%, -100%);}
-.dmap-main .header-top .aside .items::before {top: -1px; border-bottom: 8px solid #02A39F; border-left: 12px solid transparent; border-right: 12px solid transparent;}
-.dmap-main .header-top .aside .items::after {top: 1px; border-bottom: 9px solid #fff; border-left: 13px solid transparent; border-right: 13px solid transparent;}
-.dmap-main .header-top .aside .items .button {position: relative; padding-top: 11px; padding-bottom: 11px; padding-left: 12px; padding-right: 32px; min-width: 130px; color: #626262; text-align: left; white-space: normal !important;}
-.dmap-main .header-top .aside .items .button svg {position: absolute; top: 50%; right: 12px; width: 12px; height: 12px; margin-top: -6px; color: #989BA2;}
-.dmap-main .header-top .aside .items .button:hover,
-.dmap-main .header-top .aside .items .button:focus {background-color: #F7F7FB; color: #02A39F; font-weight: 600;}
-.dmap-main .header-top .aside .items .button:hover svg,
-.dmap-main .header-top .aside .items .button:focus svg {color: #02A39F;}
 
 .dmap-main .footer {padding: 30px 0 26px; font-size: 12px; font-weight: 500; line-height: 18px; color: #989BA2;}
 .dmap-main .footer .inner-cont {display: flex; align-items: center; justify-content: space-between;}
@@ -750,11 +753,12 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .item-theme .desc .name {font-weight: 400; color: var(--color-primary); white-space: nowrap;}
 
 /* 360 VR 메인 */
-.vr-main {width: 100%; min-width: 1320px; min-height: 100%; background: url("/assets/images/map/bg-vr.png") no-repeat center center / cover; line-height: 0;}
-.main-360vr {display: flex;  min-height: 1080px;}
-.main-360vr .left-section, .main-360vr .right-section {flex: 1;}
-.vr-map {padding: 133px 0 23px;}
-.vr-map .map-image {position: relative; width: 738px; margin: 0 70px 0 152px;}
+.vr-main {position: relative; min-width: 1544px; width: 100%; min-height: 1080px; background: url("/assets/images/map/bg-vr.png") no-repeat center center / cover; line-height: 0;}
+.main-360vr {display: flex; width: 1544px; min-height: 1040px; margin: 0 auto;}
+.main-360vr .left-section {width: 784px;}
+.main-360vr .right-section {width: 760px;}
+.vr-map {width: 738px; margin: 93px 0 23px;}
+.vr-map .map-image {position: relative; }
 .vr-map .map-image .marker {display: flex; align-items: center; justify-content: center; position: absolute; background-color: rgba(0, 0, 0, 0.1);}
 .vr-map .map-image .marker:not(.all) {border-radius: 50%; transform: translate(-50%, -50%);}
 .vr-map .map-image .marker button {background-color: #fff; border: 1px solid #fff; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);}
@@ -778,6 +782,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .vr-map .map-image .marker.cb {left: calc(37% - (8px/2)); top: calc(33.5% - (8px/2));}/* 충북 */
 .vr-map .map-image .marker.cn {left: calc(10.5% - (8px/2)); top: calc(37.5% - (8px/2));}/* 충남 */
 .vr-map .map-image .marker.gb {left: calc(65% - (8px/2)); top: calc(38% - (8px/2));}/* 경북 */
+.vr-map .map-image .marker.sj {left: calc(26.5% - (8px/2)); top: calc(37% - (8px/2));}/* 세종 */
 .vr-map .map-image .marker.dj {left: calc(33% - (8px/2)); top: calc(45% - (8px/2));}/* 대전 */
 .vr-map .map-image .marker.dg {left: calc(58% - (8px/2)); top: calc(50% - (8px/2));}/* 대구 */
 .vr-map .map-image .marker.us {left: calc(74% - (8px/2)); top: calc(55% - (8px/2));}/* 울산 */
@@ -808,7 +813,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .vr-map .map-image .marker.lv5 .title {font-size: 20px; line-height: 28px;}
 .vr-map .map-image .marker.lv5 .number {font-size: 20px; line-height: 28px;}
 
-.vr-detail {width: 760px; height: 100%; margin-left: 12px; padding: 110px 48px 148px; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); color: #fff; text-align: center;}
+.vr-detail {width: 100%; height: 100%; padding: 80px 48px 138px; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); color: #fff; text-align: center;}
 .vr-detail .text-box .title {font-size: 64px; font-weight: 600; line-height: 80px;}
 .vr-detail .text-box .text {font-size: 20px; font-weight: 400; line-height: 28px; color: #C5C8CE;}
 .vr-region {margin-top: 80px;}
