@@ -266,6 +266,10 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .dmap-head .btn-home::before {content: ""; display: block; width: 24px; height: 24px; background: url("/assets/images/map/icon-home.svg") no-repeat 0 0;}
 .dmap-body {flex: 1 1 auto; position: relative;}
 
+/* 주제별 자료실, 베스트 테마인 경우 색상 변경 */
+.type-bg .dmap-head {background-color: #015C61;}
+.type-bg .tabs.type-rounded-m .tab li.active a::before {background-color: #015C61; border-color: #015C61;}
+
 /* 좌측 메뉴 */
 .dmap-body .menu-left {position: absolute; left: -332px; right: 0; top: 0; bottom: 0; background-color: transparent; transition: left 0.3s ease;}
 .dmap-body .menu-left.active {left: 0;}
