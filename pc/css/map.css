@@ -523,11 +523,14 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .marker-text-area .marker-title {font-weight: 500; color: #000; white-space: nowrap;}
 
 /* 마커 정보창 */
-.marker-info-window {display: block; width: 240px; border-radius: 8px; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);}
-.marker-info-window .info-inner {background-color: #fff; border-radius: 8px; overflow: hidden;}
+.marker-info-window {display: block; width: 256px; border-radius: 8px; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);}
+.marker-info-window .close-button {z-index: 1; display: inline-flex; align-items: end; position: absolute; right: 0; top: 0; width: 29px; height: 29px; color: #5A5C63;}
+.marker-info-window .close-button:hover {color: #5A5C63;}
+.marker-info-window .close-button svg {width: 16px; height: 16px;}
+.marker-info-window .info-inner {padding: 12px 0 6px; background-color: #fff; border-radius: 8px; overflow: hidden;}
 .marker-info-window .item-list li {position: relative;}
-.marker-info-window .item-list li > a {display: flex; align-items: center; position: relative; height: 40px; padding: 0 12px 0 19px; border-bottom: 1px solid #F1F1F5; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left;}
-.marker-info-window .item-list li > a:hover {background-color: #F7F7FB;}
+.marker-info-window .item-list li > a {display: flex; align-items: center; position: relative; height: 40px; padding: 0 28px 0 19px; border-bottom: 1px solid #F1F1F5; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left;}
+.marker-info-window .item-list li > a:hover {text-decoration: underline;}
 .marker-info-window .item-list li > a::before {content: ""; position: absolute; top: 19px; left: 12px; width: 3px; height: 3px; border-radius: 50%; background-color: #5A5C63;}
 .marker-info-window .item-list li:last-child > a {border-bottom: 0;}
 .marker-info-window .item-list li .text {display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
