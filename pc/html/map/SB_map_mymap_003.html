@@ -81,9 +81,12 @@
 											<input type="text" title="우편번호 입력란" name="zipCode" id="zipCode" class="inp-sm" value="03045" readonly />
 											<input type="text" title="주소 입력란" name="address1" id="address1" value="서울 종로구 사직로 161" readonly />
 											<!-- 2025-01-20 : 버튼명 변경 (주소 검색 → 주소 변경) -->
-											<button type="button" class="button size-lg type-secondary"><!-- D: 기존 카카오 주소검색 API 팝업 호출 -->
+											<!-- D: 기존 카카오 주소검색 API 팝업 호출 -->
+											<!-- 2025-01-24 : 주소 변경 버튼 삭제
+											<button type="button" class="button size-lg type-secondary">
 												<span>주소 변경</span>
 											</button>
+											-->
 										</fieldset>
 										<!-- D: 오류 시 .flag-error 추가 -->
 										<fieldset class="flag-error">
@@ -99,9 +102,11 @@
 										<fieldset>
 											<input type="text" title="구분 입력란" name="nation" id="nation" class="inp-sm" value="세계" readonly />
 											<input type="text" title="주소 입력란" name="address1" id="address1" value="Piazza del Duomo, 56126 Pisa PI, 이탈리아" readonly />
+											<!-- 2025-01-24 : 주소 변경 버튼 삭제
 											<button type="button" class="button size-lg type-secondary" onclick="openPopup({id: 'popup-address'})">
 												<span>주소 변경</span>
 											</button>
+											-->
 											<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
 										</fieldset>
 									</td>
@@ -560,46 +565,48 @@
 					<!-- //자료없는 경우 -->
 
 					<!-- 테이블 -->
-					<div class="table-type1 type-hover">
+					<div class="table-type1"><!-- D: 2025-01-25 : .type-hover 삭제 -->
 						<table>
 							<caption>My Class 자료 선택 목록</caption>
+							<!-- 2025-01-24 : 넓이값 수정 -->
 							<colgroup>
-								<col width="20%">
-								<col width="80%">
+								<col width="40%">
+								<col width="auto">
 							</colgroup>
+							<!-- //2025-01-24 : 넓이값 수정 -->
 							<thead>
-									<th scope="col">구분</th>
+									<th scope="col">교과 과정</th><!-- 2025-01-24 : 항목명 변경 -->
 									<th scope="col">제목</th>
 								</tr>
 							</thead>
 							<tbody>
+								<!-- 2025-01-24 : 항목명 변경에 따른 수정 -->
 								<tr>
-									<td>나만 보기</td>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
 									<td class="text-left">
 										<a href="javascript:;" class="myclass-item">
-											<div class="inline-wrap">
-												<p class="title">경복궁의 이해</p>
-											</div>
-											<ul class="divider-group type-brace">
-												<li>1학년</li>
-												<li>공통학기</li>
-												<li>공통</li>
-											</ul>
+											경복궁의 이해
 										</a>
 									</td>
 								</tr>
+								<!-- //2025-01-24 : 항목명 변경에 따른 수정 -->
 								<tr>
-									<td>함께 보기</td>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
 									<td class="text-left">
 										<a href="javascript:;" class="myclass-item">
-											<div class="inline-wrap">
-												<p class="title">온라인 불국사 여행</p>
-											</div>
-											<ul class="divider-group type-brace">
-												<li>1학년</li>
-												<li>공통학기</li>
-												<li>공통</li>
-											</ul>
+											온라인 불국사 여행
 										</a>
 									</td>
 								</tr>
