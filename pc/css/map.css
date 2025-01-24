@@ -184,7 +184,6 @@ select.size-lg+.select2-container .select2-selection--single .select2-selection_
 .table-type1 .file-ing svg {color: #C5C8CE;}
 .table-type1 .nodata-box {padding-top: 104px; padding-bottom: 104px;}
 .table-type1.type-view td {text-align:left;}
-.table-type1.type-hover tbody tr:hover td {background-color: #F7F7FB;}
 .sort-desc, .sort-asc {position: relative; cursor: pointer;}
 .sort-desc::after, .sort-asc::after {content: ""; display: inline-block; width: 0; height: 0; margin: -2px 0 0 3px; border-style: solid; vertical-align: middle;}
 .sort-desc::after {border-width: 5px 5px 0; border-color: #5A5C63 transparent transparent;}
@@ -267,8 +266,8 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .dmap-body {flex: 1 1 auto; position: relative;}
 
 /* 주제별 자료실, 베스트 테마인 경우 색상 변경 */
-.type-bg .dmap-head {background-color: #015C61;}
-.type-bg .tabs.type-rounded-m .tab li.active a::before {background-color: #015C61; border-color: #015C61;}
+.type-bg .dmap-head {background-color: var(--color-primary);}
+.type-bg .tabs.type-rounded-m .tab li.active a::before {background-color: var(--color-primary); border-color: var(--color-primary);}
 
 /* 좌측 메뉴 */
 .dmap-body .menu-left {position: absolute; left: -332px; right: 0; top: 0; bottom: 0; background-color: transparent; transition: left 0.3s ease;}
@@ -621,13 +620,11 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .addr-list .addr-item:hover {background-color: #F7F7FB;}
 .addr-list .addr-item:hover .txt-addr {text-decoration: underline;}
 /* My Class 자료 선택 */
-.myclass-item {display: block;}
-.myclass-item:hover .title {text-decoration: underline;}
-.myclass-item .inline-wrap ~ .divider-group {margin-top: 2px;}
-.myclass-item .title {font-size: 14px; font-weight: 400; line-height: 20px; word-break: break-all;}
-.myclass-item .divider-group.type-brace {align-items: center;}
-.myclass-item .divider-group.type-brace li {font-size: 13px; line-height: 18px; color: #989BA2;}
-.myclass-item .divider-group.type-brace > li::after {top: -3px;}
+.myclass-item {display: block; font-size: 14px; font-weight: 400; line-height: 20px; word-break: break-all;}
+.myclass-item:hover {text-decoration: underline;}
+.divider-group.type-brace {align-items: center;}
+.divider-group.type-brace li {font-size: 13px; line-height: 18px; color: #989BA2;}
+.divider-group.type-brace > li::after {top: -3px;}
 
 /* 디지털 지도 수업 자료실 핵심 사용 가이드 */
 .dmap-guide-layer {display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 100; background-color: rgba(0, 0, 0, 0.8);}
@@ -684,10 +681,10 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .dmap-main .footer .inner-cont {display: flex; align-items: center; justify-content: space-between;}
 .dmap-main .footer-link ul {display: flex; align-items: center; gap: 24px;}
 
-.main-intro {padding: 40px 0 24px;}
+.main-intro {padding: 32px 0 24px;}
 .main-intro .inner-cont {display: flex; align-items: flex-end; justify-content: space-between;}
-.main-intro .text-box .text {font-size: 20px; font-weight: 400; line-height: 28px; color: #5A5C63;}
-.main-intro .text-box .title {display: block; font-size: 64px; font-weight: 600; line-height: 80px;}
+.main-intro .text-box .text {display: block; margin-bottom: 2px; font-size: 20px; font-weight: 400; line-height: 28px; color: #5A5C63;}
+.main-intro .text-box .title {display: block; font-size: 50px; font-weight: 600; line-height: 64px;}
 /* 메인비주얼 */
 .main-visual {display: flex;justify-content: space-between; position: relative; overflow: hidden; width: 100%; height: 620px; background-color: #000;}
 .main-visual .card {display: flex; align-items: flex-end; flex-direction: column; position: relative; transition: transform 0.5s ease, flex-grow 0.5s ease; overflow: hidden;}
