@@ -333,7 +333,9 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .search-result-area .btn-area .btn-more {display: inline-flex; align-items: center; justify-content: center; gap: 2px; min-width: 77px; height: 32px; padding: 0 15px; border: 1px solid #DBDBE4; border-radius: 50px; font-size: 12px; font-weight: 400; line-height: 18px; color: #5A5C63;}
 .search-result-area .btn-area .btn-more svg {fill: rgba(0,0,0,0); color: #5A5C63; width: 12px; height: 12px;}
 .search-result-area .bottom-fixed {padding: 8px 0 16px; text-align: center;}
-.search-result-area .bottom-fixed .buttons {justify-content: center;}
+.search-result-area .bottom-fixed .buttons {display: flex; align-items: center; justify-content: center;}
+.search-result-area .bottom-fixed .indicator {min-width: 44px; font-size: 13px; font-weight: 400; line-height: 18px; color: #989BA2;}
+.search-result-area .bottom-fixed .indicator .current {font-weight: 600; color: #000;}
 .search-result-area .bottom-fixed .btn-prev, .search-result-area .bottom-fixed .btn-next {display: inline-flex; align-items: center; gap: 2px; height: 32px; padding: 0 15px; border: 1px solid #DBDBE4; border-radius: 50px; font-size: 12px; font-weight: 400; line-height: 18px; color: #5A5C63;}
 .search-result-area .bottom-fixed .btn-prev svg, .search-result-area .bottom-fixed .btn-next svg {width: 12px; height: 12px;}
 .search-result-area .bottom-fixed .btn-prev:disabled, .search-result-area .bottom-fixed .btn-next:disabled {border-color: #F1F1F5; color: #C5C8CE;}
@@ -681,10 +683,11 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .dmap-main .footer .inner-cont {display: flex; align-items: center; justify-content: space-between;}
 .dmap-main .footer-link ul {display: flex; align-items: center; gap: 24px;}
 
-.main-intro {padding: 32px 0 24px;}
+.main-intro {padding: 32px 0 30px;}
 .main-intro .inner-cont {display: flex; align-items: flex-end; justify-content: space-between;}
-.main-intro .text-box .text {display: block; margin-bottom: 2px; font-size: 20px; font-weight: 400; line-height: 28px; color: #5A5C63;}
-.main-intro .text-box .title {display: block; font-size: 50px; font-weight: 600; line-height: 64px;}
+.main-intro .text-box {display: flex; align-items: end; gap: 12px;}
+.main-intro .text-box .text {display: block; font-size: 20px; font-weight: 400; line-height: 28px; color: #5A5C63;}
+.main-intro .text-box .title {display: block; font-size: 48px; font-weight: 600; line-height: 58px;}
 /* 메인비주얼 */
 .main-visual {display: flex;justify-content: space-between; position: relative; overflow: hidden; width: 100%; height: 28.6vw; max-height: 620px; background-color: #000;}
 .main-visual .card {display: flex; align-items: flex-end; flex-direction: column; position: relative; transition: transform 0.5s ease, flex-grow 0.5s ease; overflow: hidden;}
