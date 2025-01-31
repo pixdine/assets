@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/m.ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/mobile/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/m.ui.map.js"></script>
+</head>
+
+<meta name="apple-mobile-web-app-title" content="미래엔 디지털 지도 수업 자료실">
+
+<!-- Body Content -->
+<body class="dmap">
+	<div class="dmap-wrap">
+		<div style="display: block; padding: 20px;">
+			<button type="button" class="button size-md" target-obj="popup-my-map-modify"><span>MY 지도 수정</span></button><!-- D: target-obj의 값을 원하는 팝업의 id 값과 동일하게 넣기 -->
+		</div>
+	</div>
+
+	<!-- popup : MY 지도 수정 -->
+	<div class="popup" id="popup-my-map-modify">
+		<div class="popup-container size-full">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<h3>MY 지도 수정</h3>
+			</div>
+			<div class="body">
+				<form action="" class="form my-map-form">
+					<div class="essential-comment">필수 입력</div>
+
+					<div class="form-wrap">
+						<div class="forms required">
+							<label for="place-name">장소명</label>
+							<fieldset>
+								<input type="text" title="장소명 입력란" name="place-name" id="place-name" placeholder="장소명을 입력해주세요." value="경복궁" />
+							</fieldset>
+						</div>
+
+						<!-- LMS 기등록 마커에 자료등록 시(장소명이 아닌 자료명으로 노출됨) -->
+						<div class="forms required">
+							<label for="data-name">자료명</label>
+							<fieldset>
+								<input type="text" title="자료명 입력란" name="data-name" id="data-name" placeholder="자료명을 입력해주세요." value="경복궁의 역사" />
+							</fieldset>
+						</div>
+						<!-- //LMS 기등록 마커에 자료등록 시(장소명이 아닌 자료명으로 노출됨) -->
+
+						<div class="forms required">
+							<label for="nation">위치</label>
+							<fieldset>
+								<input type="text" title="구분 입력란" name="nation" id="nation" value="대한민국" readonly />
+								<input type="text" title="우편번호 입력란" name="zipCode" id="zipCode" value="03045" readonly />
+								<!-- D: 기존 카카오 주소검색 API 팝업 호출 -->
+								<!-- 주소 변경 버튼 삭제
+								<button type="button" class="button size-lg type-secondary">
+									<span>주소 변경</span>
+								</button>
+								-->
+							</fieldset>
+							<fieldset>
+								<input type="text" title="주소 입력란" name="address1" id="address1" value="서울 종로구 사직로 161" readonly />
+							</fieldset>
+							<!-- D: 오류 시 .flag-error 추가 -->
+							<fieldset class="flag-error">
+								<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." />
+								<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
+							</fieldset>
+						</div>
+
+						<!-- D: LMS 기등록 마커에 자료등록인 경우(input은 readonly / 주소 변경 버튼은 미노출) -->
+						<div class="forms required">
+							<label for="nation">위치</label>
+							<fieldset>
+								<input type="text" title="구분 입력란" name="nation" id="nation" value="대한민국" readonly />
+								<input type="text" title="우편번호 입력란" name="zipCode" id="zipCode" value="03045" readonly />
+								<!-- D: 기존 카카오 주소검색 API 팝업 호출 -->
+								<!-- 주소 변경 버튼 삭제
+								<button type="button" class="button size-lg type-secondary">
+									<span>주소 변경</span>
+								</button>
+								-->
+							</fieldset>
+							<fieldset>
+								<input type="text" title="주소 입력란" name="address1" id="address1" value="서울 종로구 사직로 161" readonly />
+							</fieldset>
+							<fieldset>
+								<input type="text" title="상세주소 입력란" name="address2" id="address2" placeholder="상세 주소를 입력해주세요." value="123" readonly="">
+								<span class="caution">수정하신 위치 값에 오류가 발생하였습니다. 다시 확인해주시기 바랍니다.</span>
+							</fieldset>
+						</div>
+						<!-- //D: LMS 기등록 마커에 자료등록인 경우(input은 readonly / 주소 변경 버튼은 미노출) -->
+
+						<!-- 세계일 때 위치 케이스 추가 -->
+						<div class="forms required">
+							<label for="nation">위치</label>
+							<fieldset>
+								<input type="text" title="구분 입력란" name="nation" id="nation" value="세계" readonly />
+								<!-- 주소 변경 버튼 삭제
+								<button type="button" class="button size-lg type-secondary" onclick="openPopup({id: 'popup-address'})">
+									<span>주소 변경</span>
+								</button>
+								-->
+							</fieldset>
+							<fieldset>
+								<input type="text" title="주소 입력란" name="address1" id="address1" value="Piazza del Duomo, 56126 Pisa PI, 이탈리아" readonly />
+							</fieldset>
+						</div>
+						<!-- //세계일 때 위치 케이스 추가 -->
+
+						<div class="forms required">
+							<label for="dataReg1">자료등록</label>
+							<div class="ox-group">
+								<span class="ox">
+									<input type="radio" name="dataReg" id="dataReg1" checked />
+									<label for="dataReg1">파일 자료</label>
+								</span>
+								<span class="ox">
+									<input type="radio" name="dataReg" id="dataReg2" />
+									<label for="dataReg2">링크 자료</label>
+								</span>
+								<span class="ox">
+									<input type="radio" name="dataReg" id="dataReg3" />
+									<label for="dataReg3">My Class 자료</label>
+								</span>
+							</div>
+
+							<!-- 파일자료 선택 시 노출 -->
+							<div class="data-reg">
+								<fieldset>
+									<div class="file-upload">
+										<div class="inner-form">
+											<input type="file" name="" id="file1" placeholder="파일을 첨부해주세요.">
+											<button id="" class="button-delete">
+												<svg>
+													<title>삭제</title>
+													<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+												</svg>
+											</button>
+										</div>
+										<label for="file1" class="button size-lg type-secondary">
+											<span>자료 검색</span>
+										</label>
+									</div>
+								</fieldset>
+
+								<ul class="ul-dot">
+									<li>파일당 10MB까지 첨부 가능합니다.</li>
+									<li>jpg, png, bmp, jpeg, mp4, mp3, hwp, doc, pptx, pdf, xls, zip, hwpx, docx, ppt, xlsx 확장자 파일만 첨부 가능합니다.</li>
+								</ul>
+							</div>
+							<!-- //파일자료 선택 시 노출 -->
+
+							<!-- 링크자료 선택 시 노출 -->
+							<div class="data-reg">
+								<fieldset>
+									<input type="text" title="url 입력란" name="url-link" id="url-link" placeholder="url을 입력해주세요." />
+								</fieldset>
+							</div>
+							<!-- //링크자료 선택 시 노출 -->
+
+							<!-- My Class 자료 선택 시 노출 -->
+							<div class="data-reg">
+								<fieldset>
+									<div class="input-inner-extra readonly">
+										<input type="text" title="자료 검색" name="data-search" id="data-search" readonly value="1학년 | 공통학기 | 공통 | 경복궁의 이해" />
+										<button type="button" class="button-delete">
+											<svg>
+												<title>삭제</title>
+												<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+											</svg>
+										</button>
+									</div>
+
+									<!-- D: 자료 검색 클릭 시 My Class 자료 선택 팝업 노출 -->
+									<button type="button" class="button size-lg type-secondary" target-obj="popup-my-class">
+										<span>자료 검색</span>
+									</button>
+								</fieldset>
+							</div>
+							<!-- //My Class 자료 선택 시 노출 -->
+						</div>
+
+						<div class="forms required">
+							<label for="shareChk1">공유여부</label>
+							<div class="ox-group">
+								<span class="ox">
+									<input type="radio" name="shareChk" id="shareChk1" checked />
+									<label for="shareChk1">나만 보기</label>
+								</span>
+								<span class="ox">
+									<input type="radio" name="shareChk" id="shareChk2" />
+									<label for="shareChk2">학교 공개</label>
+								</span>
+								<span class="ox">
+									<input type="radio" name="shareChk" id="shareChk3" />
+									<label for="shareChk3">전체 공개</label>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- 추가 입력 -->
+					<!-- D: LMS 기등록 마커에 자료등록 시 추가 입력 부분 미노출 -->
+					<div class="accordion">
+						<ul class="accd-items">
+							<!-- D: .action 아코디언 클릭영역, .pane이 펼쳐지는 영역 -->
+							<li>
+								<a href="#" class="accd-depth action">
+									<div class="depth-wrap">
+										<strong class="title">추가 입력</strong>
+									</div>
+								</a>
+
+								<div class="pane">
+
+									<div class="form-wrap">
+										<div class="forms">
+											<label for="themeCd">테마 선택</label>
+											<fieldset>
+												<select name="themeCd" id="themeCd" class="size-lg">
+													<option value="">테마를 선택해주세요.</option>
+													<option value="theme1">박물관</option>
+												</select>
+											</fieldset>
+											<fieldset>
+												<input type="text" title="테마 입력란" name="theme" id="theme" placeholder="추가할 테마를 입력해 주세요." />
+												<button type="button" class="button size-lg type-secondary"><span>테마 추가</span></button>
+											</fieldset>
+										</div>
+
+										<div class="forms">
+											<label for="textbook-info">교과서 선택</label>
+											<fieldset>
+												<div class="input-inner-extra readonly">
+													<input type="text" title="교과 선택" name="textbook-info" id="textbook-info" readonly value="국정 | 초등학교 | 2022개정 | 1학년 | 2학기 [2022개정] 이행복 테스트 | 1. 대단원명" />
+													<button type="button" class="button-delete">
+														<svg>
+															<title>삭제</title>
+															<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+														</svg>
+													</button>
+												</div>
+	
+												<!-- D: 교과 선택 클릭 시 교과 선택 팝업 노출 -->
+												<button type="button" class="button size-lg type-secondary" target-obj="popup-textbook-select">
+													<span>교과 선택</span>
+												</button>
+											</fieldset>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- //추가 입력 -->
+
+					<!-- 저작권 및 활용 동의 -->
+					<!-- D: 공유여부의 학교 공개, 전체 공개 선택 시 노출 -->
+					<div class="box-info">
+						<span class="ox">
+							<input type="checkbox" id="agree1" checked />
+							<label for="agree1"><span class="required">저작권 및 활용 동의</span></label>
+						</span>
+						<p>본 자료에 사용된 폰트, 이미지, 영상 등의 모든 콘텐츠는 저작권법에 위배되지 않으며, 저작권 침해가 확인될 경우 별도 안내 없이 자료가 삭제될 수 있습니다. 학교 공개 및 전체 공개로 업로드한 자료는 엠티처 사이트 내 자유롭게 활용될 수 있음에 동의합니다.</p>
+					</div>
+					<!-- //저작권 및 활용 동의 -->
+				</form>
+			</div>
+			<div class="footer">
+				<button class="button size-lg type-gray" close-obj><span>취소</span></button>
+				<button class="button size-lg type-primary"><span>저장</span></button>
+			</div>
+		</div>
+	</div>
+	<!-- //popup : MY 지도 수정 -->
+
+	<!-- popup sheet : My Class 자료 선택 -->
+	<div class="popup-sheet" id="popup-my-class">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+				</svg>
+			</button>
+			<div class="header">
+				My Class 자료 선택
+			</div>
+			<div class="body">
+				<div class="cont-area">
+					<!-- 자료없는 경우 -->
+					<div class="nodata-box">
+						<p>등록된 내 자료가 없습니다.</p>
+					</div>
+					<!-- //자료없는 경우 -->
+
+					<!-- 테이블 -->
+					<div class="table-type1">
+						<table>
+							<caption>My Class 자료 선택 목록</caption>
+							<colgroup>
+								<col width="40%">
+								<col width="auto">
+							</colgroup>
+							<thead>
+									<th scope="col">교과 과정</th>
+									<th scope="col">제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- D: 최대 5개를 기준으로 페이징 처리 -->
+								<tr>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											경복궁의 이해
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											온라인 불국사 여행
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											온라인 불국사 여행
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											온라인 불국사 여행
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-left">
+										<ul class="divider-group type-brace">
+											<li>1학년</li>
+											<li>공통학기</li>
+											<li>공통</li>
+										</ul>
+									</td>
+									<td class="text-left">
+										<a href="javascript:;" class="myclass-item">
+											온라인 불국사 여행
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- //테이블 -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //popup sheet : My Class 자료 선택 -->
+
+	<!-- popup sheet : 교과 선택 -->
+	<div class="popup-sheet" id="popup-textbook-select">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+				</svg>
+			</button>
+			<div class="header">
+				교과 선택
+			</div>
+			<div class="body">
+				<form action="">
+					<div class="essential-comment">필수 입력</div>
+
+					<div class="form-wrap">
+						<div class="forms required">
+							<label for="subjectLevel">학교급</label>
+							<fieldset>
+								<select name="subjectLevel" id="subjectLevel" class="size-lg">
+									<option value="">전체</option>
+									<option value="ELEMENT" selected>초등</option>
+									<option value="MIDDLE">중등</option>
+									<option value="HIGH">고등</option>
+								</select>
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="textBookCd">교과서</label>
+							<fieldset>
+								<select name="textBookCd" id="textBookCd" class="size-lg">
+									<option value="">선택</option>
+									<option value="textBookCd1">[2015개정] 사회 3-1</option>
+									<option value="textBookCd2">[2015개정] 사회 3-2</option>
+									<option value="textBookCd3">[2015개정] 사회 4-1</option>
+								</select>
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="textBookCd">국정/검정/인정</label>
+							<fieldset>
+								<input type="text" name="subjectType" id="subjectType" placeholder="교과서 선택 시 자동 입력" readonly />
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="subjectRevision">교육과정</label>
+							<fieldset>
+								<input type="text" name="subjectRevision" id="subjectRevision" placeholder="교과서 선택 시 자동 입력" readonly />
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="gradeTerm">학년/학기</label>
+							<fieldset>
+								<input type="text" name="gradeTerm" id="gradeTerm" placeholder="교과서 선택 시 자동 입력" readonly />
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="subjectCode">과목</label>
+							<fieldset>
+								<input type="text" name="subjectCode" id="subjectCode" placeholder="교과서 선택 시 자동 입력" readonly />
+							</fieldset>
+						</div>
+	
+						<!-- D: 대단원, 중단원, 소단원, 차시는 선택값에 따라 나올 수 있고 안나올 수 있음 -->
+						<div class="forms required">
+							<label for="textBookChpCd1">과목</label>
+							<fieldset>
+								<select name="textBookChpCd1" id="textBookChpCd1" class="size-lg" disabled>
+									<option value="">교과서를 선택해주세요</option>
+									<option value="">선택안함</option>
+									<option value="chapterCd1-1">1. 우리 고장의 모습</option>
+									<option value="chapterCd1-2">2. 우리가 알아보는 고장 이야기</option>
+									<option value="chapterCd1-3">3. 교통과 통신수단의 변화</option>
+								</select>
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="textBookChpCd2">중단원</label>
+							<fieldset>
+								<select name="textBookChpCd2" id="textBookChpCd2" class="size-lg" disabled>
+									<option value="">선택안함</option>
+									<option value="chapterCd2-1">1. 우리가 생각하는 고장의 모습</option>
+									<option value="chapterCd2-2">2. 하늘에서 내려다 본 우리 고장의 모습</option>
+								</select>
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="textBookChpCd3">소단원</label>
+							<fieldset>
+								<fieldset>
+									<select name="textBookChpCd3" id="textBookChpCd3" class="size-lg" disabled>
+										<option value="">선택안함</option>
+										<option value="textBookChpCd3-1">전체</option>
+									</select>
+								</fieldset>
+							</fieldset>
+						</div>
+	
+						<div class="forms required">
+							<label for="textBookChpDptCd">차시</label>
+							<fieldset>
+								<select name="textBookChpDptCd" id="textBookChpDptCd" class="size-lg" disabled>
+									<option value="">단원을 선택해주세요</option>
+									<option value="">선택안함</option>
+									<option value="chapterDptCd-1">[1차시] 우리 고장의 여러 장소를 살펴볼까요</option>
+									<option value="chapterDptCd-2">[2~3차시] 우리 고장의 모습을 그려 볼까요</option>
+									<option value="chapterDptCd-3">[4~5차시] 우리 고장의 모습을 비교해 볼까요</option>
+									<option value="chapterDptCd-4">[6~7차시] 고장의 모습에 관한 서로의 생각을 들어 볼까요</option>
+									<option value="chapterDptCd-5">[8차시] 뚝딱뚝딱 정리하기</option>
+								</select>
+							</fieldset>
+						</div>
+						<!-- //D: 대단원, 중단원, 소단원, 차시는 선택값에 따라 나올 수 있고 안나올 수 있음 -->
+					</div>
+				</form>
+			</div>
+			<div class="footer">
+				<button class="button size-lg" close-obj><span>닫기</span></button>
+				<button class="button size-lg type-primary"><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+	<!-- //popup sheet : 교과 선택 -->
+</body>
+
+</html>

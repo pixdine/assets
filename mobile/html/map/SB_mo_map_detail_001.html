@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/m.ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/mobile/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/m.ui.map.js"></script>
+</head>
+
+<meta name="apple-mobile-web-app-title" content="미래엔 디지털 지도 수업 자료실">
+
+<!-- Body Content -->
+<body class="dmap">
+	<div class="dmap-wrap">
+
+		<!-- header -->
+		<div class="dmap-head">
+			<div class="inner">
+				<!-- 지역/장소유형 노출 -->
+				<!-- D: 디폴트로 이 부분이 노출되며 검색했을 때 해당 영역 미노출 (노출 시 display: flex) -->
+				<div class="title-box">
+					<span class="my-location">경상남도 창원시 마산합포구</span>
+				</div>
+				<!-- //지역/장소유형 노출(디폴트) -->
+
+				<!-- 검색했을 때 검색 결과 영역 노출 -->
+				<!-- D: 검색 후 해당 영역 노출(노출 시 display: flex), 위에 있는 class="title-box" 부분은 미노출 -->
+				<div class="srch-box" style="display: none;">
+					<button class="icon-button btn-back" title="뒤로가기"><!-- D: 뒤로가기 버튼 클릭 시 처음과 동일하게 .srch-box 영역 미노출 되고 .title-box 영역 노출, .dmap-filter 영역 내에 .srch-result 영역 미노출 되고 .buttons 영역 노출 -->
+						<svg>
+							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+						</svg>
+					</button>
+					<strong class="title">지역 / 장소 유형 검색</strong>
+				</div>
+				<!-- //검색했을 때 검색 결과 영역 노출 -->
+
+				<div class="aside">
+					<button type="button" class="btn-search" method-type="toggle-only" target-obj="layer-search"><span class="blind">검색</span></button>
+					<a href="#" class="btn-home"><span class="blind">홈</span></a>
+
+					<!-- [P] 검색 버튼 클릭 > 검색 레이어 -->
+					<div class="search-layer" id="layer-search">
+						<!-- 검색영역 -->
+						<div class="search-area">
+							<div class="search-item-box">
+								<!-- D: 퍼블 확인용 (개발에서 팝업 호출 완료 후 topBtnShow(".result-cont") 기능 호출) -->
+								<script>
+									$(function(){
+										$(".search-area .icon-button").on("click", function(){
+											openPopup({id: 'popup-result-list-02'});
+											setTimeout(function(){
+												topBtnShow(".result-cont");
+											});
+											$(".dmap-head .title-box").css("display", "none");
+											$(".dmap-head .srch-box").css("display", "flex");
+											$(".dmap-filter .buttons").css("display", "none");
+											$(".dmap-filter .srch-result").css("display", "flex");
+											$("#btn-list").css("display", "none");
+											$("#btn-list-search").css("display", "flex");
+										});
+									})
+								</script>
+								<!-- //D: 퍼블 확인용 -->
+								<div class="search-item">
+									<fieldset>
+										<div class="input-inner-extra">
+											<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+											<input type="search" name="srchMapKeyword" id="srchMapKeyword" placeholder="검색어를 입력해주세요." />
+											<button type="button" class="icon-button" title="검색" close-obj><!-- D: 검색 버튼 또는 키패드 내 검색 버튼 클릭 시 검색 레이어 닫히면서 [P] 자료/장소 리스트 팝업 오픈 (openPopup({id: 'popup-result-list-02'});) -->
+												<svg>
+													<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+												</svg>
+											</button>
+										</div>
+									</fieldset>
+								</div>
+								<!-- D: 추천검색어 (없는 경우 해당 영역 전체 미노출) -->
+								<div class="search-item">
+									<div class="search-word">
+										<strong class="title">추천검색어</strong>
+										<div class="word-list">
+											<a href="#">삼일운동</a>
+											<a href="#">한글날</a>
+											<a href="#">삼국시대</a>
+											<a href="#">디지털산업단지</a>
+											<a href="#">교육</a>
+											<a href="#">조선시대</a>
+											<a href="#">루브르박물관</a>
+										</div>
+									</div>
+								</div>
+								<!-- //D: 추천검색어 (없는 경우 해당 영역 전체 미노출) -->
+							</div>
+						</div>
+						<!-- //검색영역 -->
+					</div>
+					<!-- //[P] 검색 버튼 클릭 > 검색 레이어 -->
+				</div>
+				
+			</div>
+		</div>
+		<!-- //header -->
+
+		<!-- content -->
+		<div class="dmap-body">
+			<!-- 상단 필터 -->
+			<div class="dmap-filter">
+				<div class="filter-box">
+					<!-- 지역/장소유형 노출 -->
+					<!-- D: 디폴트로 이 부분이 노출되며 검색했을 때 해당 영역 미노출 (노출 시 display: flex) -->
+					<div class="buttons">
+						<button type="button" class="button type-select size-md" method-type="toggle-only" target-obj="layer-region"><!-- D: 선택 시 .active 추가 -->
+							<span>지역</span>
+						</button>
+						<button type="button" class="button type-select size-md" method-type="toggle-only" target-obj="layer-place-type">
+							<span>장소 유형</span>
+						</button>
+					</div>
+					<!-- //지역/장소유형 노출 -->
+
+					<!-- 검색했을 때 검색 결과 영역 노출 -->
+					<!-- D: 검색 후 해당 영역 노출(노출 시 display: flex), 위에 있는 class="buttons" 부분은 미노출 -->
+					<div class="srch-result" style="display: none;">
+						<strong class="keyword">구로구로구로구로구로구로구로구로구로구로구로구로구로구로구로구로</strong>검색결과
+					</div>
+					<!-- //검색했을 때 검색 결과 영역 노출 -->
+					
+					<div class="aside">
+						<button type="button" class="button type-select size-md" method-type="toggle-only" target-obj="layer-chapter">
+							<span>연계 교과</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- [P] 지역 선택 > 지역 시도/시군구 레이어 -->
+				<div class="filter-layer" id="layer-region" no-dimd>
+					<div class="layer-container">
+
+						<div class="step-wrap tabs">
+							<div class="step-select">
+								<ul class="step-list">
+									<li class="active"><!-- D: 선택 시 .active 추가 -->
+										<a href="#region-city" class="step-item"><span>서울특별시</span></a><!-- D: 단수일 때 선택된 값 노출 -->
+									</li>
+									<li>
+										<a href="#region-dvsn" class="step-item"><span>시/군/구</span></a>
+									</li>
+								</ul>
+							</div>
+
+							<!-- 시/도 -->
+							<div id="region-city" class="pane step-section">
+								<div class="step-inner">
+									<div class="step-box">
+										<div class="ox-tab">
+											<ul>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-1" checked />
+														<label for="srchCitesCd1-1">서울특별시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-2" />
+														<label for="srchCitesCd1-2">부산광역시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-3" />
+														<label for="srchCitesCd1-3">대구광역시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-4" />
+														<label for="srchCitesCd1-4">인천광역시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-5" />
+														<label for="srchCitesCd1-5">광주광역시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-6" />
+														<label for="srchCitesCd1-6">대전광역시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-7" />
+														<label for="srchCitesCd1-7">울산광역시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-8" />
+														<label for="srchCitesCd1-8">세종특별시</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-9" />
+														<label for="srchCitesCd1-9">경기도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-10" />
+														<label for="srchCitesCd1-10">강원도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-11" />
+														<label for="srchCitesCd1-11">충청북도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-12" />
+														<label for="srchCitesCd1-12">충청남도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-13" />
+														<label for="srchCitesCd1-13">전라북도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-14" />
+														<label for="srchCitesCd1-14">전라남도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-15" />
+														<label for="srchCitesCd1-15">경상북도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-16" />
+														<label for="srchCitesCd1-16">경상남도</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCitesCd" id="srchCitesCd1-17" />
+														<label for="srchCitesCd1-17">제주 특별자치도</label>
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="btn-box">
+										<button type="button" class="button size-lg type-primary" target-next-step>
+											<span>적용하기</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- //시/도 -->
+
+							<!-- 시/군/구 -->
+							<div id="region-dvsn" class="pane step-section">
+								<div class="step-inner">
+									<div class="step-box">
+										<div class="ox-tab">
+											<ul>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-1" checked />
+														<label for="srchCityCntyDst1-1">시/군/구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-2" />
+														<label for="srchCityCntyDst1-2">강남구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-3" />
+														<label for="srchCityCntyDst1-3">강동구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-4" />
+														<label for="srchCityCntyDst1-4">강북구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-5" />
+														<label for="srchCityCntyDst1-5">강서구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-6" />
+														<label for="srchCityCntyDst1-6">관악구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-7" />
+														<label for="srchCityCntyDst1-7">광진구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-8" />
+														<label for="srchCityCntyDst1-8">구로구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-9" />
+														<label for="srchCityCntyDst1-9">금천구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-10" />
+														<label for="srchCityCntyDst1-10">노원구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-11" />
+														<label for="srchCityCntyDst1-11">도봉구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-12" />
+														<label for="srchCityCntyDst1-12">동대문구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-13" />
+														<label for="srchCityCntyDst1-13">동작구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-14" />
+														<label for="srchCityCntyDst1-14">마포구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-15" />
+														<label for="srchCityCntyDst1-15">서대문구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-16" />
+														<label for="srchCityCntyDst1-16">서초구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-17" />
+														<label for="srchCityCntyDst1-17">성동구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-18" />
+														<label for="srchCityCntyDst1-18">성북구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-19" />
+														<label for="srchCityCntyDst1-19">송파구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-20" />
+														<label for="srchCityCntyDst1-20">양천구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-21" />
+														<label for="srchCityCntyDst1-21">영등포구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-22" />
+														<label for="srchCityCntyDst1-22">용산구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-23" />
+														<label for="srchCityCntyDst1-23">은평구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-24" />
+														<label for="srchCityCntyDst1-24">종로구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-25" />
+														<label for="srchCityCntyDst1-25">중구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-26" />
+														<label for="srchCityCntyDst1-26">중랑구</label>
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="btn-box">
+										<button type="button" class="button size-lg type-primary" close-obj="layer-region">
+											<span>적용하기</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- //시/군/구 -->
+						</div>
+					</div>
+				</div>
+				<!-- //[P] 지역 선택 > 지역 시도/시군구 레이어 -->
+
+				<!-- [P] 장소 유형 선택 > 대분류/중분류 레이어 팝업 -->
+				<div class="filter-layer" id="layer-place-type" no-dimd>
+					<div class="layer-container">
+
+						<div class="step-wrap tabs">
+							<div class="step-select">
+								<ul class="step-list">
+									<li class="active"><!-- D: 선택 시 .active 추가 -->
+										<a href="#cate-depth1" class="step-item"><span>대분류</span></a><!-- D: 복수일 때는 선택된 값 노출하지 않음 -->
+									</li>
+									<li><!-- D: 선택된 항목이 없는 경우 버튼 비활성화. (비활성화 시 .disabled 추가) -->
+										<a href="#cate-depth2" class="step-item"><span>중분류</span></a>
+									</li>
+								</ul>
+							</div>
+
+							<!-- 대분류 -->
+							<div id="cate-depth1" class="pane step-section">
+								<div class="step-inner">
+									<div class="step-box">
+										<div class="ox-tab">
+											<ul>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCtgryCd1-1" />
+														<label for="srchCtgryCd1-1">전체</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCtgryCd1-2" />
+														<label for="srchCtgryCd1-2">지역 생활</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCtgryCd1-3" />
+														<label for="srchCtgryCd1-3">인문 환경</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCtgryCd1-4" />
+														<label for="srchCtgryCd1-4">자연 환경</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCtgryCd1-5" />
+														<label for="srchCtgryCd1-5">지역 역사</label>
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="btn-box">
+										<button type="button" class="button size-lg type-primary" target-next-step><!-- D: 선택된 항목이 없는 경우 버튼 비활성화. (비활성화 시 disabled 추가) -->
+											<span>적용하기</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- //대분류 -->
+
+							<!-- 중분류 -->
+							<div id="cate-depth2" class="pane step-section">
+								<div class="step-inner">
+									<div class="step-box">
+										<div class="ox-tab">
+											<ul>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-1" />
+														<label for="srchCitesCd2-1">전체</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-2" />
+														<label for="srchCitesCd2-2">산</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-3" />
+														<label for="srchCitesCd2-3">계곡</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-4" />
+														<label for="srchCitesCd2-4">평야</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-5" />
+														<label for="srchCitesCd2-5">하천</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-6" />
+														<label for="srchCitesCd2-6">호수</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-7" />
+														<label for="srchCitesCd2-7">해변</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-8" />
+														<label for="srchCitesCd2-8">다리</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-9" />
+														<label for="srchCitesCd2-9">댐</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="srchCitesCd2-10" />
+														<label for="srchCitesCd2-10">공원</label>
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="btn-box">
+										<button type="button" class="button size-lg type-primary" close-obj="layer-region">
+											<span>적용하기</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- //중분류 -->
+						</div>
+					</div>
+				</div>
+				<!-- //[P] 장소 유형 선택 > 대분류/중분류 레이어 팝업 -->
+
+				<!-- [P] 연계 교과 선택 > 연계 교과 레이어 -->
+				<div class="filter-layer" id="layer-chapter" no-dimd>
+					<div class="layer-container">
+						<div class="body">
+
+							<div>
+								<div class="select-dropdown" data-selectbox id="srchSchLvlCd"><!-- D: 선택 시 .active 추가 -->
+									<button type="button" data-set-button><span>학교급</span></button><!-- D: 선택값 들어갔을 때 .active 추가 -->
+									<div class="select_list" data-set-list>
+										<ul>
+											<!-- D: li 태그에 data-selected 추가시 셀렉트된 옵션처럼 노출
+											<li data-selected><a href="javascript:;">초등</a></li>
+											-->
+											<li><a href="javascript:;">초등</a></li>
+											<li><a href="javascript:;">중학</a></li>
+											<li><a href="javascript:;">고등</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="select-dropdown" data-selectbox id="srchSbjCd">
+									<button type="button" data-set-button><span>교과서명</span></button>
+									<div class="select_list" data-set-list>
+										<ul>
+											<li><a href="javascript:;">사회 3-1</a></li>
+											<li><a href="javascript:;">사회 3-2</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="select-dropdown disabled" data-selectbox id="srchChpCd1"><!-- D: 비활성화 시 .disabled 추가 -->
+									<button type="button" data-set-button><span>대단원</span></button>
+									<div class="select_list" data-set-list>
+										<ul>
+											<li><a href="javascript:;">1. 우리 고장의 모습</a></li>
+											<li><a href="javascript:;">2. 우리가 알아보는 고장 이야기</a></li>
+											<li><a href="javascript:;">3. 교통과 통신수단의 변화</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="select-dropdown disabled" data-selectbox id="srchChpCd2">
+									<button type="button" data-set-button><span>중단원</span></button>
+									<div class="select_list" data-set-list>
+										<ul>
+											<li><a href="javascript:;">1. 우리가 생각하는 고장의 모습</a></li>
+											<li><a href="javascript:;">2. 하늘에서 내려다 본 우리 고장의 모습</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="select-dropdown disabled" data-selectbox id="srchChpCd3">
+									<button type="button" data-set-button><span>소단원</span></button>
+									<div class="select_list" data-set-list>
+										<ul>
+											<li><a href="javascript:;">전체</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="select-dropdown disabled" data-selectbox id="srchChpDptCd">
+									<button type="button" data-set-button><span>차시</span></button>
+									<div class="select_list" data-set-list>
+										<ul>
+											<li><a href="javascript:;">[1차시] 우리 고장의 여러 장소를 살펴볼까요</a></li>
+											<li><a href="javascript:;">[2~3차시] 우리 고장의 모습을 그려 볼까요</a></li>
+											<li><a href="javascript:;">[4~5차시] 우리 고장의 모습을 비교해 볼까요</a></li>
+											<li><a href="javascript:;">[6~7차시] 고장의 모습에 관한 서로의 생각을 들어 볼까요</a></li>
+											<li><a href="javascript:;">[8차시] 뚝딱뚝딱 정리하기</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer">
+							<button class="button size-lg type-primary" close-obj>
+								<span>적용하기</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- //[P] 연계 교과 선택 > 연계 교과 레이어 -->
+			</div>
+			<!-- //상단 필터 -->
+
+			<!-- 좌측 버튼 영역 -->
+			<div class="left-buttons">
+				<!-- 자료 리스트 버튼(클릭 시 대한민국 > 자료 리스트 팝업 노출) -->
+				<!-- D: 디폴트로 이 부분이 노출되며 검색했을 때 해당 버튼 미노출 (노출 시 display: flex) -->
+				<button type="button" id="btn-list" class="btn-listview" target-obj="popup-result-list-01">
+					<svg>
+						<title>자료 리스트</title>
+						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-list"></use>
+					</svg>
+					<span class="blind">자료 리스트 보기</span>
+				</button>
+				<!-- //자료 리스트 버튼(클릭 시 대한민국 > 자료 리스트 팝업 노출) -->
+
+				<!-- 검색 리스트 버튼(클릭 시 검색 > 자료 리스트 팝업 노출) -->
+				<!-- D: 검색 후 해당 버튼 노출(노출 시 display: flex) -->
+				<button type="button" id="btn-list-search" class="btn-listview" style="display: none;" target-obj="popup-result-list-02">
+					<svg>
+						<title>자료/장소 리스트</title>
+						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-list"></use>
+					</svg>
+					<span class="blind">자료/장소 리스트 보기</span>
+				</button>
+				<!-- //검색 리스트 버튼(클릭 시 검색 > 자료 리스트 팝업 노출) -->
+			</div>
+			<!-- //좌측 버튼 영역 -->
+
+			<!-- 베스트 테마 -->
+			<div class="best-theme">
+				<button type="button" class="btn-best-theme" target-obj="popup-best-theme"><span>베스트 테마</span></button>
+			</div>
+			<!-- //베스트 테마 -->
+
+			<!-- 지도 영역 -->
+			<div class="dmap-cont">
+				<div class="dmap-area">
+					<div class="map-api" id="map" style="background: url(/assets/images/map/@map.png) no-repeat center center / cover"><!-- 지도 넣는 곳 : id="map" (이 안에 지도 관련 API 삽입. style부분은 확인용으로 지도 이미지 넣은 것으로 실 개발 시 넣지 마세요!) -->
+
+						<div style="position: absolute; left: 20px; top: 218px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker20.png" alt="문화재" width="52px" height="52px" />
+							<!-- //마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 46px; top: 245px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">경복궁</strong>
+							</div>
+							<!-- //마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 16px; top: 330px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 오버 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker20-hover.png" alt="문화재" width="60px" height="70px" />
+							<!-- //마커 오버 이미지 -->
+						</div>
+						<div style="position: absolute; left:46px; top: 375px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 오버 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">경복궁</strong>
+							</div>
+							<!-- //마커 오버 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 80px; top: 60px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker28.png" alt="장소명" width="52px" height="52px" />
+							<!-- //장소 마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 106px; top: 85px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">창덕궁</strong>
+							</div>
+							<!-- //장소 마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 150px; top: 42px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 오버 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker28-hover.png" alt="장소명" width="60px" height="70px" />
+							<!-- //장소 마커 오버 이미지 -->
+						</div>
+						<div style="position: absolute; left: 180px; top: 85px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 장소 마커 오버 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">창덕궁</strong>
+							</div>
+							<!-- //장소 마커 오버 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 24px; top: 130px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 등록 시 모션 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker26-motion.gif" alt="MY 지도" width="40px" height="66px" />
+							<!-- //MY 지도 마커 등록 시 모션 이미지 -->
+						</div>
+
+						<div style="position: absolute; left: 130px; top: 150px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker26.png" alt="MY 지도" width="40px" height="66px" />
+							<!-- //MY 지도 마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 150px; top: 197px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">MY 지도</strong>
+							</div>
+							<!-- //MY 지도 마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 200px; top: 136px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 오버 이미지 -->
+							<img src="/assets/images/map/marker/icon-marker26-hover.png" alt="MY 지도" width="48px" height="80px" />
+							<!-- //MY 지도 마커 이미지 -->
+						</div>
+						<div style="position: absolute; left: 224px; top: 197px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- MY 지도 마커 오버 텍스트영역 -->
+							<div class="marker-text-area">
+								<strong class="marker-title">MY 지도</strong>
+							</div>
+							<!-- //MY 지도 마커 텍스트영역 -->
+						</div>
+
+						<div style="position: absolute; left: 20px; top: 40px; cursor: pointer;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커 클러스터화 -->
+							<div class="marker-cluster1">9</div>
+							<!-- //마커 클러스터화 -->
+						</div>
+
+						<div style="position: absolute; left: 86px; top: 334px;"><!-- D: div style="..." 부분은 위치 표시를 위해 임의로 잡아둔 값입니다. -->
+							<!-- 마커정보창 -->
+							<div class="marker-info-window">
+								<div class="info-inner">
+									<div class="item-list">
+										<ul>
+											<li>
+												<a href="#">
+													<span class="text">[학습활동지] 경복궁의 문화</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span class="text">[학습정리PPT] 경복궁의 역사 탐구</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<!-- D: MY 지도인 경우 해당 영역 추가 -->
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도"></span>
+													<!-- //D: MY 지도인 경우 해당 영역 추가 -->
+													<span class="text">[선생님의 자료] 경복궁</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<!-- D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
+													<!-- //D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+													<span class="text">[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="arrow-area"></div>
+							</div>
+							<!-- //마커정보창 -->
+						</div>
+
+					</div>
+
+					<!-- 개발 : 거리뷰 팝업 관련 (API) -->
+					<div id="panoramaPreviewerPopup">
+						<div id="pano" style="width:300px;height:200px;"></div>
+					</div>
+					<!-- //개발 : 거리뷰 팝업 관련 (API) -->
+	
+				</div>
+			</div>
+			<!-- //지도 영역 -->
+
+			<!-- 우측 사이드 메뉴 -->
+			<div class="side-menu">
+	
+				<!-- 맵 툴박스 -->
+				<div class="map-toolbox">
+					<ul class="map-control my-map">
+						<li>
+							<button type="button" class="btn-my-map" method-type="toggle" target-obj="layer-my-map"><!-- D: 선택 시 버튼에 active 클래스 추가 -->
+								<svg>
+									<title>MY 지도</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-my-map"></use>
+								</svg>
+								<span>MY 지도</span>
+							</button>
+						</li>
+					</ul>
+
+					<div class="map-button">
+						<button type="button" class="btn-filter">
+							<svg>
+								<title>필터</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-filter"></use>
+							</svg>
+							<span>필터</span>
+						</button>
+					</div>
+
+					<ul class="map-control">
+						<li>
+							<button type="button" class="btn-ai-class">
+								<svg>
+									<title>AI클래스공유</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-ai-class"></use>
+								</svg>
+								<span>AI클래스 공유</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-sns-share" method-type="toggle" target-obj="layer-sns-share">
+								<svg>
+									<title>SNS 공유</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-sns-share"></use>
+								</svg>
+								<span>SNS 공유</span>
+							</button>
+						</li>
+					</ul>
+
+					<ul class="map-control">
+						<li>
+							<button type="button" class="btn-location"><!-- D: 선택 시 버튼에 active 클래스 추가 -->
+								<svg>
+									<title>학교 위치</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-location"></use>
+								</svg>
+								<span>학교 위치</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-map-line">
+								<svg>
+									<title>지역 경계 표시</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-map-line"></use>
+								</svg>
+								<span>지역 경계 표시</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-blankmap">
+								<svg>
+									<title>백지도</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-blankmap"></use>
+								</svg>
+								<span>백지도</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-panorama control-on" id="street">
+								<svg>
+									<title>거리뷰</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-panorama"></use>
+								</svg>
+								<span>거리뷰</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="btn-satellite">
+								<svg>
+									<title>위성지도</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-satellite"></use>
+								</svg>
+								<span>위성지도</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<!-- //맵 툴박스 -->
+			</div>
+			<!-- //우측 사이드 메뉴 -->
+
+			<!-- 지도 확대축소 -->
+			<div class="zoom-control">
+				<div class="map-zoom">
+					<button type="button" class="btn-zoom-in"><span class="blind">확대</span></button>
+					<button type="button" class="btn-zoom-out"><span class="blind">축소</span></button>
+				</div>
+			</div>
+			<!-- //지도 확대축소 -->
+
+		</div>
+		<!-- //content -->
+	</div>
+
+
+	<!-- popup : 자료 리스트 -->
+	<div class="popup" id="popup-result-list-01">
+		<div class="popup-container size-full">
+			<!-- 좌측 버튼 영역 -->
+			<div class="left-buttons">
+				<!-- D: 버튼 클릭 시 팝업이 닫히면서 지도 페이지 검색 결과 반영 필요 -->
+				<button type="button" class="btn-mapview" close-obj>
+					<svg>
+						<title>자료/장소 리스트</title>
+						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-map"></use>
+					</svg>
+					<span class="blind">자료/장소 리스트 보기</span>
+				</button>
+			</div>
+			<!-- //좌측 버튼 영역 -->
+
+			<!-- 검색리스트영역 -->
+			<div class="search-result-wrap">
+				<div class="search-result-area">
+					<div class="result-cont">
+						<div class="result-inner">
+							<div class="sort">
+								<div class="sort-inner">
+									<span class="total">자료 <strong>(17)</strong></span>
+								</div>
+
+								<!-- D: 리스트가 없으면 해당 영역 미노출 -->
+								<div class="sort-group">
+									<div class="filter-box">
+										<button type="button" class="filter-label">자료유형</button>
+										<div class="filter-list">
+											<ul>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="placeChkAll" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+														<label for="placeChkAll">전체</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="placeChkDoc" />
+														<label for="placeChkDoc">문서</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="placeChkMedia" />
+														<label for="placeChkMedia">영상</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="placeChkImg" />
+														<label for="placeChkImg">사진</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="placeChkVR" />
+														<label for="placeChkVR">VR</label>
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- //D: 리스트가 없으면 해당 영역 미노출 -->
+							</div>
+
+							<!-- 검색결과 없음 -->
+							<div class="nodata-box" style="display: none"><!-- D: style="display: none" 삭제 후 확인 가능 -->
+								<p>검색 결과가 없습니다.</p>
+							</div>
+							<!-- //검색결과 없음 -->
+
+							<div class="search-list-box">
+								<!-- 리스트 -->
+								<ul class="search-list">
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker20.png" alt="문화재" /></span>
+													<strong class="title">경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁경복궁</strong>
+													<!-- D: 자료가 2개 이상인 경우 .icon-view 영역 미노출(1개인 경우 노출 display: block;) -->
+													<span class="icon-view" style="display: none;">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+											<div class="item-list">
+												<ul>
+													<li>
+														<a href="#">
+															<span class="text">[학습활동지] 경복궁의 문화</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span class="text">[학습정리PPT] 경복궁의 역사 탐구</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<!-- D: MY 지도인 경우 해당 영역 추가 -->
+															<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도"></span>
+															<!-- //D: MY 지도인 경우 해당 영역 추가 -->
+															<span class="text">[선생님의 자료] 경복궁</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<!-- D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+															<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
+															<!-- //D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+															<span class="text">[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker11.png" alt="학교" /></span>
+													<strong class="title">경기고등학교</strong>
+													<span class="icon-view" style="display: none;">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+											<div class="item-list">
+												<ul>
+													<li>
+														<a href="#">
+															<span class="text">경기고등학교 홈페이지</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span class="text">입시설명회</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span class="text">경기고등학교 동문회</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span class="text">심화수업</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<!-- //리스트 -->
+
+								<!-- 더보기 영역 -->
+								<div class="btn-area">
+									<!-- 더보기 버튼 -->
+									<button type="button" class="btn-more">
+										<span>더보기</span>
+										<svg>
+											<title>더보기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-bottom"></use>
+										</svg>
+									</button>
+									<!-- //더보기 버튼 -->
+								</div>
+								<!-- //더보기 영역 -->
+							</div>
+						</div>
+					</div>
+					<!-- top버튼 -->
+					<a href="javascript:;" class="btn-top" title="위로 이동">
+						<svg>
+							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-top"></use>
+						</svg>
+					</a>
+					<!-- //top버튼 -->
+				</div>
+			</div>
+			<!-- //검색리스트영역 -->
+		</div>
+	</div>
+	<!-- //popup : 자료 리스트 -->
+
+	<!-- popup : 자료/장소 리스트 -->
+	<div class="popup" id="popup-result-list-02">
+		<div class="popup-container size-full">
+			<!-- 좌측 버튼 영역 -->
+			<div class="left-buttons">
+				<!-- D: 버튼 클릭 시 팝업이 닫히면서 지도 페이지 검색 결과 반영 필요 -->
+				<button type="button" class="btn-mapview" close-obj>
+					<svg>
+						<title>자료/장소 리스트</title>
+						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-map"></use>
+					</svg>
+					<span class="blind">자료/장소 리스트 보기</span>
+				</button>
+			</div>
+			<!-- //좌측 버튼 영역 -->
+
+			<!-- 검색리스트영역 -->
+			<div class="search-result-wrap">
+				<!-- 자료 -->
+				<div class="search-result-area">
+					<div class="result-cont">
+						<div class="result-inner">
+							<div class="sort">
+								<div class="sort-inner">
+									<span class="total">자료 <strong>(15)</strong></span>
+								</div>
+
+								<!-- D: 리스트가 없으면 해당 영역 미노출 -->
+								<div class="sort-group">
+									<div class="filter-box">
+										<button type="button" class="filter-label">자료유형</button>
+										<div class="filter-list">
+											<ul>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="sortChkAll" class="check-all" /><!-- D: 전체는 .check-all 추가 -->
+														<label for="sortChkAll">전체</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="dataChkDoc" />
+														<label for="dataChkDoc">문서</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="dataChkMedia" />
+														<label for="dataChkMedia">영상</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="dataChkImg" />
+														<label for="dataChkImg">사진</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="checkbox" id="dataChkVR" />
+														<label for="dataChkVR">VR</label>
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- //D: 리스트가 없으면 해당 영역 미노출 -->
+							</div>
+
+							<!-- 검색결과 없음 -->
+							<div class="nodata-box" style="display: none"><!-- D: style="display: none" 삭제 후 확인 가능 -->
+								<p>검색 결과가 없습니다.</p>
+							</div>
+							<!-- //검색결과 없음 -->
+
+							<div class="search-list-box">
+								<!-- 리스트 -->
+								<ul class="search-list">
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">가산디지털단지역 가산디지털단지역 가산디지털단지역 가산디지털단지역</strong>
+													<!-- D: 자료가 2개 이상인 경우 .icon-view 영역 미노출(1개인 경우 노출 display: block;) -->
+													<span class="icon-view" style="display: none;">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+											<div class="item-list">
+												<ul>
+													<li>
+														<a href="#">
+															<span class="text">[학습활동지] 경복궁의 문화</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span class="text">[학습정리PPT] 경복궁의 역사 탐구</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<!-- D: MY 지도인 경우 해당 영역 추가 -->
+															<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도"></span>
+															<!-- //D: MY 지도인 경우 해당 영역 추가 -->
+															<span class="text">[선생님의 자료] 경복궁</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<!-- D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+															<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도"></span>
+															<!-- //D: 다른 선생님 지도인 경우 해당 영역 추가 -->
+															<span class="text">[EBS영상] 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴 조선시대 경복궁의 모습과 왕실의 생활 패턴</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<span class="icon"><img src="/assets/images/map/marker/icon-sm-marker18.png" alt="교통시설" /></span>
+													<strong class="title">독산역</strong>
+													<span class="icon-view">
+														<svg>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<!-- //리스트 -->
+							</div>
+						</div>
+					</div>
+
+					<!-- 이전/다음 영역 -->
+					<!-- D: 페이징 추가로 인해 기준 개수 미만이여도 이전/다음 영역 노출, 검색결과 없는 경우 미노출 -->
+					<div class="bottom-fixed">
+						<div class="buttons">
+							<button type="button" class="btn-prev" disabled><!-- D: 비활성화 시 disabled 추가 -->
+								<svg>
+									<title>이전</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+								</svg>
+								<span>이전</span>
+							</button>
+							<div class="indicator">
+								<span class="current">1</span> / <span class="total">5</span>
+							</div>
+							<button type="button" class="btn-next">
+								<span>다음</span>
+								<svg>
+									<title>다음</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+					<!-- //이전/다음 영역 -->
+
+					<!-- top버튼 -->
+					<a href="javascript:;" class="btn-top" title="위로 이동">
+						<svg>
+							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-top"></use>
+						</svg>
+					</a>
+					<!-- //top버튼 -->
+				</div>
+				<!-- //자료 -->
+
+				<!-- 장소 -->
+				<div class="search-result-area">
+					<div class="result-cont">
+						<div class="result-inner">
+							<div class="sort">
+								<div class="sort-inner">
+									<span class="total">장소 <strong>(10)</strong></span>
+								</div>
+							</div>
+
+							<!-- 검색결과 없음 -->
+							<div class="nodata-box" style="display: none"><!-- D: style="display: none" 삭제 후 확인 가능 -->
+								<p>검색 결과가 없습니다.</p>
+							</div>
+							<!-- //검색결과 없음 -->
+
+							<div class="search-list-box">
+								<!-- 리스트 -->
+								<ul class="search-list">
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역독산역독산역독산역독산역독산역독산역독산역독산역독산역독산역독산역독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<!-- D: 세계 : 구글검색인 경우 -->
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">구로디지털단지</strong>
+													<span class="google">구글 장소검색</span>
+												</a>
+											</div>
+										</div>
+									</li>
+									<!-- //D: 세계 : 구글검색인 경우 -->
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+									<li>
+										<div class="place-item">
+											<div class="item">
+												<a href="#" class="name-info">
+													<strong class="title">독산역</strong>
+												</a>
+											</div>
+											<div class="address"><a href="#">서울특별시 금천구</a></div>
+										</div>
+									</li>
+								</ul>
+								<!-- //리스트 -->
+							</div>
+						</div>
+					</div>
+
+					<!-- 이전/다음 영역 -->
+					<!-- D: 페이징 추가로 인해 기준 개수 미만이여도 이전/다음 영역 노출, 검색결과 없는 경우 미노출 -->
+					<div class="bottom-fixed">
+						<div class="buttons">
+							<button type="button" class="btn-prev" disabled><!-- D: 비활성화 시 disabled 추가 -->
+								<svg>
+									<title>이전</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+								</svg>
+								<span>이전</span>
+							</button>
+							<div class="indicator">
+								<span class="current">1</span> / <span class="total">5</span>
+							</div>
+							<button type="button" class="btn-next">
+								<span>다음</span>
+								<svg>
+									<title>다음</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+					<!-- //이전/다음 영역 -->
+
+					<!-- top버튼 -->
+					<a href="javascript:;" class="btn-top" title="위로 이동">
+						<svg>
+							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-arrow-top"></use>
+						</svg>
+					</a>
+					<!-- //top버튼 -->
+				</div>
+				<!-- //장소 -->
+			</div>
+			<!-- //검색리스트영역 -->
+		</div>
+	</div>
+	<!-- //popup : 자료/장소 리스트 -->
+
+	<!-- popup : MY 지도 관리 -->
+	<div class="layer-wrap" id="layer-my-map">
+		<div class="layer-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use xlink:href="/assets/images/map/sprite-icon.svg#icon-close-md"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<strong class="title">MY 지도 관리</strong>
+
+				<!-- 툴팁 안내 버튼 -->
+				<button type="button" class="tooltip-trigger" data-trigger="click" data-placement="auto-bottom" data-width="258" data-container="#layer-my-map .layer-container" data-closeable>
+					<img src="/assets/images/map/icon-caution.svg" alt="안내" class="icon-size-md">
+				</button>
+				<!-- 툴팁 레이어 -->
+				<div class="webui-popover-content">
+					<div class="note-box">
+						<dl class="dl-exp01">
+							<dt>MY 지도 등록</dt>
+							<dd>
+								<p class="sub-txt">MY 지도 등록 시, 지도 위에 선생님의 자료를 등록할 수 있습니다.</p>
+								<ul class="txt-list">
+									<li>1. MY 지도 등록 버튼을 선택하세요.</li>
+									<li>2. 지도 위에서 자료를 등록할 장소(위치)를 클릭하세요.</li>
+									<li>3. MY 지도 등록 창에서 자료의 정보를 입력 후 저장해주세요.</li>
+								</ul>
+							</dd>
+						</dl>
+						<dl class="dl-exp01">
+							<dt>MY 지도 목록</dt>
+							<dd>
+								<p class="sub-txt">선생님이 등록하신 자료를 확인할 수 있습니다.</p>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<!-- //툴팁 레이어 -->
+			</div>
+			<div class="body">
+				<div class="my-map-setting">
+					<div class="buttons type-vertical">
+						<button type="button" class="button size-lg type-primary" id="regMap">
+							<svg>
+								<title>등록</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-modify"></use>
+							</svg>
+							<span>MY 지도 등록</span>
+						</button>
+						<button type="button" class="button size-lg type-line" close-obj target-obj="my-map-list"><!-- D: MY 지도 목록 팝업 오픈 -->
+							<svg>
+								<title>목록</title>
+								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-list"></use>
+							</svg>
+							<span>MY 지도 목록</span>
+						</button>
+					</div>
+					<div class="teacher-map">
+						<div class="teacher-map-inner">
+							<div class="left-box">
+								다른 선생님 지도 자료
+
+								<!-- 툴팁 안내 버튼 -->
+								<button type="button" class="tooltip-trigger" data-trigger="click" data-placement="auto-bottom" data-width="258" data-container="#layer-my-map .layer-container" data-closeable>
+									<img src="/assets/images/map/icon-caution.svg" alt="안내" class="icon-size-sm">
+								</button>
+								<!-- 툴팁 레이어 -->
+								<div class="webui-popover-content">
+									<div class="note-box">
+										<dl class="dl-exp01">
+											<dt>다른 선생님 지도 자료</dt>
+											<dd>
+												<p class="sub-txt">지도에서 다른 선생님이 등록하신 자료를 보거나 숨길 수 있습니다.</p>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<!-- //툴팁 레이어 -->
+							</div>
+							<span class="switcher">
+								<input type="checkbox" id="teacherMap">
+								<label for="teacherMap"></label>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //popup : MY 지도 관리 -->
+
+	<!-- popup : SNS 공유 -->
+	<div class="layer-wrap" id="layer-sns-share">
+		<div class="layer-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use xlink:href="/assets/images/map/sprite-icon.svg#icon-close-md"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<strong class="title">SNS 공유</strong>
+			</div>
+			<div class="body">
+				<div class="sns-share">
+					<div class="sns-list">
+						<a href="#" class="sns-x" title="X">
+							<img src="/assets/images/map/icon-sns-x.svg" alt="엑스 아이콘">
+						</a>
+						<a href="#" class="sns-facebook" title="페이스북">
+							<img src="/assets/images/map/icon-sns-facebook.svg" alt="페이스북 아이콘">
+						</a>
+						<a href="#" class="sns-kakao" title="카카오톡">
+							<img src="/assets/images/map/icon-sns-kakao.svg" alt="카카오톡 아이콘">
+						</a>
+						<a href="#" class="sns-blog" title="블로그">
+							<img src="/assets/images/map/icon-sns-blog.svg" alt="블로그 아이콘">
+						</a>
+						<a href="#" class="sns-band" title="밴드">
+							<img src="/assets/images/map/icon-sns-band.svg" alt="밴드 아이콘">
+						</a>
+					</div>
+
+					<div class="forms margin-top-md">
+						<fieldset>
+							<input type="text" id="" class="size-md" title="복사하기 URL" readonly value="https://mteacher.dooray.com/task/3559561921307754051?">
+							<button type="button" class="button size-md type-primary"><span>URL 복사</span></button>
+						</fieldset>
+					</div>
+
+					<div class="share-period">
+						<fieldset>
+							SNS 공유기간
+							<input type="text" id="" class="size-md" title="기간 입력란" value="1">
+							일 (최대 7일)
+						</fieldset>
+					</div>
+
+					<p class="txt-exp01">설정하신 공유 기간 동안 자료를 확인할 수 있으며, 공유 기간이 지나면 이용이 종료됩니다.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //layer : SNS 공유 -->
+
+	<!-- popup sheet : 베스트 테마 -->
+	<div class="popup-sheet" id="popup-best-theme">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+				</svg>
+			</button>
+			<div class="header">
+				베스트 테마
+			</div>
+			<div class="body">
+				<div class="theme-box">
+					<strong class="title">선생님이 등록한 베스트 테마를 확인해보세요!</strong>
+
+					<!-- 슬라이드 -->
+					<!-- 2025-01-17 : 베스트 테마 리스트 슬라이드형으로 변경 -->
+					<div class="best-theme-slider">
+						<div class="slider">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="#" class="item-theme">
+										<div class="info">
+											<span class="desc"><strong class="name">이진하 선생님</strong>의</span>
+											<span class="title">과거와 현재의 만남! 올림픽 공원</span>
+										</div>
+									</a>
+								</div>
+
+								<div class="swiper-slide">
+									<a href="#" class="item-theme">
+										<div class="info">
+											<span class="desc"><strong class="name">선우재덕 선생님</strong>의</span>
+											<span class="title">엄선된 박물관을 보여드립니다!</span>
+										</div>
+									</a>
+								</div>
+
+								<div class="swiper-slide">
+									<a href="#" class="item-theme">
+										<div class="info">
+											<span class="desc"><strong class="name">김혜원 선생님</strong>의</span>
+											<span class="title">대한민국역사박물관, 시작을 기억하다.</span>
+										</div>
+									</a>
+								</div>
+
+								<div class="swiper-slide">
+									<a href="#" class="item-theme">
+										<div class="info">
+											<span class="desc"><strong class="name">박지원 선생님</strong>의</span>
+											<span class="title">기록으로 만나는 대한민국, 경복궁 복원</span>
+										</div>
+									</a>
+								</div>
+
+								<div class="swiper-slide">
+									<a href="#" class="item-theme">
+										<div class="info">
+											<span class="desc"><strong class="name">555 박지원 선생님</strong>의</span>
+											<span class="title">555 기록으로 만나는 대한민국, 경복궁 복원 기록으로 만나는 대한민국, 경복궁 복원 기록으로 만나는 대한민국, 경복궁 복원</span>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="controller">
+								<button type="button" class="slider-button button-prev" title="이전">
+									<svg>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+									</svg>
+								</button>
+								<div class="indicator">
+									<div class="swiper-pagination"></div>
+								</div>
+								<button type="button" class="slider-button button-next" title="다음">
+									<svg>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- //슬라이드 -->
+
+					<p class="txt-exp01">베스트 테마 클릭 시 "다른 선생님 자료 보기" 설정이 ON으로 변경됩니다.</p><!-- D: 2025-01-20 : 문구 클래스 변경 -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //popup sheet : 베스트 테마 -->
+</body>
+
+</html>

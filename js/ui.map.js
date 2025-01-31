@@ -105,7 +105,6 @@ const mapCommonUI = function(){
 	checkboxDropdown(".filter-box");
 
 	topBtnShow(".result-cont");
-	//mapCont(".map-control");
 }
 
 /* 지도 Plugin */
