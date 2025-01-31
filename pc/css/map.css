@@ -633,28 +633,6 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .table-type1 .file-ing svg {color: #C5C8CE;}
 
 /* 디지털 지도 수업 자료실 핵심 사용 가이드 */
-/*
-.dmap-guide-layer {display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 100; background-color: rgba(0, 0, 0, 0.8);}
-.dmap-guide-layer .close-button {z-index: 101; position: absolute; right: 32px; top: 32px; width: 40px; height: 40px; color: #fff; border: 0;}
-.dmap-guide-layer .close-button:hover {color: #fff;}
-.dmap-guide-layer .close-button svg {width: 100%; height: 100%;}
-.dmap-guide-layer .bottom {z-index: 1; position: absolute; left: 0; bottom: 0; width: 100%; padding: 14px 24px; background-color: rgba(0, 0, 0, 0.6); line-height: 1;}
-.dmap-guide-layer .bottom .ox [type=checkbox] + label {color: #fff;}
-.dmap-guide, .dmap-guide .guide-content, .dmap-guide .guide-content .body {width: 100%; height: 100%;}
-.guide-slider, .guide-slider .slider {width: 100%; height: 100%;}
-.guide-slider .swiper-slide img {width: 100%; height: 100%; object-fit: cover;}
-.guide-slider .swiper-button-prev, .guide-slider .swiper-button-next {top: 50%; transform: translateY(-50%); width: 56px; height: 80px; background-color: rgba(0, 0, 0, 0.2); color: #fff;}
-.guide-slider .swiper-button-prev:after, .guide-slider .swiper-button-next:after {display: none;}
-.guide-slider .swiper-button-prev svg, .guide-slider .swiper-button-next svg {width: 36px; height: 36px;}
-.guide-slider .swiper-button-prev:hover, .guide-slider .swiper-button-next:hover {background-color: rgba(0, 0, 0, 0.6);}
-.guide-slider .swiper-button-prev {left: 0;}
-.guide-slider .swiper-button-next {right: 0;}
-.guide-slider .swiper-button-disabled {display: none;}
-.guide-slider .swiper-pagination {z-index: 10; left: 50%; right: 50%; bottom: 20px; transform: translateX(-50%); width: max-content; font-size: 0;}
-.guide-slider .swiper-pagination-bullet {background-color: #C5C8CE; opacity: 1;}
-.guide-slider .swiper-pagination-bullet-active {background-color: var(--button-primary);}
-*/
-/* 디지털 지도 수업 자료실 핵심 사용 가이드 */
 .dmap-guide-layer {display: none; position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 10; background-color: rgba(0, 0, 0, 0.8);}
 .dmap-guide {height: 100%;}
 .dmap-guide .guide-content {display: flex; flex-direction: column; height: 100%;}
@@ -666,7 +644,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .dmap-guide .guide-content .footer .ox [type=checkbox] + label {color: #fff;}
 .guide-slider, .guide-slider .slider {height: 100%;}
 .guide-slider .guide-box {display: flex; align-items: center; justify-content: center; height: 100%;}
-.guide-slider .guide-box img {height: 100%; max-height: 912px; object-fit: cover;}
+.guide-slider .guide-box img {width: 100%; height: 100%; object-fit: contain;}
 .guide-slider .swiper-button-prev, .guide-slider .swiper-button-next {top: 50%; transform: translateY(-50%); width: 56px; height: 80px; background-color: rgba(0, 0, 0, 0.2); color: #fff;}
 .guide-slider .swiper-button-prev:after, .guide-slider .swiper-button-next:after {display: none;}
 .guide-slider .swiper-button-prev svg, .guide-slider .swiper-button-next svg {width: 36px; height: 36px;}
