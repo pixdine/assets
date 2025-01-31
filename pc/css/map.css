@@ -248,7 +248,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 
 /* -------------------------- layout -------------------------- */
 .dmap {overflow: hidden; height: 100%; -webkit-print-color-adjust:exact; print-color-adjust: exact !important;}
-.dmap-wrap {display: flex; flex-direction: column; height: 100%;}
+.dmap-wrap {display: flex; flex-direction: column; height: 100%; overflow: hidden;}
 .dmap-head {width: 100%; height: 64px; padding: 0 0 0 24px; background-color: var(--color-tertiary);}
 .dmap-head .inner {display: flex; height: 100%; justify-content: space-between; align-items: center;}
 .dmap-head .logo {display: flex;}
