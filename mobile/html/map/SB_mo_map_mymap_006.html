@@ -297,7 +297,7 @@
 
 	<!-- popup sheet : My Class 자료 선택 -->
 	<div class="popup-sheet" id="popup-my-class">
-		<div class="popup-container">
+		<div class="popup-container my-class-list">
 			<button class="icon-button close-button" close-obj>
 				<svg>
 					<title>닫기</title>
@@ -305,105 +305,135 @@
 				</svg>
 			</button>
 			<div class="header">
-				My Class 자료 선택
+				내 자료 선택
 			</div>
 			<div class="body">
 				<div class="cont-area">
+					<!-- 자료가 있는 경우 -->
+					<div class="my-class-box">
+						<div class="box-cont">
+							<!-- 테이블 -->
+							<div class="table-type1">
+								<table>
+									<caption>My Class 자료 선택 목록</caption>
+									<colgroup>
+										<col width="40%">
+										<col width="auto">
+									</colgroup>
+									<thead>
+											<th scope="col">교과 과정</th>
+											<th scope="col">제목</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- D: 최대 5개를 기준으로 페이징 처리 -->
+										<tr>
+											<td class="text-left">
+												<ul class="divider-group type-brace">
+													<li>1학년</li>
+													<li>공통학기</li>
+													<li>공통</li>
+												</ul>
+											</td>
+											<td class="text-left">
+												<a href="javascript:;" class="myclass-item">
+													경복궁의 이해
+												</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="text-left">
+												<ul class="divider-group type-brace">
+													<li>1학년</li>
+													<li>공통학기</li>
+													<li>공통</li>
+												</ul>
+											</td>
+											<td class="text-left">
+												<a href="javascript:;" class="myclass-item">
+													온라인 불국사 여행
+												</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="text-left">
+												<ul class="divider-group type-brace">
+													<li>1학년</li>
+													<li>공통학기</li>
+													<li>공통</li>
+												</ul>
+											</td>
+											<td class="text-left">
+												<a href="javascript:;" class="myclass-item">
+													온라인 불국사 여행
+												</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="text-left">
+												<ul class="divider-group type-brace">
+													<li>1학년</li>
+													<li>공통학기</li>
+													<li>공통</li>
+												</ul>
+											</td>
+											<td class="text-left">
+												<a href="javascript:;" class="myclass-item">
+													온라인 불국사 여행
+												</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="text-left">
+												<ul class="divider-group type-brace">
+													<li>1학년</li>
+													<li>공통학기</li>
+													<li>공통</li>
+												</ul>
+											</td>
+											<td class="text-left">
+												<a href="javascript:;" class="myclass-item">
+													온라인 불국사 여행
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- //테이블 -->
+						</div>
+
+						<!-- 이전/다음 영역 -->
+						<div class="bottom-fixed">
+							<div class="buttons">
+								<button type="button" class="btn-prev" disabled=""><!-- D: 비활성화 시 disabled 추가 -->
+									<svg>
+										<title>이전</title>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+									</svg>
+									<span>이전</span>
+								</button>
+								<div class="indicator">
+									<span class="current">1</span> / <span class="total">5</span>
+								</div>
+								<button type="button" class="btn-next">
+									<span>다음</span>
+									<svg>
+										<title>다음</title>
+										<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<!-- //이전/다음 영역 -->
+					</div>
+					<!-- //자료가 있는 경우 -->
+
 					<!-- 자료없는 경우 -->
 					<div class="nodata-box">
 						<p>등록된 내 자료가 없습니다.</p>
 					</div>
 					<!-- //자료없는 경우 -->
-
-					<!-- 테이블 -->
-					<div class="table-type1">
-						<table>
-							<caption>My Class 자료 선택 목록</caption>
-							<colgroup>
-								<col width="40%">
-								<col width="auto">
-							</colgroup>
-							<thead>
-									<th scope="col">교과 과정</th>
-									<th scope="col">제목</th>
-								</tr>
-							</thead>
-							<tbody>
-								<!-- D: 최대 5개를 기준으로 페이징 처리 -->
-								<tr>
-									<td class="text-left">
-										<ul class="divider-group type-brace">
-											<li>1학년</li>
-											<li>공통학기</li>
-											<li>공통</li>
-										</ul>
-									</td>
-									<td class="text-left">
-										<a href="javascript:;" class="myclass-item">
-											경복궁의 이해
-										</a>
-									</td>
-								</tr>
-								<tr>
-									<td class="text-left">
-										<ul class="divider-group type-brace">
-											<li>1학년</li>
-											<li>공통학기</li>
-											<li>공통</li>
-										</ul>
-									</td>
-									<td class="text-left">
-										<a href="javascript:;" class="myclass-item">
-											온라인 불국사 여행
-										</a>
-									</td>
-								</tr>
-								<tr>
-									<td class="text-left">
-										<ul class="divider-group type-brace">
-											<li>1학년</li>
-											<li>공통학기</li>
-											<li>공통</li>
-										</ul>
-									</td>
-									<td class="text-left">
-										<a href="javascript:;" class="myclass-item">
-											온라인 불국사 여행
-										</a>
-									</td>
-								</tr>
-								<tr>
-									<td class="text-left">
-										<ul class="divider-group type-brace">
-											<li>1학년</li>
-											<li>공통학기</li>
-											<li>공통</li>
-										</ul>
-									</td>
-									<td class="text-left">
-										<a href="javascript:;" class="myclass-item">
-											온라인 불국사 여행
-										</a>
-									</td>
-								</tr>
-								<tr>
-									<td class="text-left">
-										<ul class="divider-group type-brace">
-											<li>1학년</li>
-											<li>공통학기</li>
-											<li>공통</li>
-										</ul>
-									</td>
-									<td class="text-left">
-										<a href="javascript:;" class="myclass-item">
-											온라인 불국사 여행
-										</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<!-- //테이블 -->
 				</div>
 			</div>
 		</div>

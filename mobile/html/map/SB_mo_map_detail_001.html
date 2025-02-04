@@ -37,11 +37,27 @@
 				<div class="title-box">
 					<span class="my-location">경상남도 창원시 마산합포구</span>
 				</div>
-				<!-- //지역/장소유형 노출(디폴트) -->
+				<!-- //지역/장소유형 노출 -->
 
 				<!-- 검색했을 때 검색 결과 영역 노출 -->
 				<!-- D: 검색 후 해당 영역 노출(노출 시 display: flex), 위에 있는 class="title-box" 부분은 미노출 -->
 				<div class="srch-box" style="display: none;">
+
+					<!-- D: 퍼블 확인용 (개발에서 팝업 호출 완료 후 topBtnShow(".result-cont") 기능 호출) -->
+					<script>
+						$(function(){
+							$(".srch-box .btn-back").on("click", function(){
+								$(".dmap-head .title-box").css("display", "flex");
+								$(".dmap-head .srch-box").css("display", "none");
+								$(".dmap-filter .buttons").css("display", "flex");
+								$(".dmap-filter .srch-result").css("display", "none");
+								$("#btn-list").css("display", "flex");
+								$("#btn-list-search").css("display", "none");
+							});
+						})
+					</script>
+					<!-- //D: 퍼블 확인용 -->
+
 					<button class="icon-button btn-back" title="뒤로가기"><!-- D: 뒤로가기 버튼 클릭 시 처음과 동일하게 .srch-box 영역 미노출 되고 .title-box 영역 노출, .dmap-filter 영역 내에 .srch-result 영역 미노출 되고 .buttons 영역 노출 -->
 						<svg>
 							<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
@@ -60,36 +76,39 @@
 						<!-- 검색영역 -->
 						<div class="search-area">
 							<div class="search-item-box">
-								<!-- D: 퍼블 확인용 (개발에서 팝업 호출 완료 후 topBtnShow(".result-cont") 기능 호출) -->
-								<script>
-									$(function(){
-										$(".search-area .icon-button").on("click", function(){
-											openPopup({id: 'popup-result-list-02'});
-											setTimeout(function(){
-												topBtnShow(".result-cont");
-											});
-											$(".dmap-head .title-box").css("display", "none");
-											$(".dmap-head .srch-box").css("display", "flex");
-											$(".dmap-filter .buttons").css("display", "none");
-											$(".dmap-filter .srch-result").css("display", "flex");
-											$("#btn-list").css("display", "none");
-											$("#btn-list-search").css("display", "flex");
-										});
-									})
-								</script>
-								<!-- //D: 퍼블 확인용 -->
 								<div class="search-item">
-									<fieldset>
-										<div class="input-inner-extra">
-											<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
-											<input type="search" name="srchMapKeyword" id="srchMapKeyword" placeholder="검색어를 입력해주세요." />
-											<button type="button" class="icon-button" title="검색" close-obj><!-- D: 검색 버튼 또는 키패드 내 검색 버튼 클릭 시 검색 레이어 닫히면서 [P] 자료/장소 리스트 팝업 오픈 (openPopup({id: 'popup-result-list-02'});) -->
-												<svg>
-													<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
-												</svg>
-											</button>
-										</div>
-									</fieldset>
+									<!-- D: 퍼블 확인용 (개발에서 팝업 호출 완료 후 topBtnShow(".result-cont") 기능 호출) -->
+									<script>
+										$(function(){
+											$(".search-area .icon-button").on("click", function(){
+												openPopup({id: 'popup-result-list-02'});
+												setTimeout(function(){
+													topBtnShow(".result-cont");
+												});
+												$(".dmap-head .title-box").css("display", "none");
+												$(".dmap-head .srch-box").css("display", "flex");
+												$(".dmap-filter .buttons").css("display", "none");
+												$(".dmap-filter .srch-result").css("display", "flex");
+												$("#btn-list").css("display", "none");
+												$("#btn-list-search").css("display", "flex");
+											});
+										})
+									</script>
+									<!-- //D: 퍼블 확인용 -->
+
+									<form action="">
+										<fieldset>
+											<div class="input-inner-extra">
+												<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+												<input type="search" name="srchMapKeyword" id="srchMapKeyword" placeholder="검색어를 입력해주세요." />
+												<button type="button" class="icon-button" title="검색" close-obj><!-- D: 검색 버튼 또는 키패드 내 검색 버튼 클릭 시 검색 레이어 닫히면서 [P] 자료/장소 리스트 팝업 오픈 (openPopup({id: 'popup-result-list-02'});) -->
+													<svg>
+														<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
+													</svg>
+												</button>
+											</div>
+										</fieldset>
+									</form>
 								</div>
 								<!-- D: 추천검색어 (없는 경우 해당 영역 전체 미노출) -->
 								<div class="search-item">
@@ -157,7 +176,7 @@
 							<div class="step-select">
 								<ul class="step-list">
 									<li class="active"><!-- D: 선택 시 .active 추가 -->
-										<a href="#region-city" class="step-item"><span>서울특별시</span></a><!-- D: 단수일 때 선택된 값 노출 -->
+										<a href="#region-city" class="step-item"><span>서울특별시</span></a><!-- D: 단수일 때 선택된 값 노출 (복수일 때 선택된 값 미노출) -->
 									</li>
 									<li>
 										<a href="#region-dvsn" class="step-item"><span>시/군/구</span></a>
@@ -294,158 +313,158 @@
 											<ul>
 												<li>
 													<span class="ox">
-														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-1" checked />
-														<label for="srchCityCntyDst1-1">시/군/구</label>
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-d" checked />
+														<label for="srchCityCntyDst1-d">시/군/구</label>
+													</span>
+												</li>
+												<li>
+													<span class="ox">
+														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-1" />
+														<label for="srchCityCntyDst1-1">강남구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-2" />
-														<label for="srchCityCntyDst1-2">강남구</label>
+														<label for="srchCityCntyDst1-2">강동구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-3" />
-														<label for="srchCityCntyDst1-3">강동구</label>
+														<label for="srchCityCntyDst1-3">강북구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-4" />
-														<label for="srchCityCntyDst1-4">강북구</label>
+														<label for="srchCityCntyDst1-4">강서구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-5" />
-														<label for="srchCityCntyDst1-5">강서구</label>
+														<label for="srchCityCntyDst1-5">관악구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-6" />
-														<label for="srchCityCntyDst1-6">관악구</label>
+														<label for="srchCityCntyDst1-6">광진구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-7" />
-														<label for="srchCityCntyDst1-7">광진구</label>
+														<label for="srchCityCntyDst1-7">구로구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-8" />
-														<label for="srchCityCntyDst1-8">구로구</label>
+														<label for="srchCityCntyDst1-8">금천구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-9" />
-														<label for="srchCityCntyDst1-9">금천구</label>
+														<label for="srchCityCntyDst1-9">노원구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-10" />
-														<label for="srchCityCntyDst1-10">노원구</label>
+														<label for="srchCityCntyDst1-10">도봉구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-11" />
-														<label for="srchCityCntyDst1-11">도봉구</label>
+														<label for="srchCityCntyDst1-11">동대문구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-12" />
-														<label for="srchCityCntyDst1-12">동대문구</label>
+														<label for="srchCityCntyDst1-12">동작구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-13" />
-														<label for="srchCityCntyDst1-13">동작구</label>
+														<label for="srchCityCntyDst1-13">마포구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-14" />
-														<label for="srchCityCntyDst1-14">마포구</label>
+														<label for="srchCityCntyDst1-14">서대문구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-15" />
-														<label for="srchCityCntyDst1-15">서대문구</label>
+														<label for="srchCityCntyDst1-15">서초구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-16" />
-														<label for="srchCityCntyDst1-16">서초구</label>
+														<label for="srchCityCntyDst1-16">성동구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-17" />
-														<label for="srchCityCntyDst1-17">성동구</label>
+														<label for="srchCityCntyDst1-17">성북구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-18" />
-														<label for="srchCityCntyDst1-18">성북구</label>
+														<label for="srchCityCntyDst1-18">송파구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-19" />
-														<label for="srchCityCntyDst1-19">송파구</label>
+														<label for="srchCityCntyDst1-19">양천구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-20" />
-														<label for="srchCityCntyDst1-20">양천구</label>
+														<label for="srchCityCntyDst1-20">영등포구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-21" />
-														<label for="srchCityCntyDst1-21">영등포구</label>
+														<label for="srchCityCntyDst1-21">용산구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-22" />
-														<label for="srchCityCntyDst1-22">용산구</label>
+														<label for="srchCityCntyDst1-22">은평구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-23" />
-														<label for="srchCityCntyDst1-23">은평구</label>
+														<label for="srchCityCntyDst1-23">종로구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-24" />
-														<label for="srchCityCntyDst1-24">종로구</label>
+														<label for="srchCityCntyDst1-24">중구</label>
 													</span>
 												</li>
 												<li>
 													<span class="ox">
 														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-25" />
-														<label for="srchCityCntyDst1-25">중구</label>
-													</span>
-												</li>
-												<li>
-													<span class="ox">
-														<input type="radio" name="srchCityCntyDst" id="srchCityCntyDst1-26" />
-														<label for="srchCityCntyDst1-26">중랑구</label>
+														<label for="srchCityCntyDst1-25">중랑구</label>
 													</span>
 												</li>
 											</ul>
@@ -720,7 +739,7 @@
 			<!-- //좌측 버튼 영역 -->
 
 			<!-- 베스트 테마 -->
-			<div class="best-theme">
+			<div class="bottom-btn best-theme">
 				<button type="button" class="btn-best-theme" target-obj="popup-best-theme"><span>베스트 테마</span></button>
 			</div>
 			<!-- //베스트 테마 -->
@@ -985,7 +1004,6 @@
 		<!-- //content -->
 	</div>
 
-
 	<!-- popup : 자료 리스트 -->
 	<div class="popup" id="popup-result-list-01">
 		<div class="popup-container size-full">
@@ -994,10 +1012,10 @@
 				<!-- D: 버튼 클릭 시 팝업이 닫히면서 지도 페이지 검색 결과 반영 필요 -->
 				<button type="button" class="btn-mapview" close-obj>
 					<svg>
-						<title>자료/장소 리스트</title>
+						<title>지도 보기</title>
 						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-map"></use>
 					</svg>
-					<span class="blind">자료/장소 리스트 보기</span>
+					<span class="blind">지도 보기</span>
 				</button>
 			</div>
 			<!-- //좌측 버튼 영역 -->
@@ -1415,10 +1433,10 @@
 				<!-- D: 버튼 클릭 시 팝업이 닫히면서 지도 페이지 검색 결과 반영 필요 -->
 				<button type="button" class="btn-mapview" close-obj>
 					<svg>
-						<title>자료/장소 리스트</title>
+						<title>지도 보기</title>
 						<use xlink:href="/assets/images/map/sprite-icon.svg#icon-map"></use>
 					</svg>
-					<span class="blind">자료/장소 리스트 보기</span>
+					<span class="blind">지도 보기</span>
 				</button>
 			</div>
 			<!-- //좌측 버튼 영역 -->
@@ -1948,7 +1966,19 @@
 			<div class="body">
 				<div class="my-map-setting">
 					<div class="buttons type-vertical">
-						<button type="button" class="button size-lg type-primary" id="regMap">
+						<!-- D: 퍼블 확인용 -->
+						<script>
+							$(function(){
+								$("#regMap").on("click", function(){
+									$(".best-theme").hide(); //베스트 테마 hide
+									setToast('등록할 장소의 위치를 선택해주세요', 5000); // 토스트 메시지 노출 함수(msg, timer)
+									$(".my-map .btn-my-map").attr("disabled", true); // [개발요청 프로세스변경] 우측 사이드에 있는 MY 지도 버튼 disabled 처리
+								});
+							});
+						</script>
+						<!-- //D: 퍼블 확인용 -->
+
+						<button type="button" class="button size-lg type-primary" id="regMap" close-obj><!-- D: 토스트 메시지 노출, 베스트 테마인 .best-theme 영역 미노출 -->
 							<svg>
 								<title>등록</title>
 								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-modify"></use>
@@ -2039,7 +2069,7 @@
 					<div class="share-period">
 						<fieldset>
 							SNS 공유기간
-							<input type="text" id="" class="size-md" title="기간 입력란" value="1">
+							<input type="tel" id="" class="size-md" title="기간 입력란" value="1">
 							일 (최대 7일)
 						</fieldset>
 					</div>
@@ -2049,7 +2079,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- //layer : SNS 공유 -->
+	<!-- //popup : SNS 공유 -->
 
 	<!-- popup sheet : 베스트 테마 -->
 	<div class="popup-sheet" id="popup-best-theme">

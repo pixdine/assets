@@ -1,7 +1,6 @@
 $(document).ready(function () {
 	mapCommonUI();
 	mapPlugin();
-	bestTheme(".btn-best-theme", "show", 10000);
 
 	/* 팝업 오픈 시 result-cont영역에 top 버튼 노출 */
 	$("[target-obj='popup-result-list-01'], [target-obj='popup-result-list-02']").on("click", function(){ //퍼블 확인 용. 개발에서 팝업 호출 완료 후 topBtnShow(".result-cont") 기능을 호출해야 함.
@@ -24,14 +23,17 @@ $(window).on("load", function(){
 			$(".map-control li > button").removeClass("active");
 			$(this).addClass("active");
 		}
-		closeAllPopups();
-		$('.info-layer').removeClass('active');
 	});
 
-	//MY 지도 버튼 클릭 시
-	$(".map-toolbox .btn-my-map").on("click", function() {
-		closePopup({id: 'layer-sns-share'});
-		$(".map-control li > button").not(excBtn).removeClass("active");
+	//필터 버튼 클릭 시(우측 메뉴 열고 닫기)
+	$(".map-toolbox .btn-filter").on("click", function() {
+		if (!$(this).hasClass("active")) {
+			$(this).addClass("active");
+			$(".map-control").not(".my-map").show();
+		} else {
+			$(this).removeClass("active");
+			$(".map-control").not(".my-map").hide();
+		}
 	});
 
 	//AI 클래스 공유 버튼 클릭 시
@@ -49,49 +51,6 @@ $(window).on("load", function(){
 	$(".map-toolbox .btn-location").on("click", function() {
 		$(this).removeClass("active");
 	});
-
-	//인쇄 상태로 전환될 때 지도 요소의 크기와 배율을 조정하는 기능
-	window.matchMedia("print").addEventListener("change",(e)=>{
-		var a4Ratio = 297 / 210;
-		var bodyRatio = currentMapWidth / currentMapHeight;
-		var bodyHeight = $("body").outerHeight();
-		var bodyWidth = $("body").outerWidth();
-		var zoom = bodyWidth / currentMapWidth;
-
-		if( bodyRatio>= a4Ratio) { //지도의 비율이 A4 비율보다 크거나 같으면 너비 기준으로 배율을 설정
-			zoom = bodyWidth / currentMapWidth
-		} else { //높이 기준으로 배율을 설정
-			zoom = bodyHeight / currentMapHeight
-		}		
-		console.log(zoom);
-
-		var $map = $("#map");
-		if(e.matches) { //인쇄 모드 진입 시
-			$map.css({
-				width: currentMapWidth + "px",
-                height: currentMapHeight + "px",
-                zoom: zoom
-			});
-		} else { //인쇄 모드 종료
-            $map.css({
-                width: "",
-                height: "",
-                zoom: ""
-            });
-			$(".map-toolbox .btn-print").removeClass("active");
-		}
-	});
-
-	//인쇄 버튼 클릭 시
-	currentMapWidth = 1
-	currentMapHeight = 1
-	$(".map-toolbox .btn-print").on("click", function() {
-		var $map = $('#map');
-		currentMapWidth = $map.outerWidth();
-		currentMapHeight = $map.outerHeight();
-
-		window.print();
-	});
 });
 
 /* 지도 UI */
@@ -106,6 +65,7 @@ const mapCommonUI = function(){
 	tabs(".step-select");
 	targetNextStep(".step-wrap");
 	selectDropdown.init();
+
 }
 
 /* 지도 Plugin */
@@ -120,10 +80,13 @@ const mapSwiper = function (){
 	sliderMapVisual(".main-visual-slider .slider");
 
 	//디지털 지도 메인 : 자료실 & 선생님 테마관
-	sliderLibrary(".library-slider .slider", 2);
+	sliderMultiView(".library-slider .slider", 2);
 
 	//디지털 지도 : 베스트 테마
-	sliderLibrary(".best-theme-slider .slider", 3);
+	sliderMultiView(".best-theme-slider .slider", 3);
+
+	//VR 메인 : 지역 리스트 슬라이드
+	sliderLoopView(".region-slider .slider", 2);
 
 	//디지털 지도 : 사용 가이드
 	sliderGuide(".guide-slider .slider");
@@ -140,7 +103,7 @@ const sliderMapVisual = function (item) {
 	}
 }
 
-const sliderLibrary = function (item, num) {
+const sliderMultiView = function (item, num) {
 	const slideCount = $(item).find(".swiper-slide").length;
 
 	if(slideCount == 1){
@@ -170,14 +133,17 @@ const sliderLibrary = function (item, num) {
 	}
 }
 
-const sliderMultiView = function(item, viewNo, gap) {
+const sliderLoopView = function (item, num) {
 	const slideCount = $(item).find(".swiper-slide").length;
 
-	if(slideCount > 3){
+	if(slideCount > num){
 		$(item).find(".controller").show();
 		const swiper = new Swiper(item, {
-			slidesPerView: viewNo,
-			spaceBetween: gap,
+			slidesPerView: 1,
+			grid: {
+			  rows: num,
+			},
+			speed: 400,
 			navigation: {
 				// 버튼
 				nextEl: ".controller .button-next",
@@ -187,8 +153,19 @@ const sliderMultiView = function(item, viewNo, gap) {
 				el: ".controller .swiper-pagination",
 				type: "fraction",
 				clickable: true,
-			}
+			},
+			observer: true,
+			observeParents: true,
 		});
+
+		// 슬라이드 hover 시 autoplay 제어
+		$(item).find(".swiper-slide").on("mouseover", function () {
+			swiper.autoplay.stop();
+		});
+		$(item).find(".swiper-slide").on("mouseleave", function () {
+			swiper.autoplay.start();
+		});
+
 	} else {
 		$(item).find(".controller").hide();
 	}
@@ -248,15 +225,6 @@ const setCSS = function(){
 	setVh();
 }
 
-/* 지도 페이지 : 지도 우측 컨트롤러 레이어 모두 닫기 */
-const closeAllPopups = function() {
-	for (let i = popupArr.length - 1; i >= 0; i--) {
-		if (popupArr[i].popup.closest('.map-toolbox').length > 0) {
-			closePopup(popupArr[i]);
-		}
-	}
-}
-
 /* 지도 페이지 : 자료 리스트 팝업 내 top 버튼 노출 여부 */
 const topBtnShow = function(_target){
 	_target = $(_target);
@@ -285,6 +253,31 @@ const topBtnShow = function(_target){
 					scrollTop:0
 				}, 500);
 			});
+		}
+	});
+}
+
+/* 지도 페이지 : 토스트 메시지 팝업 */
+const setToast = function(msg, timer) {
+	if (!timer) { timer = 2000; }//timer 입력되지 않으면 기본값 2초
+
+	if (msg) {
+		msg = msg.replace(/[\r\n]+|\\n/g, "<br/>");
+	}
+	
+	const toastCont = $("<div class='toast-msg'><span class='msg-box'>" + msg + "</span></div>");
+
+	if ($("body").find(".toast-msg").length < 1) {
+		$("body").append(toastCont);
+	}
+
+	toastCont.slideToggle(200, function() {
+		if (!isNaN(timer)) {
+			setTimeout(function() {
+				toastCont.fadeOut(function() {
+					$(this).remove();
+				});
+			}, timer);
 		}
 	});
 }
@@ -405,31 +398,6 @@ const checkboxDropdown = function(el){
 				$(this).removeClass("open");
 			}
 		});
-	});
-}
-
-/* 지도 페이지 : 베스트테마 열고 닫기 */
-const bestTheme = function(_target, _type, _time){ // _target : 클릭할 버튼명, _type : 처음 열어둘것인지 여부, _time : 자동으로 닫을 시간
-	_target = $(_target);
-
-	if(_type == "show"){ //처음 열어둠
-		_target.parent().addClass('active');
-	}
-
-	if(_type == "hide"){ //display:none처리
-		_target.parent().hide();
-	}
-
-	setTimeout(function(){ //처음 열린 상태로 설정시간 후 자동 닫힘
-		_target.parent().removeClass("active");
-	}, _time);
-
-	_target.click(function(){ //버튼 클릭 시 열고 닫기
-		if(_target.parent().hasClass("active")){
-			_target.parent().removeClass("active");
-		} else {
-			_target.parent().addClass("active");
-		}
 	});
 }
 

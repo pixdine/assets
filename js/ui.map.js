@@ -66,18 +66,29 @@ $(window).on("load", function(){
 		console.log(zoom);
 
 		var $map = $("#map");
+		var $blankMap = $("#ngiiWhiteMap");
 		if(e.matches) { //인쇄 모드 진입 시
 			$map.css({
 				width: currentMapWidth + "px",
-                height: currentMapHeight + "px",
-                zoom: zoom
+				height: currentMapHeight + "px",
+				zoom: zoom
+			});
+			$blankMap.css({
+				width: currentMapWidth + "px",
+				height: currentMapHeight + "px",
+				zoom: zoom
 			});
 		} else { //인쇄 모드 종료
-            $map.css({
-                width: "",
-                height: "",
-                zoom: ""
-            });
+			$map.css({
+				width: "",
+				height: "",
+				zoom: ""
+			});
+			$blankMap.css({
+				width: "",
+				height: "",
+				zoom: ""
+			});
 			$(".map-toolbox .btn-print").removeClass("active");
 		}
 	});
@@ -87,8 +98,13 @@ $(window).on("load", function(){
 	currentMapHeight = 1
 	$(".map-toolbox .btn-print").on("click", function() {
 		var $map = $('#map');
+		var $blankMap = $("#ngiiWhiteMap");
+
 		currentMapWidth = $map.outerWidth();
 		currentMapHeight = $map.outerHeight();
+
+		currentMapWidth = $blankMap.outerWidth();
+		currentMapHeight = $blankMap.outerHeight();
 
 		window.print();
 	});

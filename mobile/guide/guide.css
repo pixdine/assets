@@ -33,8 +33,13 @@
 .guide-icon-wrap {display: flex; flex-wrap: wrap; gap: 10px;}
 .guide-icon-wrap ~ .guide-icon-wrap {margin-top: 10px;}
 
+.guide-top {display: flex; align-items: center; justify-content: space-between; margin-bottom:20px;}
+.guide-top .guide-tab {display: flex; flex-wrap: wrap; gap: 8px; position: relative;}
+.guide-top .guide-tab > li > a {display: block; height: 40px; padding: 0 20px; border: 1px solid #dbdbdb; font-size: 16px; color: #111; line-height: 38px; text-align: center;}
+.guide-top .guide-tab > li.active > a {background-color: #202020; border-color: #202020; color: #fff;}
 .guide-btn-area {text-align: right;}
-.guide-btn-area .btn {display: inline-flex; position: relative; padding: 5px 10px; border-radius: 4px; border: 1px solid #202020; font-size: 12px; color: #202020;}
+.guide-btn-area .btn {display: inline-flex; align-items: center; position: relative; height: 40px; padding: 5px 10px; border-radius: 4px; border: 1px solid #202020; font-size: 13px; color: #202020;}
+
 .ia .guide-header {min-width: 1320px;}
 .ia .guide-body {width: 1320px; margin: 0 auto;}
 .ia .guide-table td {line-height: inherit;}
