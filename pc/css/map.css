@@ -246,9 +246,10 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 .ul-dot > li:not(:first-of-type), .ul-decimal > li:not(:first-of-type), .ul-circle > li:not(:first-of-type) {margin-top: 0;}
 
 /* 로딩바 */
-.loader .popup-container {width: 100px; padding: 10px; background-color: transparent; box-shadow: none;}
-.loader-wrap {width: 100px; height: 100px; display: grid; place-content: center;}
-.loading-bar {border: 16px solid #EAF2FE; border-top: 16px solid #69A5FF; border-radius: 50%; width: 25px; height: 25px; animation: spin 2s linear infinite; box-sizing: content-box;}
+.loader .popup-container {width: auto; max-width: 300px; padding: 10px; background-color: transparent; box-shadow: none;}
+.loader-wrap {display: flex; flex-direction: column; text-align: center;}
+.loading-bar {width: 25px; height: 25px; margin: 0 auto; border: 16px solid #EAF2FE; border-top: 16px solid #69A5FF; border-radius: 50%; box-sizing: content-box; animation: spin 2s linear infinite;}
+.loading-txt {margin-top: 16px; font-size: 15px; line-height: 22px; color: #fff; text-align: center;}
 
 /* 토스트 메시지 (toast) */
 .toast-msg {z-index: 1005; position: fixed; left: 50%; top: -100px; transform: translateX(-50%); max-width: 300px; opacity: 0; transition: top 0.3s ease, opacity 0.3s ease;}
@@ -260,7 +261,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 /* -------------------------- layout -------------------------- */
 .dmap {overflow: hidden; height: 100%; -webkit-print-color-adjust:exact; print-color-adjust: exact !important;}
 .dmap-wrap {display: flex; flex-direction: column; height: 100%; overflow: hidden;}
-.dmap-head {width: 100%; height: 64px; padding: 0 0 0 24px; background-color: var(--color-tertiary);}
+.dmap-head {z-index: 1; width: 100%; height: 64px; padding: 0 0 0 24px; background-color: var(--color-tertiary);}
 .dmap-head .inner {display: flex; height: 100%; justify-content: space-between; align-items: center;}
 .dmap-head .logo {display: flex;}
 .dmap-head .logo a {display: inline-flex; gap: 8px; font-size: 18px; font-weight: 600; color: #fff; line-height: 26px;}
