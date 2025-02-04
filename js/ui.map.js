@@ -352,6 +352,35 @@ const leftMenu = function(){
 	});
 }
 
+/* 지도 페이지 : 토스트 메시지 팝업 */
+const setToast = function(msg, timer) {
+	if (!timer) { timer = 2000; } // 기본값 2초
+
+	if (msg) {
+		msg = msg.replace(/[\r\n]+|\\n/g, "<br/>");
+	}
+
+	const toastCont = $("<div class='toast-msg'><span class='msg-box'>" + msg + "</span></div>");
+
+	if ($("body").find(".toast-msg").length < 1) {
+		$("body").append(toastCont);
+
+		setTimeout(() => {
+			toastCont.addClass("active");
+		}, 10);
+	}
+
+	if (!isNaN(timer)) {
+		setTimeout(function() {
+			setTimeout(() => {
+				toastCont.fadeOut(1000, function() {
+					$(this).remove();
+				});
+			}, 500);
+		}, timer);
+	}
+}
+
 /* 지도 페이지 : 지도 Range */
 const mapZoomRange = {
 	// Input range 변경 시 배경 크기 업데이트
