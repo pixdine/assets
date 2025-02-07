@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 디지털 지도 수업 자료실</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/m.ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/mobile/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/m.ui.map.js"></script>
+</head>
+
+<meta name="apple-mobile-web-app-title" content="미래엔 디지털 지도 수업 자료실">
+
+<!-- Body Content -->
+<body class="dmap">
+	<div class="dmap-wrap">
+		지도 페이지
+	</div>
+
+	<!--
+		openPopup({id: 'dmap-guide-layer'});
+	-->
+
+	<!-- popup : 디지털 지도 수업 자료실 핵심 사용 가이드 -->
+	<div class="dmap-guide-layer" id="dmap-guide-layer" no-dimd init-show>
+		<div class="dmap-guide">
+			<div class="guide-content">
+				<button class="icon-button close-button" close-obj>
+					<svg>
+						<title>닫기</title>
+						<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+					</svg>
+				</button>
+
+				<div class="body">
+					<!-- 슬라이드 -->
+					<div class="guide-slider">
+						<div class="slider">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="guide-box chpt1">
+										<div class="ele">
+											<div class="wbox-img">
+												<div class="inner">
+													<img src="/assets/images/map/m-img-guide01-1.png" alt="" />
+													<img src="/assets/images/map/m-img-guide01-2.png" alt="" />
+												</div>
+											</div>
+											<div class="guide-desc">
+												<p class="desc">지도 설정, 연계 교과 설정을 할 수 있습니다.</p>
+												<p class="stxt">① 지도(대한민국/세계) : 원하는 지역과 장소 유형을 설정하고 지도에서 자료를 볼 수 있습니다.</p>
+												<p class="stxt">② 연계 교과 정보를 선택하여 교과 내용에 맞는 자료를 확인할 수 있습니다.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt2">
+										<div class="ele">
+											<div class="box-img">
+												<img src="/assets/images/map/m-img-guide02-1.png" alt="검색 버튼" />
+											</div>
+											<div class="guide-desc">
+												<p class="desc">지도 검색 : 궁금한 자료와 장소를<br />지도에서  검색 할 수 있습니다.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt3">
+										<div class="ele">
+											<div class="box-img">
+												<img src="/assets/images/map/m-img-guide03-1.png" alt="목록 버튼" />
+											</div>
+											<div class="guide-desc">
+												<p class="desc">목록 버튼을 클릭하여<br />자료를 확인할 수 있습니다.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt4">
+										<div class="ele">
+											<div class="e1">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide04-1.png" alt="지도 버튼" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">지도 버튼을 클릭하여<br />지도로 이동할 수 있습니다.</p>
+												</div>
+											</div>
+
+											<div class="e2">
+												<div class="wbox-img">
+													<div class="inner">
+														<img src="/assets/images/map/m-img-guide04-2.png" alt="" />
+														<img src="/assets/images/map/m-img-guide04-3.png" alt="" />
+													</div>
+												</div>
+												<div class="guide-desc">
+													<p class="desc">자료명을 클릭하여 상세 자료 <br />내용을 확인할 수 있습니다.</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt5">
+										<div class="ele">
+											<div class="e1">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide05-1.png" alt="공공기관" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">지도 아이콘을 클릭하여 상세 자료 <br/>내용을 확인할 수 있습니다.</p>
+												</div>
+											</div>
+
+											<div class="e2">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide05-2.png" alt="클러스터링" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">인접 지역에 자료가 있을 경우, <br/>지도 위에 숫자로 표시됩니다.</p>
+												</div>
+											</div>
+
+											<div class="e3">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide05-3.png" alt="문화재" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">원하는 자료명을 클릭하여 상세 자료 <br/>내용을 확인할 수 있습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt6">
+										<div class="ele">
+											<div class="e1">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide06-1.png" alt="MY 지도" />
+												</div>													
+												<div class="guide-desc">
+													<p class="desc">내가 등록한 지도 자료를 <br />확인할 수 있습니다.</p>
+												</div>
+											</div>
+
+											<div class="e2">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide06-2.png" alt="다른 선생님 지도" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">다른 선생님이 등록한 지도 <br />자료를 확인할 수 있습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt7">
+										<div class="ele">
+											<div class="e1">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide07-1.png" alt="MY 지도" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">지도 위에 아이콘을 생성하여 <br />내 자료를 등록할 수 있습니다.</p>
+												</div>
+											</div>
+
+											<div class="e2">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide07-2.png" alt="베스트 테마" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">베스트 테마를 선택하여 <br />상세 내용을 확인할 수 있습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="swiper-slide">
+									<div class="guide-box chpt8">
+										<div class="ele">
+											<div class="e1">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide08-1.png" alt="부가기능1" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">버튼을 클릭하여 부가기능영역을 <br />열고 닫을 수 있습니다.</p>
+												</div>
+												
+											</div>
+
+											<div class="e2">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide08-2.png" alt="부가기능2" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">지도 화면을 AI클래스로 공유할 수 있습니다.</p>
+													<p class="desc">지도 화면을 다양한 SNS로 공유할 수 있습니다.</p>
+												</div>
+											</div>
+
+											<div class="e3">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide08-3.png" alt="부가기능3" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">내 학교 위치로 지도 화면을 이동합니다.</p>
+													<p class="desc">현재 위치한 지역의 경계선을 표시합니다.</p>
+													<p class="desc">현재 위치한 지역을 백지도로 볼 수 있습니다.</p>
+													<p class="desc">현재 위치한 지역을 거리뷰 지도로 볼 수 있습니다.</p>
+													<p class="desc">현재 위치한 지역을 위성 지도로 볼 수 있습니다.</p>
+												</div>
+											</div>
+
+											<div class="e4">
+												<div class="box-img">
+													<img src="/assets/images/map/m-img-guide08-4.png" alt="부가기능4" />
+												</div>
+												<div class="guide-desc">
+													<p class="desc">직접 지도를 확대하거나 축소할 수 있습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<button class="swiper-button-prev" title="이전">
+								<svg>
+									<title>이전</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-left"></use>
+								</svg>
+							</button>
+							<button class="swiper-button-next" title="다음">
+								<svg>
+									<title>다음</title>
+									<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+								</svg>
+							</button>
+							<div class="swiper-pagination"></div>
+
+						</div>
+					</div>
+					<!-- //슬라이드 -->
+				</div>
+
+				<div class="footer">
+					<span class="ox">
+						<input type="checkbox" id="chkGuideHide">
+						<label for="chkGuideHide">다시 보지 않기</label>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //popup : 디지털 지도 수업 자료실 핵심 사용 가이드 -->
+</body>
+
+</html>

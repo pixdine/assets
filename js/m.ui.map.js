@@ -10,6 +10,7 @@ $(document).ready(function () {
 		});
 		/* //지도 이동 시 개발에서 목록 호출 완료 후 setTime과 함께 실행 */
 	});
+	
 });
 
 $(window).on("load", function(){
@@ -57,7 +58,6 @@ $(window).on("load", function(){
 const mapCommonUI = function(){
 	setCSS();
 	mapZoomRange.init();
-	searchAaccordion();
 	clearInput(".search-item");
 	checkboxDropdown(".filter-box");
 
@@ -65,7 +65,6 @@ const mapCommonUI = function(){
 	tabs(".step-select");
 	targetNextStep(".step-wrap");
 	selectDropdown.init();
-
 }
 
 /* 지도 Plugin */
@@ -85,8 +84,9 @@ const mapSwiper = function (){
 	//디지털 지도 : 베스트 테마
 	sliderMultiView(".best-theme-slider .slider", 3);
 
-	//VR 메인 : 지역 리스트 슬라이드
-	sliderLoopView(".region-slider .slider", 2);
+	//VR 메인 : 지역 탭, 지역 리스트 슬라이드
+	sliderRegionTab();
+	sliderRegionList(".region-slider .slider", 2);
 
 	//디지털 지도 : 사용 가이드
 	sliderGuide(".guide-slider .slider");
@@ -133,8 +133,12 @@ const sliderMultiView = function (item, num) {
 	}
 }
 
-const sliderLoopView = function (item, num) {
+const sliderRegionList = function (item, num) {
 	const slideCount = $(item).find(".swiper-slide").length;
+
+	if(slideCount == 1){
+		$(item).addClass("only");
+	}
 
 	if(slideCount > num){
 		$(item).find(".controller").show();
@@ -144,30 +148,99 @@ const sliderLoopView = function (item, num) {
 			  rows: num,
 			},
 			speed: 400,
-			navigation: {
-				// 버튼
-				nextEl: ".controller .button-next",
-				prevEl: ".controller .button-prev",
-			},
 			pagination: {
-				el: ".controller .swiper-pagination",
-				type: "fraction",
+				el: ".swiper-pagination",
 				clickable: true,
 			},
 			observer: true,
 			observeParents: true,
 		});
-
-		// 슬라이드 hover 시 autoplay 제어
-		$(item).find(".swiper-slide").on("mouseover", function () {
-			swiper.autoplay.stop();
-		});
-		$(item).find(".swiper-slide").on("mouseleave", function () {
-			swiper.autoplay.start();
-		});
-
 	} else {
-		$(item).find(".controller").hide();
+		$(item).find(".swiper-pagination").hide();
+	}
+}
+
+const sliderRegionTab = function () {
+	sliderRegionTab();
+
+	function sliderRegionTab() {
+		const swiper = new Swiper(".vr-slider .slider", {
+			slidesPerView: 3,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			loop: true,
+			centeredSlides: true,
+			on: {
+				slideChangeTransitionEnd: function () {
+					updateRegionTabCont();
+				}
+			},
+			observer: true,
+			observeParents: true,
+		});
+
+		// 지역 선택 팝업에서 적용하기 버튼 클릭 시 해당 슬라이드로 이동
+		$("#regionApply").on("click", function () {
+			var selectedId = $(".ox-tab input[name='regionSelect']:checked").attr("id");
+			if (!selectedId) return;
+
+			var targetTab = selectedId.replace("region-", "tab-");
+
+			// 슬라이드의 realIndex 찾기
+			let targetIndex = -1;
+			$(".vr-slider .swiper-slide").each(function (index) {
+				var slideLink = $(this).find("a").attr("href");
+				if (slideLink === "#" + targetTab) {
+					targetIndex = $(this).data("swiper-slide-index");
+					return false;
+				}
+			});
+
+			// 해당 슬라이드로 이동
+			if (targetIndex !== -1) {
+				swiper.slideToLoop(targetIndex, 500);
+			}
+		});
+
+		// 지역 선택 팝업에서 닫기 버튼 클릭 시 현재 활성화된 슬라이드 기준으로 라디오 버튼 초기화
+		$("#popup-region-select .close-button").on("click", function () {
+			var $activeSlide = $(".vr-slider .swiper-slide-active a");
+			if ($activeSlide.length) {
+				var targetId = $activeSlide.attr("href");
+				var radioId = targetId.replace("#tab-", "region-");
+
+				$(".ox-tab input[name='regionSelect']").prop("checked", false);
+				$("#" + radioId).prop("checked", true);
+			}
+		});
+
+		// 슬라이드 클릭 시 이동 처리
+		$(".vr-slider .swiper-slide").on("click", function (e) {
+			e.preventDefault();
+			if ($(this).hasClass("swiper-slide-next")) {
+				swiper.slideNext();
+			} else if ($(this).hasClass("swiper-slide-prev")) {
+				swiper.slidePrev();
+			}
+		});
+	}
+
+	// 슬라이드 변경 시 탭 콘텐츠 및 라디오 버튼 체크
+	function updateRegionTabCont() {
+		$(".vr-tabcont-wrap .tabcont").removeClass("active");
+
+		var $activeSlide = $(".vr-slider .swiper-slide-active a");
+		if ($activeSlide.length) {
+			var targetId = $activeSlide.attr("href");
+			$(targetId).addClass("active");
+
+			// 라디오 버튼 체크
+			var radioId = targetId.replace("#tab-", "region-");
+			$(".ox-tab input[name='regionSelect']").prop("checked", false);
+			$("#" + radioId).prop("checked", true);
+		}
 	}
 }
 
@@ -259,27 +332,31 @@ const topBtnShow = function(_target){
 
 /* 지도 페이지 : 토스트 메시지 팝업 */
 const setToast = function(msg, timer) {
-	if (!timer) { timer = 2000; }//timer 입력되지 않으면 기본값 2초
+	if (!timer) { timer = 2000; } // 기본값 2초
 
 	if (msg) {
 		msg = msg.replace(/[\r\n]+|\\n/g, "<br/>");
 	}
-	
+
 	const toastCont = $("<div class='toast-msg'><span class='msg-box'>" + msg + "</span></div>");
 
 	if ($("body").find(".toast-msg").length < 1) {
 		$("body").append(toastCont);
+
+		setTimeout(() => {
+			toastCont.addClass("active");
+		}, 10);
 	}
 
-	toastCont.slideToggle(200, function() {
-		if (!isNaN(timer)) {
-			setTimeout(function() {
-				toastCont.fadeOut(function() {
+	if (!isNaN(timer)) {
+		setTimeout(function() {
+			setTimeout(() => {
+				toastCont.fadeOut(1000, function() {
 					$(this).remove();
 				});
-			}, timer);
-		}
-	});
+			}, 500);
+		}, timer);
+	}
 }
 
 /* 지도 페이지 : 지도 Range */
@@ -336,50 +413,6 @@ const mapZoomRange = {
 	}
 }
 
-/* 지도 페이지 : 검색 영역 열기/닫기 */
-const searchAaccordion = function(){
-	$(".pane-wrap .pane .btn-action").on("click", function (e) {
-		const $pane = $(this).closest(".pane");
-
-		if (!$(this).hasClass("active")) {
-			$(this).addClass("active");
-			$(".tab").hide();
-			$(".search-item-box").hide();
-			$(".result-box").show();
-			$(this).find("span").text("검색 영역 열기");
-		} else {
-			$(this).removeClass("active");
-			$(".tab").show();
-			$(".search-item-box").show();
-			$(".result-box").hide();
-			$(this).find("span").text("검색 영역 닫기");
-		}
-	});
-}
-
-/* 지도 페이지 : 검색 영역 열기/닫기(모션) */
-/*
-const searchAaccordion = function(){
-	$(".pane-wrap .pane .btn-action").on("click", function (e) {
-		e.preventDefault();
-		const $pane = $(this).closest(".pane");
-		var $targetHeight = $(".tab").outerHeight() + $pane.find(".search-area").outerHeight();
-		var $resultBoxHeight = $pane.find(".result-box .inner").outerHeight();
-
-		if (!$(this).hasClass("active")) {
-			$(this).addClass("active");
-			$(".search-tabs").animate({ marginTop :-$targetHeight });
-			$(".result-box").animate({ height : $resultBoxHeight });
-		} else {
-			$pane.find(".btn-action").removeClass("active");
-			$(".search-tabs").animate({ marginTop : 0 });
-			$(this).removeClass("active");
-			$(".result-box").animate({ height : 0 });
-		}
-	});
-}
-*/
-
 /* 지도 페이지 : 체크박스 드롭다운 */
 const checkboxDropdown = function(el){
 	var $el = $(el);
@@ -433,7 +466,6 @@ $(document).on("click", "[close-obj]", function(){
 		}
 	});
 });
-
 
 /* 지도 페이지 : 상단필터 레이어 - 적용하기 클릭 시 다음 스텝으로 이동 */
 const targetNextStep = function (item) {

@@ -21,42 +21,6 @@
 	<!-- 신규(추가필요) -->
 	<link rel="stylesheet" type="text/css" href="/assets/pc/css/map.css" rel="stylesheet" />
 	<script src="/assets/js/ui.map.js"></script>
-	
-	<script>
-		$(function(){
-			/* [퍼블 확인용] : 개발에서 다르게 처리할 예정(MY 지도 등록 버튼 클릭 시 지도 영역에 커서 변경) */
-			$("#regMap").on("click", function(){
-				if (!$(this).hasClass("active")) {
-					$(this).addClass("active");
-					$("#map").addClass("active");
-				} else {
-					$(this).removeClass("active");
-					$("#map").removeClass("active");
-				}
-			});
-
-			/* 디지털 지도 핵심 가이드 (+다시보지않기) */
-			const handleGuideLayer = function(){
-				const guideLayer = $('#dmap-guide-layer');
-				const chkGuideHide = $('#chkGuideHide'); 
-				const guideCloseBtn = $('#dmap-guide-layer .close-button');
-
-				//페이지 로드 시 localStorage 확인
-				if (localStorage.getItem('guideLayerHide') !== 'true') {
-					openPopup({id: 'dmap-guide-layer'});
-				}
-
-				//닫기 버튼 클릭 이벤트
-				guideCloseBtn.on('click', function () {
-					if (chkGuideHide.is(':checked')) {
-						localStorage.setItem('guideLayerHide', 'true');
-					}
-					closePopup({id: "dmap-guide-layer"});
-				});
-			}
-			handleGuideLayer();
-		});
-	</script>
 </head>
 
 <!-- Body Content -->
@@ -65,8 +29,12 @@
 		지도 페이지
 	</div>
 
-	<!-- 디지털 지도 수업 자료실 핵심 사용 가이드 -->
-	<div class="dmap-guide-layer" id="dmap-guide-layer" no-dimd>
+	<!--
+		openPopup({id: 'dmap-guide-layer'});
+	-->
+
+	<!-- popup : 디지털 지도 수업 자료실 핵심 사용 가이드 -->
+	<div class="dmap-guide-layer" id="dmap-guide-layer" no-dimd init-show>
 		<div class="dmap-guide">
 			<div class="guide-content">
 				<button class="icon-button close-button" close-obj>
@@ -134,7 +102,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- //디지털 지도 수업 자료실 핵심 사용 가이드 -->
+	<!-- //popup : 디지털 지도 수업 자료실 핵심 사용 가이드 -->
 </body>
 
 </html>

@@ -248,7 +248,7 @@ fieldset .inp-sm {flex: none; width: 74px !important;}
 /* 로딩바 */
 .loader .popup-container {width: auto; max-width: 300px; padding: 10px; background-color: transparent; box-shadow: none;}
 .loader-wrap {display: flex; flex-direction: column; text-align: center;}
-.loading-bar {width: 25px; height: 25px; margin: 0 auto; border: 16px solid #EAF2FE; border-top: 16px solid #69A5FF; border-radius: 50%; box-sizing: content-box; animation: spin 2s linear infinite;}
+.loading-bar {width: 25px; height: 25px; margin: 0 auto; border: 16px solid var(--color-primary-150); border-top: 16px solid #69A5FF; border-radius: 50%; box-sizing: content-box; animation: spin 2s linear infinite;}
 .loading-txt {margin-top: 16px; font-size: 15px; line-height: 22px; color: #fff; text-align: center;}
 
 /* 토스트 메시지 (toast) */

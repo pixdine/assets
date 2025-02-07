@@ -1,0 +1,1949 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>미래엔 360˚ VR 파노라마</title>
+	
+	<!-- 기존 엠티처에서 사용중인 JS (includeJS) -->
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/all-grades.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://e.m-teacher.co.kr/assets/mobile/css/elementary.css" rel="stylesheet" />
+	<script src="/assets/js/jquery-3.7.0.min.js"></script>
+	<script src="/assets/js/plugin/select2.min.js"></script>
+	<script src="/assets/js/plugin/jquery.bart.dropdown.js"></script>
+	<script src="/assets/js/plugin/jquery.webui-popover.js"></script>
+	<script src="/assets/js/plugin/swiper-bundle-v8.js"></script>
+	<script src="/assets/js/plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/js/m.ui.js"></script>
+	
+	<!-- 신규(추가필요) -->
+	<link rel="stylesheet" type="text/css" href="/assets/mobile/css/map.css" rel="stylesheet" />
+	<script src="/assets/js/m.ui.map.js"></script>
+</head>
+
+<meta name="apple-mobile-web-app-title" content="미래엔 디지털 지도 수업 자료실">
+
+<!-- Body Content -->
+<body>
+	<div class="wrap vr-main">
+
+		<!-- header -->
+		<div class="main-header">
+			<div class="header-top">
+				<div class="inner-cont">
+					<h1 class="logo">
+						<img src="/assets/images/map/logo-mirae-n-default.svg" alt="미래엔" />
+					</h1>
+					<div class="aside">
+						<button type="button" class="btn-menu" target-obj="menu-layer">
+							<svg>
+								<title>메뉴 아이콘</title>
+								<use href="/assets/images/map/sprite-icon.svg#icon-menu"></use>
+							</svg>
+						</button>
+
+						<!-- 메뉴 레이어 -->
+						<div class="menu-layer" id="menu-layer">
+							<div class="dimd"></div>
+							<div class="menu-container">
+								<div class="menu-head">
+									<button class="icon-button close-button" close-obj>
+										<svg>
+											<title>닫기</title>
+											<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="menu-body">
+									<div class="menu-box">
+										<ul>
+											<!-- 미로그인 상태 -->
+											<!-- <li>
+												<a href="#"><span>로그인</span></a>
+											</li> -->
+											<!-- //미로그인 상태 -->
+
+											<!-- 로그인 상태 -->
+											<li>
+												<a href="#"><span>로그아웃</span></a>
+											</li>
+											<li>
+												<a href="#"><span>회원 정보 수정</span></a>
+											</li>
+											<!-- //로그인 상태 -->
+
+											<li>
+												<div class="dropdown">
+													<button type="button" class="btn-mteacher">
+														<span>엠티처 바로가기</span>
+														<svg>
+															<title>아이콘 화살표</title>
+															<use xlink:href="/assets/images/map/sprite-icon.svg#icon-caret-down"></use>
+														</svg>
+													</button>
+						
+													<div class="items">
+														<a href="#" class="button type-text" title="초등" target="_blank">
+															<span>초등</span>
+															<svg>
+																<title>아이콘 화살표</title>
+																<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+															</svg>
+														</a>
+														<a href="#" class="button type-text" title="중학" target="_blank">
+															<span>중학</span>
+															<svg>
+																<title>아이콘 화살표</title>
+																<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+															</svg>
+														</a>
+														<a href="#" class="button type-text" title="고등" target="_blank">
+															<span>고등</span>
+															<svg>
+																<title>아이콘 화살표</title>
+																<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+															</svg>
+														</a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="menu-footer">
+									<div class="buttons">
+										<button type="button" class="button size-md type-line">
+											<span>디지털 지도 수업 자료실 사용 가이드</span>
+											<svg>
+												<use xlink:href="/assets/images/map/sprite-icon.svg#icon-chevron-right"></use>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //메뉴 레이어 -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //header -->
+
+		<!-- content -->
+		<div class="contents">
+			<div class="main-360vr">
+
+				<div class="text-box">
+					<h1 class="title">360˚ VR 파노라마</h1>
+					<p class="text">교실에서 떠나는 생생한 현장학습!</p>
+				</div>
+
+				<div class="vr-map">
+					<div class="vr-slider">
+						<div class="slider">
+							<div class="swiper-wrapper">
+								<!-- D: 360VR이 없는 지역은 해당 슬라이드 미노출 -->
+								<div class="swiper-slide">
+									<a href="#tab-su">서울</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-bs">부산</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-dg">대구</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-ic">인천</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-gj">광주</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-dj">대전</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-us">울산</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-sj">세종</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-gg">경기</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-gw">강원</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-cb">충북</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-cn">충남</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-jb">전북</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-jn">전남</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-gb">경북</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-gn">경남</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-jj">제주</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="#tab-all">전국</a>
+								</div>
+							</div>
+
+							<button class="swiper-button-next" title="다음"></button>
+							<button class="swiper-button-prev" title="이전"></button>
+						</div>
+					</div>
+
+					<div class="vr-tabcont-wrap">
+						<!-- D: 360VR이 없는 지역은 해당 .tabcont 미노출 -->
+
+						<!-- 서울 탭 내용 -->
+						<div id="tab-su" class="tabcont active"><!-- D: 탭 선택 시 .active 추가 -->
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 서울암사동유적 [서울] 서울암사동유적 [서울] 서울암사동유적[서울] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //서울 탭 내용 -->
+
+						<!-- 부산 탭 내용 -->
+						<div id="tab-bs" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[부산] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[부산] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[부산] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //부산 탭 내용 -->
+
+						<!-- 대구 탭 내용 -->
+						<div id="tab-dg" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대구] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대구] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대구] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대구] 서울암사동유적 [대구] 서울암사동유적 [대구] 서울암사동유적[대구] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대구] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대구] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //대구 탭 내용 -->
+
+						<!-- 인천 탭 내용 -->
+						<div id="tab-ic" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 서울암사동유적 [인천] 서울암사동유적 [인천] 서울암사동유적[인천] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //인천 탭 내용 -->
+
+						<!-- 광주 탭 내용 -->
+						<div id="tab-gj" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[광주] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //광주 탭 내용 -->
+
+						<!-- 대전 탭 내용 -->
+						<div id="tab-dj" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대전] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대전] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대전] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대전] 서울암사동유적 [대전] 서울암사동유적 [대전] 서울암사동유적[대전] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대전] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[대전] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //대전 탭 내용 -->
+
+						<!-- 울산 탭 내용 -->
+						<div id="tab-us" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[울산] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[울산] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[울산] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //울산 탭 내용 -->
+
+						<!-- 세종 탭 내용 -->
+						<div id="tab-sj" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[세종] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[세종] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[세종] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[세종] 서울암사동유적 [세종] 서울암사동유적 [세종] 서울암사동유적[세종] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[세종] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[세종] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //세종 탭 내용 -->
+
+						<!-- 경기 탭 내용 -->
+						<div id="tab-gg" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 서울암사동유적 [경기] 서울암사동유적 [경기] 서울암사동유적[경기] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //경기 탭 내용 -->
+
+						<!-- 강원 탭 내용 -->
+						<div id="tab-gw" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[강원] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[강원] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[강원] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[강원] 서울암사동유적 [강원] 서울암사동유적 [강원] 서울암사동유적[강원] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[강원] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[강원] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //강원 탭 내용 -->
+
+						<!-- 충북 탭 내용 -->
+						<div id="tab-cb" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충북] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충북] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충북] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충북] 서울암사동유적 [충북] 서울암사동유적 [충북] 서울암사동유적[충북] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충북] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충북] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //충북 탭 내용 -->
+
+						<!-- 충남 탭 내용 -->
+						<div id="tab-cn" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 서울암사동유적 [충남] 서울암사동유적 [충남] 서울암사동유적[충남] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //충남 탭 내용 -->
+
+						<!-- 전북 탭 내용 -->
+						<div id="tab-jb" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 서울암사동유적 [전북] 서울암사동유적 [전북] 서울암사동유적[전북] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //전북 탭 내용 -->
+
+						<!-- 전남 탭 내용 -->
+						<div id="tab-jn" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전남] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전남] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전남] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전남] 서울암사동유적 [전남] 서울암사동유적 [전남] 서울암사동유적[전남] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전남] 익산 왕국리 유적 [전남] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전남] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //전남 탭 내용 -->
+
+						<!-- 경북 탭 내용 -->
+						<div id="tab-gb" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경북] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경북] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경북] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경북] 서울암사동유적 [경북] 서울암사동유적 [경북] 서울암사동유적[경북] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경북] 익산 왕국리 유적 [경북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경북] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //경북 탭 내용 -->
+
+						<!-- 경남 탭 내용 -->
+						<div id="tab-gn" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경남] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경남] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경남] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경남] 서울암사동유적 [경남] 서울암사동유적 [경남] 서울암사동유적[경남] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경남] 익산 왕국리 유적 [경남] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경남] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //경남 탭 내용 -->
+
+						<!-- 제주 탭 내용 -->
+						<div id="tab-jj" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[제주] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[제주] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[제주] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[제주] 서울암사동유적 [제주] 서울암사동유적 [제주] 서울암사동유적[제주] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[제주] 익산 왕국리 유적 [제주] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[제주] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //제주 탭 내용 -->
+
+						<!-- 전국 탭 내용 -->
+						<div id="tab-all" class="tabcont">
+							<div class="vr-region">
+								<div class="region-title">
+									<p class="title">지역을 대표하는 명소로 떠나보세요!</p>
+								</div>
+
+								<div class="region-list-box">
+									<!-- 슬라이드 -->
+									<div class="region-slider">
+										<div class="slider">
+											<div class="swiper-wrapper">
+												<!-- D: 최대 6개 노출 -->
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb01.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[울산] 반구대암각화 박물관</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb02.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[경기] 행주산성</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb03.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[인천] 차이나타운</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb04.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[서울] 서울암사동유적 [서울] 서울암사동유적 [서울] 서울암사동유적[서울] 서울암사동유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb05.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[전북] 익산 왕국리 유적 [전북] 익산 왕국리 유적</p>
+														</div>
+													</a>
+												</div>
+
+												<div class="swiper-slide">
+													<a href="#" class="item">
+														<div class="image-box">
+															<img src="/assets/images/map/@thumb06.png" alt="">
+														</div>
+														<div class="detail-box">
+															<p class="title">[충남] 무령왕릉</p>
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+									<!-- //슬라이드 -->
+
+									<!-- 전체보기 버튼 영역 -->
+									<div class="buttons align-center">
+										<a href="#" class="button btn-allview"><span>지역 명소 전체 보기</span></a>
+									</div>
+									<!-- //전체보기 버튼 영역 -->
+								</div>
+							</div>
+						</div>
+						<!-- //전국 탭 내용 -->
+					</div>
+				</div>
+
+				<!-- 지역 선택 -->
+				<div class="bottom-btn region-select">
+					<button type="button" class="btn-region" target-obj="popup-region-select"><span>지역 선택</span></button>
+				</div>
+				<!-- //지역 선택 -->
+			</div>
+		</div>
+		<!-- //content -->
+	</div>
+
+	<!-- popup sheet : 지역 선택 -->
+	<div class="popup-sheet" id="popup-region-select">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+				</svg>
+			</button>
+			<div class="header">
+				지역 선택
+			</div>
+			<div class="body">
+				<div class="ox-tab">
+					<ul>
+						<!-- D: 360VR이 없는 지역은 해당 li 미노출 -->
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-all" />
+								<label for="region-all">전국</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-su" />
+								<label for="region-su">서울특별시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-bs" />
+								<label for="region-bs">부산광역시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-dg" />
+								<label for="region-dg">대구광역시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-ic" />
+								<label for="region-ic">인천광역시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-gj" />
+								<label for="region-gj">광주광역시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-dj" />
+								<label for="region-dj">대전광역시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-us" />
+								<label for="region-us">울산광역시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-sj" />
+								<label for="region-sj">세종특별시</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-gg" />
+								<label for="region-gg">경기도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-gw" />
+								<label for="region-gw">강원도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-cb" />
+								<label for="region-cb">충청북도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-cn" />
+								<label for="region-cn">충청남도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-jb" />
+								<label for="region-jb">전라북도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-jn" />
+								<label for="region-jn">전라남도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-gb" />
+								<label for="region-gb">경상북도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-gn" />
+								<label for="region-gn">경상남도</label>
+							</span>
+						</li>
+						<li>
+							<span class="ox">
+								<input type="radio" name="regionSelect" id="region-jj" />
+								<label for="region-jj">제주 특별자치도</label>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer">
+				<button class="button size-lg type-primary" id="regionApply" close-obj><span>적용하기</span></button>
+			</div>
+		</div>
+	</div>
+	<!-- //popup sheet : 지역 선택 -->
+</body>
+
+</html>
