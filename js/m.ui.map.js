@@ -26,7 +26,7 @@ $(window).on("load", function(){
 		}
 	});
 
-	//필터 버튼 클릭 시(우측 메뉴 열고 닫기)
+	//필터 버튼 클릭 시(우측 부가기능 메뉴 열고 닫기)
 	$(".map-toolbox .btn-filter").on("click", function() {
 		if (!$(this).hasClass("active")) {
 			$(this).addClass("active");
@@ -40,12 +40,6 @@ $(window).on("load", function(){
 	//AI 클래스 공유 버튼 클릭 시
 	$(".map-toolbox .btn-ai-class").on("click", function() {
 		$(this).removeClass("active");
-	});
-
-	//SNS 공유 버튼 클릭 시
-	$(".map-toolbox .btn-sns-share").on("click", function() {
-		closePopup({id: 'layer-my-map'});
-		$(".map-control li > button").not(excBtn).removeClass("active");
 	});
 
 	//학교 위치 버튼 클릭 시

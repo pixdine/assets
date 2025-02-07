@@ -1467,6 +1467,49 @@
 					</div>
                 </pre>
 				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.popup-alert</h3>
+					<button class="button size-md" target-obj="alert">알럿 기본</button>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 버튼 -->
+					<button class="button size-md" target-obj="alert">클릭시 팝업오픈 - 기본</button>
+
+					<div class="popup-alert" id="alert">
+						<div class="popup-container">
+							<div class="body">
+								학교 정보가 등록되지 않았습니다.<br />
+								마이페이지에서 학교 정보를 등록하시겠습니까?
+							</div>
+							<div class="footer">
+								<button class="button size-lg type-gray" close-obj>취소</button>
+								<button class="button size-lg type-primary">등록</button>
+							</div>
+						</div>
+					</div>
+                </pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Toast ------->
+			<section>
+				<h2>Toast <span class="txt-sm txt-em">(추가)</span></h2>
+				<div class="guide-box">
+					<ul>
+						<li>토스트 메시지 노출 함수 : setToast('메세지', 5000)</li>
+						<li>필요에 따라 msg, timer를 입력하여 사용합니다.</li>
+					</ul>
+				</div>
+				<div class="guide-view">
+					<button class="button size-md" onclick="setToast('토스트 메시지 입력', 5000);">토스트 노출</button>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<button class="button size-md" onclick="setToast('토스트 메시지 입력', 5000);">토스트 노출</button>
+                </pre>
+				<!-- //source pre -->
 			</section>
 
 			<!------- Pagination ------->
@@ -1554,7 +1597,7 @@
 			<section>
 				<h2>Icon</h2>
 				<div class="guide-view">
-					<h3>Map</h3>
+					<h3>Map <span class="txt-sm">(PC, 모바일 사이즈 동일)</span></h3>
 					<table class="guide-table">
 						<colgroup>
 							<col style="width: 20%;">
@@ -2040,6 +2083,7 @@
 									지도 마커 클러스터화<br />(구글-API에 맞는 단계별 이미지)
 								</th>
 								<td>
+									<p style="margin-bottom: 10px;">개발에서 요청한 사이즈대로 디자인 작업 (이미지, 폰트, 줄간격)</p>
 									<div style="display: flex; flex-wrap: wrap;">
 										<div style="background-image: url('/assets/images/map/marker/m1.png'); background-position: 0px 0px; width: 53px; height: 53px; line-height: 44px; text-align: center; cursor: pointer; color: #fff; font-size: 20px; font-weight: 600;">9</div>
 
@@ -2054,11 +2098,15 @@
 
 									<!-- source pre -->
 									<pre class="brush:html">
-										<img src="/assets/images/map/marker/m1.png" alt="" width="53px" height="52px" />
-										<img src="/assets/images/map/marker/m2.png" alt="" width="56px" height="55px" />
-										<img src="/assets/images/map/marker/m3.png" alt="" width="66px" height="65px" />
-										<img src="/assets/images/map/marker/m4.png" alt="" width="78px" height="77px" />
-										<img src="/assets/images/map/marker/m5.png" alt="" width="90px" height="89px" />
+										<div style="background-image: url('/assets/images/map/marker/m1.png'); background-position: 0px 0px; width: 53px; height: 53px; line-height: 44px; text-align: center; cursor: pointer; color: #fff; font-size: 20px; font-weight: 600;">9</div>
+
+										<div style="background-image: url('/assets/images/map/marker/m2.png'); background-position: 0px 0px; width: 56px; height: 56px; line-height: 46px; text-align: center; cursor: pointer; color: #fff; font-size: 18px; font-weight: 600;">99</div>
+	
+										<div style="background-image: url('/assets/images/map/marker/m3.png'); background-position: 0px 0px; width: 66px; height: 66px; line-height: 54px; text-align: center; cursor: pointer; color: #fff; font-size: 16px; font-weight: 600;">999</div>
+
+										<div style="background-image: url('/assets/images/map/marker/m4.png'); background-position: 0px 0px; width: 78px; height: 78px; line-height: 64px; text-align: center; cursor: pointer; color: #fff; font-size: 16px; font-weight: 600;">9999</div>
+
+										<div style="background-image: url('/assets/images/map/marker/m5.png'); background-position: 0px 0px; width: 90px; height: 90px; line-height: 74px; text-align: center; cursor: pointer; color: #fff; font-size: 16px; font-weight: 600;">99999</div>
                                     </pre>
 									<!-- //source pre -->
 								</td>
@@ -2412,6 +2460,19 @@
 									</button>
 								</td>
 							</tr>
+							<tr>
+								<th>#icon-refresh</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>다음페이지</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-refresh"></use>
+										</svg>
+									</button>
+								</td>
+								<th></th>
+								<td></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -2439,6 +2500,20 @@
 			<div class="footer">
 				<button class="button size-xl type-dark" close-obj>취소</button>
 				<button class="button size-xl type-primary">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 알럿 -->
+	<div class="popup-alert" id="alert">
+		<div class="popup-container">
+			<div class="body">
+				학교 정보가 등록되지 않았습니다.<br />
+				마이페이지에서 학교 정보를 등록하시겠습니까?
+			</div>
+			<div class="footer">
+				<button class="button size-lg type-gray" close-obj>취소</button>
+				<button class="button size-lg type-primary">등록</button>
 			</div>
 		</div>
 	</div>

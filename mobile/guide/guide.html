@@ -26,6 +26,12 @@
 <!-- 신규(추가필요) -->
 <link rel="stylesheet" type="text/css" href="/assets/mobile/css/map.css" rel="stylesheet" />
 <script src="/assets/js/m.ui.map.js"></script>
+
+<script>
+	$(function(){
+		clearInput(".guide-wrap .input-inner-extra");
+	})
+</script>
 </head>
 
 <body>
@@ -440,15 +446,8 @@
 								<th>search</th>
 								<td>
 									<div class="input-inner-extra">
-										<div class="clear-container">
-											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
-											<button type="button" class="button-clear">
-												<svg>
-													<title>삭제</title>
-													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-												</svg>
-											</button>
-										</div>
+										<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+										<input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
 										<button type="button" class="icon-button" title="검색">
 											<svg>
 												<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -458,15 +457,8 @@
 								</td>
 								<td>
 									<div class="input-inner-extra">
-										<div class="clear-container">
-											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" />
-											<button type="button" class="button-clear">
-												<svg>
-													<title>삭제</title>
-													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-												</svg>
-											</button>
-										</div>
+										<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+										<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" />
 										<button type="button" class="icon-button" title="검색">
 											<svg>
 												<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -476,15 +468,8 @@
 								</td>
 								<td>
 									<div class="input-inner-extra readonly">
-										<div class="clear-container">
-											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" readonly />
-											<button type="button" class="button-clear">
-												<svg>
-													<title>삭제</title>
-													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-												</svg>
-											</button>
-										</div>
+										<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+										<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" readonly />
 										<button type="button" class="icon-button" title="검색">
 											<svg>
 												<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -494,15 +479,8 @@
 								</td>
 								<td>
 									<div class="input-inner-extra disabled">
-										<div class="clear-container">
-											<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" disabled />
-											<button type="button" class="button-clear">
-												<svg>
-													<title>삭제</title>
-													<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-												</svg>
-											</button>
-										</div>
+										<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+										<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" disabled />
 										<button type="button" class="icon-button" title="검색" disabled>
 											<svg>
 												<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -518,15 +496,8 @@
 				<pre class="brush:html">
 					<!-- default -->
 					<div class="input-inner-extra">
-						<div class="clear-container">
-							<input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
-							<button type="button" class="button-clear">
-								<svg>
-									<title>삭제</title>
-									<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-								</svg>
-							</button>
-						</div>
+						<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+						<input type="search" name="" id="" placeholder="검색어를 입력해주세요." />
 						<button type="button" class="icon-button" title="검색">
 							<svg>
 								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -536,15 +507,8 @@
 
 					<!-- readonly -->
 					<div class="input-inner-extra readonly">
-						<div class="clear-container">
-							<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" readonly />
-							<button type="button" class="button-clear">
-								<svg>
-									<title>삭제</title>
-									<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-								</svg>
-							</button>
-						</div>
+						<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+						<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" readonly />
 						<button type="button" class="icon-button" title="검색">
 							<svg>
 								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -554,15 +518,8 @@
 
 					<!-- disabled -->
 					<div class="input-inner-extra disabled">
-						<div class="clear-container">
-							<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" disabled />
-							<button type="button" class="button-clear">
-								<svg>
-									<title>삭제</title>
-									<use href="/assets/images/map/sprite-icon.svg#icon-close-round"></use>
-								</svg>
-							</button>
-						</div>
+						<!-- D: 기존 모바일 엠티처 m.ui.js -> renderPage -> clearInput에서 div.clear-container, button.button-clear 생성 -->
+						<input type="search" name="" id="" placeholder="검색어를 입력해주세요." value="입력된 검색어" disabled />
 						<button type="button" class="icon-button" title="검색" disabled>
 							<svg>
 								<use xlink:href="/assets/images/map/sprite-icon.svg#icon-search"></use>
@@ -715,7 +672,12 @@
 				<!-- //source pre -->
 
 				<div class="guide-view">
-					<h3>.ox-tab</h3>
+					<h3>.ox-tab <span class="txt-sm txt-em">(추가)</span></h3>
+					<div class="guide-box">
+						<ul>
+							<li>복수 선택일 때 checkbox, 단수 선택일 때 radio</li>
+						</ul>
+					</div>
 					<div class="ox-tab">
 						<ul>
 							<li>
@@ -829,6 +791,32 @@
 						</ul>
 					</div>
 				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<div class="ox-tab">
+						<ul>
+							<li>
+								<span class="ox">
+									<input type="checkbox" id="ox-tab1-1" checked />
+									<label for="ox-tab1-1">전국</label>
+								</span>
+							</li>
+							<li>
+								<span class="ox">
+									<input type="checkbox" id="ox-tab1-2" />
+									<label for="ox-tab1-2">서울특별시</label>
+								</span>
+							</li>
+							<li>
+								<span class="ox">
+									<input type="checkbox" id="ox-tab1-3" />
+									<label for="ox-tab1-3">부산광역시</label>
+								</span>
+							</li>
+						</ul>
+					</div>
+                </pre>
+				<!-- //source pre -->
 			</section>
 
 			<!------- Radio ------->
@@ -978,7 +966,12 @@
 				<!-- //source pre -->
 
 				<div class="guide-view">
-					<h3>.ox-tab</h3>
+					<h3>.ox-tab <span class="txt-sm txt-em">(추가)</span></h3>
+					<div class="guide-box">
+						<ul>
+							<li>복수 선택일 때 checkbox, 단수 선택일 때 radio</li>
+						</ul>
+					</div>
 					<div class="ox-tab">
 						<ul>
 							<li>
@@ -1092,6 +1085,32 @@
 						</ul>
 					</div>
 				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<div class="ox-tab">
+						<ul>
+							<li>
+								<span class="ox">
+									<input type="radio" name="ox-tab2" id="ox-tab2-1" checked />
+									<label for="ox-tab2-1">전국</label>
+								</span>
+							</li>
+							<li>
+								<span class="ox">
+									<input type="radio" name="ox-tab2" id="ox-tab2-2" />
+									<label for="ox-tab2-2">서울특별시</label>
+								</span>
+							</li>
+							<li>
+								<span class="ox">
+									<input type="radio" name="ox-tab2" id="ox-tab2-3" />
+									<label for="ox-tab2-3">부산광역시</label>
+								</span>
+							</li>
+						</ul>
+					</div>
+                </pre>
+				<!-- //source pre -->
 			</section>
 
 			<!------- Switcher ------->
@@ -1549,6 +1568,66 @@
 				<!-- //source pre -->
 			</section>
 
+			<!------- Select Dropdown ------->
+			<section>
+				<h2>Select Dropdown <span class="txt-sm txt-em">(추가)</span></h2>
+				<div class="guide-view">
+					<div class="select-dropdown" data-selectbox id="srchSchLvlCd"><!-- D: 선택 시 .active 추가 -->
+						<button type="button" data-set-button><span>학교급</span></button><!-- D: 선택값 들어갔을 때 .active 추가 -->
+						<div class="select_list" data-set-list>
+							<ul>
+								<!-- D: li 태그에 data-selected 추가시 셀렉트된 옵션처럼 노출
+								<li data-selected><a href="javascript:;">초등</a></li>
+								-->
+								<li><a href="javascript:;">초등</a></li>
+								<li><a href="javascript:;">중학</a></li>
+								<li><a href="javascript:;">고등</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="select-dropdown disabled" data-selectbox id="srchChpCd1"><!-- D: 비활성화 시 .disabled 추가 -->
+						<button type="button" data-set-button><span>대단원</span></button>
+						<div class="select_list" data-set-list>
+							<ul>
+								<li><a href="javascript:;">1. 우리 고장의 모습</a></li>
+								<li><a href="javascript:;">2. 우리가 알아보는 고장 이야기</a></li>
+								<li><a href="javascript:;">3. 교통과 통신수단의 변화</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- default -->
+					<div class="select-dropdown" data-selectbox id="srchSchLvlCd"><!-- D: 선택 시 .active 추가 -->
+						<button type="button" data-set-button><span>학교급</span></button><!-- D: 선택값 들어갔을 때 .active 추가 -->
+						<div class="select_list" data-set-list>
+							<ul>
+								<!-- D: li 태그에 data-selected 추가시 셀렉트된 옵션처럼 노출
+								<li data-selected><a href="javascript:;">초등</a></li>
+								-->
+								<li><a href="javascript:;">초등</a></li>
+								<li><a href="javascript:;">중학</a></li>
+								<li><a href="javascript:;">고등</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- disabled -->
+					<div class="select-dropdown disabled" data-selectbox id="srchChpCd1"><!-- D: 비활성화 시 .disabled 추가 -->
+						<button type="button" data-set-button><span>대단원</span></button>
+						<div class="select_list" data-set-list>
+							<ul>
+								<li><a href="javascript:;">1. 우리 고장의 모습</a></li>
+								<li><a href="javascript:;">2. 우리가 알아보는 고장 이야기</a></li>
+								<li><a href="javascript:;">3. 교통과 통신수단의 변화</a></li>
+							</ul>
+						</div>
+					</div>
+                </pre>
+				<!-- //source pre -->
+			</section>
+
 			<!------- Forms ------->
 			<section>
 				<h2>Forms <span class="txt-sm">(엠티처와 마크업 동일)</span></h2>
@@ -1668,13 +1747,14 @@
 				</div>
 				<div class="guide-view">
 					<button class="button size-md" target-obj="popup-default">클릭시 팝업오픈 - 기본</button>
+					<button class="button size-md" target-obj="popup-full">풀사이즈 팝업</button>					
 				</div>
 				<!-- source pre -->
 				<pre class="brush:html">
 					<!-- 버튼 -->
 					<button class="button size-md" target-obj="popup-default">클릭시 팝업오픈 - 기본</button>
 
-					<!-- 팝업 -->
+					<!-- 기본 팝업 -->
 					<div class="popup" id="popup-default">
 						<div class="popup-container">
 							<button class="icon-button close-button" close-obj>
@@ -1692,11 +1772,112 @@
 								</p>
 							</div>
 							<div class="footer">
-								<button class="button size-xl type-dark" close-obj>취소</button>
-								<button class="button size-xl type-primary">확인</button>
+								<button class="button size-lg type-dark" close-obj><span>취소</span></button>
+								<button class="button size-lg type-primary"><span>확인</span></button>
 							</div>
 						</div>
 					</div>
+
+					<!-- 풀사이즈 팝업 -->
+					<div class="popup" id="popup-full">
+						<div class="popup-container size-full">
+							<button class="icon-button close-button" close-obj>
+								<svg>
+									<title>아이콘 - icon-close</title>
+									<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+								</svg>
+							</button>
+							<div class="header">
+								<h3>size-full : 풀사이즈</h3>
+							</div>
+							<div class="body">
+								<p>
+									팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.
+								</p>
+							</div>
+							<div class="footer">
+								<button class="button size-lg type-dark" close-obj><span>취소</span></button>
+								<button class="button size-lg type-primary"><span>확인</span></button>
+							</div>
+						</div>
+					</div>
+                </pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.popup-alert</h3>
+					<button class="button size-md" target-obj="alert">알럿 기본</button>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 버튼 -->
+					<button class="button size-md" target-obj="alert">클릭시 팝업오픈 - 기본</button>
+
+					<div class="popup-alert" id="alert">
+						<div class="popup-container">
+							<div class="body">
+								학교 정보가 등록되지 않았습니다.<br />
+								마이페이지에서 학교 정보를 등록하시겠습니까?
+							</div>
+							<div class="footer">
+								<button class="button size-lg type-gray" close-obj>취소</button>
+								<button class="button size-lg type-primary">등록</button>
+							</div>
+						</div>
+					</div>
+                </pre>
+				<!-- //source pre -->
+
+				<div class="guide-view">
+					<h3>.popup-sheet</h3>
+					<button class="button size-md" target-obj="popup-sheet">하단에서 나타나는 팝업</button>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<!-- 버튼 -->
+					<button class="button size-md" target-obj="alert">클릭시 팝업오픈 - 기본</button>
+
+					<div class="popup-sheet" id="popup-sheet">
+						<div class="popup-container">
+							<button class="icon-button close-button" close-obj>
+								<svg>
+									<title>닫기</title>
+									<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+								</svg>
+							</button>
+							<div class="header">
+								하단에서 나타나는 팝업
+							</div>
+							<div class="body">
+								<p>
+									팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.
+								</p>
+							</div>
+							<div class="footer">
+								<button class="button size-lg" close-obj><span>닫기</span></button>
+								<button class="button size-lg type-primary"><span>적용</span></button>
+							</div>
+						</div>
+					</div>
+                </pre>
+				<!-- //source pre -->
+			</section>
+
+			<!------- Toast ------->
+			<section>
+				<h2>Toast <span class="txt-sm txt-em">(추가)</span></h2>
+				<div class="guide-box">
+					<ul>
+						<li>토스트 메시지 노출 함수 : setToast('메세지', 5000)</li>
+						<li>필요에 따라 msg, timer를 입력하여 사용합니다.</li>
+					</ul>
+				</div>
+				<div class="guide-view">
+					<button class="button size-md" onclick="setToast('토스트 메시지 입력', 5000);">토스트 노출</button>
+				</div>
+				<!-- source pre -->
+				<pre class="brush:html">
+					<button class="button size-md" onclick="setToast('토스트 메시지 입력', 5000);">토스트 노출</button>
                 </pre>
 				<!-- //source pre -->
 			</section>
@@ -1786,7 +1967,7 @@
 			<section>
 				<h2>Icon</h2>
 				<div class="guide-view">
-					<h3>Map</h3>
+					<h3>Map <span class="txt-sm">(PC, 모바일 사이즈 동일)</span></h3>
 					<table class="guide-table">
 						<colgroup>
 							<col style="width: 20%;">
@@ -1881,6 +2062,12 @@
 													<img src="/assets/images/map/marker/icon-marker28.png" alt="MY 지도" width="52px" height="52px" />
 												</td>
 											</tr>
+											<tr>
+												<th>베스트 테마</th>
+												<td>
+													<img src="/assets/images/map/marker/icon-marker29.png" alt="베스트 테마" width="52px" height="52px" />
+												</td>
+											</tr>
 										</tbody>
 									</table>
 
@@ -1932,6 +2119,9 @@
 
 										<!-- 장소명 -->
 										<img src="/assets/images/map/marker/icon-marker28.png" alt="MY 지도" width="52px" height="52px" />
+
+										<!-- 베스트 테마 -->
+										<img src="/assets/images/map/marker/icon-marker29.png" alt="베스트 테마" width="52px" height="52px" />
                                     </pre>
 									<!-- //source pre -->
 								</td>
@@ -2023,6 +2213,12 @@
 													<img src="/assets/images/map/marker/icon-marker28-hover.png" alt="MY 지도" width="60px" height="70px" />
 												</td>
 											</tr>
+											<tr>
+												<th>베스트 테마</th>
+												<td>
+													<img src="/assets/images/map/marker/icon-marker29-hover.png" alt="베스트 테마" width="60px" height="70px" />
+												</td>
+											</tr>
 										</tbody>
 									</table>
 
@@ -2073,6 +2269,9 @@
 
 										<!-- 장소명 -->
 										<img src="/assets/images/map/marker/icon-marker28-hover.png" alt="MY 지도" width="60px" height="70px" />
+
+										<!-- 베스트 테마 -->
+										<img src="/assets/images/map/marker/icon-marker29-hover.png" alt="베스트 테마" width="60px" height="70px" />
                                     </pre>
 									<!-- //source pre -->
 								</td>
@@ -2142,7 +2341,6 @@
 												<th>VR</th>
 												<td>
 													<img src="/assets/images/map/marker/icon-sm-marker25-1.png" alt="초등" width="24px" height="24px" />
-													<img src="/assets/images/map/marker/icon-sm-marker25-2.png" alt="중/고" width="24px" height="24px" />
 												</td>
 											</tr>
 											<tr>
@@ -2155,6 +2353,18 @@
 												<th>다른 선생님 지도</th>
 												<td>
 													<img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도" width="24px" height="24px" />
+												</td>
+											</tr>
+											<tr>
+												<th>장소명 (어드민에서만 노출)</th>
+												<td>
+													<img src="/assets/images/map/marker/icon-sm-marker28.png" alt="장소명" width="24px" height="24px" />
+												</td>
+											</tr>
+											<tr>
+												<th>베스트 테마</th>
+												<td>
+													<img src="/assets/images/map/marker/icon-sm-marker29.png" alt="베스트 테마" width="24px" height="24px" />
 												</td>
 											</tr>
 										</tbody>
@@ -2198,13 +2408,18 @@
 
 										<!-- VR -->
 										<img src="/assets/images/map/marker/icon-sm-marker25-1.png" alt="초등" width="24px" height="24px" />
-										<img src="/assets/images/map/marker/icon-sm-marker25-2.png" alt="중/고" width="24px" height="24px" />
 
 										<!-- MY 지도 -->
 										<img src="/assets/images/map/marker/icon-sm-marker26.png" alt="MY 지도" width="24px" height="24px" />
 
 										<!-- 다른 선생님 지도 -->
 										<img src="/assets/images/map/marker/icon-sm-marker27.png" alt="다른 선생님 지도" width="24px" height="24px" />
+
+										<!-- 장소명(어드민에서만 노출) -->
+										<img src="/assets/images/map/marker/icon-sm-marker28.png" alt="장소명" width="24px" height="24px" />
+
+										<!-- 베스트 테마 -->
+										<img src="/assets/images/map/marker/icon-sm-marker29.png" alt="베스트 테마" width="24px" height="24px" />
                                     </pre>
 									<!-- //source pre -->
 								</td>
@@ -2238,6 +2453,7 @@
 									지도 마커 클러스터화<br />(구글-API에 맞는 단계별 이미지)
 								</th>
 								<td>
+									<p style="margin-bottom: 10px;">개발에서 요청한 사이즈대로 디자인 작업 (이미지, 폰트, 줄간격)</p>
 									<div style="display: flex; flex-wrap: wrap;">
 										<div style="background-image: url('/assets/images/map/marker/m1.png'); background-position: 0px 0px; width: 53px; height: 53px; line-height: 44px; text-align: center; cursor: pointer; color: #fff; font-size: 20px; font-weight: 600;">9</div>
 
@@ -2252,11 +2468,15 @@
 
 									<!-- source pre -->
 									<pre class="brush:html">
-										<img src="/assets/images/map/marker/m1.png" alt="" width="53px" height="52px" />
-										<img src="/assets/images/map/marker/m2.png" alt="" width="56px" height="55px" />
-										<img src="/assets/images/map/marker/m3.png" alt="" width="66px" height="65px" />
-										<img src="/assets/images/map/marker/m4.png" alt="" width="78px" height="77px" />
-										<img src="/assets/images/map/marker/m5.png" alt="" width="90px" height="89px" />
+										<div style="background-image: url('/assets/images/map/marker/m1.png'); background-position: 0px 0px; width: 53px; height: 53px; line-height: 44px; text-align: center; cursor: pointer; color: #fff; font-size: 20px; font-weight: 600;">9</div>
+
+										<div style="background-image: url('/assets/images/map/marker/m2.png'); background-position: 0px 0px; width: 56px; height: 56px; line-height: 46px; text-align: center; cursor: pointer; color: #fff; font-size: 18px; font-weight: 600;">99</div>
+	
+										<div style="background-image: url('/assets/images/map/marker/m3.png'); background-position: 0px 0px; width: 66px; height: 66px; line-height: 54px; text-align: center; cursor: pointer; color: #fff; font-size: 16px; font-weight: 600;">999</div>
+
+										<div style="background-image: url('/assets/images/map/marker/m4.png'); background-position: 0px 0px; width: 78px; height: 78px; line-height: 64px; text-align: center; cursor: pointer; color: #fff; font-size: 16px; font-weight: 600;">9999</div>
+
+										<div style="background-image: url('/assets/images/map/marker/m5.png'); background-position: 0px 0px; width: 90px; height: 90px; line-height: 74px; text-align: center; cursor: pointer; color: #fff; font-size: 16px; font-weight: 600;">99999</div>
                                     </pre>
 									<!-- //source pre -->
 								</td>
@@ -2411,6 +2631,35 @@
 								</td>
 							</tr>
 							<tr>
+								<th>#icon-filter</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>필터</title>
+											<use href="/assets/images/map/sprite-icon.svg#icon-filter"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-menu</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>메뉴</title>
+											<use href="/assets/images/map/sprite-icon.svg#icon-menu"></use>
+										</svg>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<th>#icon-map</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>삭제</title>
+											<use href="/assets/images/map/sprite-icon.svg#icon-map"></use>
+										</svg>
+									</button>
+								</td>
 								<th>#icon-close-round</th>
 								<td>
 									<button class="icon-button">
@@ -2420,12 +2669,23 @@
 										</svg>
 									</button>
 								</td>
+							</tr>
+							<tr>
 								<th>#icon-close</th>
 								<td>
 									<button class="icon-button">
 										<svg>
 											<title>닫기</title>
 											<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+										</svg>
+									</button>
+								</td>
+								<th>#icon-close-lg</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>닫기</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-close-lg"></use>
 										</svg>
 									</button>
 								</td>
@@ -2570,6 +2830,19 @@
 									</button>
 								</td>
 							</tr>
+							<tr>
+								<th>#icon-refresh</th>
+								<td>
+									<button class="icon-button">
+										<svg>
+											<title>다음페이지</title>
+											<use xlink:href="/assets/images/map/sprite-icon.svg#icon-refresh"></use>
+										</svg>
+									</button>
+								</td>
+								<th></th>
+								<td></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -2587,7 +2860,7 @@
 				</svg>
 			</button>
 			<div class="header">
-				기본 넓이 560px
+				<h3>기본</h3>
 			</div>
 			<div class="body">
 				<p>
@@ -2595,8 +2868,70 @@
 				</p>
 			</div>
 			<div class="footer">
-				<button class="button size-xl type-dark" close-obj>취소</button>
-				<button class="button size-xl type-primary">확인</button>
+				<button class="button size-lg type-dark" close-obj><span>취소</span></button>
+				<button class="button size-lg type-primary"><span>확인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 팝업 -->
+	<div class="popup" id="popup-full">
+		<div class="popup-container size-full">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>아이콘 - icon-close</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close"></use>
+				</svg>
+			</button>
+			<div class="header">
+				<h3>size-full : 풀사이즈</h3>
+			</div>
+			<div class="body">
+				<p>
+					팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.
+				</p>
+			</div>
+			<div class="footer">
+				<button class="button size-lg type-dark" close-obj><span>취소</span></button>
+				<button class="button size-lg type-primary"><span>확인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 알럿 -->
+	<div class="popup-alert" id="alert">
+		<div class="popup-container">
+			<div class="body">
+				학교 정보가 등록되지 않았습니다.<br />
+				마이페이지에서 학교 정보를 등록하시겠습니까?
+			</div>
+			<div class="footer">
+				<button class="button size-lg type-gray" close-obj>취소</button>
+				<button class="button size-lg type-primary">등록</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 하단에서 나타나는 팝업 -->
+	<div class="popup-sheet" id="popup-sheet">
+		<div class="popup-container">
+			<button class="icon-button close-button" close-obj>
+				<svg>
+					<title>닫기</title>
+					<use href="/assets/images/map/sprite-icon.svg#icon-close-sm"></use>
+				</svg>
+			</button>
+			<div class="header">
+				하단에서 나타나는 팝업
+			</div>
+			<div class="body">
+				<p>
+					팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.<br /><br /><br /><br /><br />팝업 내용이 들어가는 영역 입니다. 팝업 내용이 들어가는 영역 입니다.
+				</p>
+			</div>
+			<div class="footer">
+				<button class="button size-lg" close-obj><span>닫기</span></button>
+				<button class="button size-lg type-primary"><span>적용</span></button>
 			</div>
 		</div>
 	</div>

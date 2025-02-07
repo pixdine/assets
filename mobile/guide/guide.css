@@ -10,6 +10,8 @@
 .guide-body h2 .txt-em {color: #00f;}
 .guide-body h2::before {content: ""; display: block; position: absolute; left: 0; bottom: 0; width: 240px; height: 1px; background-color: #202020;}
 .guide-body h3 {margin-bottom: 20px; font-size: 24px; font-weight: 600;}
+.guide-body h3 .txt-sm {font-size: 16px; vertical-align: middle;}
+.guide-body h3 .txt-em {color: #00f;}
 .guide-body section:first-child h2 {padding-top: 0;}
 .guide-box {margin-bottom: 30px; padding: 20px; background-color: #F7F7FB;}
 .guide-box li {position: relative; padding-left: 10px;}
