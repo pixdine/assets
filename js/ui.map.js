@@ -97,14 +97,11 @@ $(window).on("load", function(){
 	currentMapWidth = 1
 	currentMapHeight = 1
 	$(".map-toolbox .btn-print").on("click", function() {
-		var $map = $('#map');
-		var $blankMap = $("#ngiiWhiteMap");
+		//2025-02-21 : 백지도 인쇄 관련 스크립트 수정
+		var $map = $('#map, #ngiiWhiteMap');
 
 		currentMapWidth = $map.outerWidth();
 		currentMapHeight = $map.outerHeight();
-
-		currentMapWidth = $blankMap.outerWidth();
-		currentMapHeight = $blankMap.outerHeight();
 
 		window.print();
 	});
